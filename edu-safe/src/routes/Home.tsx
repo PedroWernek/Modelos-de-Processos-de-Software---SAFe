@@ -1,4 +1,3 @@
-import React from "react";
 import "../css/Home.css";
 import img1home from "../assets/img1home.webp";
 
@@ -19,6 +18,7 @@ const Home = () => {
           <button>CONHEÇA OS MÓDULOS</button>
         </div>
       </div>
+      <span className="trapezioinvertido"></span>
       <div className="additional-info">
         <p className="additional-info-text1">
           Conheça a oportunidade de se destacar em um grande <b>time</b>
@@ -38,6 +38,8 @@ const Home = () => {
           </p>
         </div>
       </div>
+      <span className="trapezio"></span>
+
       <div className="footer"></div>
     </div>
   );

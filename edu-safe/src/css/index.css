@@ -47,20 +47,30 @@
     flex-direction: column;
     margin: 30px;
     background-color: #0d183a;
-    height: 500px;
-    padding: 30px;
+    padding-left: 7vh;
+    border-top-right-radius: 300px;
+    border-bottom-left-radius: 300px;
+    width: 95%;
+    height: fit-content;
   }
 
   .footer-logo {
-    width: 20%;
+    width: 25vw;
     height: auto;
+    position: relative;
+    top: -20px;
+    left: 20px;
   }
 
   .footer-links {
     display: flex;
     flex-direction: column;
-
-    font-size: 2rem;
+    font-size: 3vw;
+    gap: 20px;
+    position: relative;
+    bottom: 80px;
+    left: 200px;
+    width: fit-content;
   }
 
   a {
