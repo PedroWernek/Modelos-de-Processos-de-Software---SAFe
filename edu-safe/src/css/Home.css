@@ -3,8 +3,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-
+  height: 90dvh;
+  padding: 1dvh;
   text-align: center;
   background: url("../assets/fundoHome.jpg") no-repeat center center fixed;
   background-size: cover;
@@ -12,7 +12,6 @@
 .home-text {
   width: 70%;
   margin: 0 auto;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,19 +19,19 @@
 
   h1 {
     color: #c8fff4;
-    font-size: 4.5vw;
+    font-size: 4dvw;
   }
 
   p.home-text1 {
     color: #8dc2b7;
-    font-size: 3.5vw;
-    margin: 20px 0;
+    font-size: 3.5dvw;
+    margin: 10px 0;
   }
 
   p.home-text2 {
     color: #a79fca;
-    font-size: 2.5vw;
-    margin: 20px 0;
+    font-size: 2.1dvw;
+    margin: 10px 0;
     padding: 10px 20px;
     font-weight: bold;
   }
@@ -41,11 +40,11 @@
     background-color: #3ac7a6;
     color: black;
     border: none;
-    padding: 30px;
+    padding: 3vh;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 20px;
+    font-size: 2vh;
     font-weight: bold;
     margin: 4px 2px;
     cursor: pointer;
