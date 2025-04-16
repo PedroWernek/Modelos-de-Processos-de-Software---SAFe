@@ -8,7 +8,9 @@
   text-align: center;
   background: url("../assets/fundoHome.jpg") no-repeat center center fixed;
   background-size: cover;
+  z-index: 0;
 }
+
 .home-text {
   width: 70%;
   margin: 0 auto;
@@ -17,39 +19,23 @@
   align-items: center;
   justify-content: center;
 
-  h1 {
+  & h1 {
     color: #c8fff4;
-    font-size: 4dvw;
+    font-size: 3.5dvw;
   }
 
-  p.home-text1 {
+  & p.home-text1 {
     color: #8dc2b7;
-    font-size: 3.5dvw;
+    font-size: 3dvw;
     margin: 10px 0;
   }
 
-  p.home-text2 {
+  & p.home-text2 {
     color: #a79fca;
-    font-size: 2.1dvw;
+    font-size: 2dvw;
     margin: 10px 0;
     padding: 10px 20px;
     font-weight: bold;
-  }
-
-  button {
-    background-color: #3ac7a6;
-    color: black;
-    border: none;
-    padding: 3vh;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 2vh;
-    font-weight: bold;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 10px;
-    box-shadow: inset 0 8px 5px rgba(0, 0, 0, 0.3);
   }
 }
 

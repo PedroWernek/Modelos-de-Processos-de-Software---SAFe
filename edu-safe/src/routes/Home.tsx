@@ -1,5 +1,6 @@
 import "../css/Home.css";
 import img1home from "../assets/img1home.webp";
+import RainbowButton from "../components/buttons/RainbowButton";
 
 const Home = () => {
   return (
@@ -15,7 +16,7 @@ const Home = () => {
             Essa plataforma possui o intuito de permitir que você aprenda, e
             consiga aplicar as práticas do SAFe em seu ambiente de trabalho!
           </p>
-          <button>CONHEÇA OS MÓDULOS</button>
+          <RainbowButton content="Veja Nossos Módulos" />
         </div>
       </div>
       <span className="trapezioinvertido"></span>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import "../css/Footer.css";
 import logoEduSAFe from "../assets/logoEduSAFe.png";
 
 const Footer = () => {
@@ -9,8 +9,12 @@ const Footer = () => {
       <div className="footer-content">
         <img className="footer-logo" src={logoEduSAFe} alt="logo EduSAFe" />
         <nav className="footer-links">
-          <Link to="/">Sobre Nós</Link>
-          <Link to="">Termos de Serviço</Link>
+          <Link className="footer-links--link" to="/">
+            Sobre Nós
+          </Link>
+          <Link className="footer-links--link" to="">
+            Termos de Serviço
+          </Link>
         </nav>
       </div>
     </footer>
