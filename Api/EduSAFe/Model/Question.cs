@@ -11,7 +11,7 @@ public class Question : IEntity
     [Required]
     public string Text { get; set; } = null!;
     [Required]
-    public List<string> Answers { get; set; } = [];
+    public List<Answer> Answers { get; set; } = [];
     [Required]
     public int CorrectAnswerIndex { get; set; }
     [Required]
