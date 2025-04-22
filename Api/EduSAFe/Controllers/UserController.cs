@@ -28,7 +28,7 @@ public class UserController : ControllerBase
             return BadRequest(ModelState);
         }
 
-        _appDbContext.User.Add(user);
+        _appDbContext.Users.Add(user);
         await _appDbContext.SaveChangesAsync();
 
         return Created("Usuário criado com sucesso!", user);
@@ -37,7 +37,7 @@ public class UserController : ControllerBase
     [HttpGet]
     public async Task<ActionResult <IEnumerable<User>>> GetUser()
     {
-        var users = await _appDbContext.User.ToListAsync();
+        var users = await _appDbContext.Users.ToListAsync();
 
         return Ok(users);
     }
@@ -45,7 +45,7 @@ public class UserController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<User>> GetUser(int id)
     {
-        var user = await _appDbContext.User.FindAsync(id);
+        var user = await _appDbContext.Users.FindAsync(id);
         if (user is null)
         {
             return NotFound("Usuário não encontrado!");
@@ -57,7 +57,7 @@ public class UserController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateUser(int id, [FromBody] User userAtualizado)
     {
-        var userExistente = await _appDbContext.User.FindAsync(id);
+        var userExistente = await _appDbContext.Users.FindAsync(id);
         if (userExistente is null)
         {
             return NotFound("Usuário não encontrado!");
@@ -72,7 +72,7 @@ public class UserController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<ActionResult> DeleteUser(int id)
     {
-        var user = await _appDbContext.User.FindAsync(id);
+        var user = await _appDbContext.Users.FindAsync(id);
         if (user is null)
         {
             return NotFound("User não encontrado!");
