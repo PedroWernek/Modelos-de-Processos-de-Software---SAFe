@@ -13,7 +13,7 @@ public class Question : IEntity
     [Required]
     public List<Answer> Answers { get; set; } = [];
     [Required]
-    public int CorrectAnswerIndex { get; set; }
+    public int CorrectAnswerIndex { get; set; } // ? isso não ficaria melhor em uma classe chamada lesson ou algo assim? que teria isso e uma lista de questions?
     [Required]
     public QuestionType Type { get; set; }
 }
