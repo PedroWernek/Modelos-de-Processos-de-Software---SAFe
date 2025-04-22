@@ -3,6 +3,7 @@ import React from "react";
 const SAFeHistory = () => {
   return (
     <div>
+      <h2>1.1 História do SAFe</h2>
       <p>
         Toda grande ideia tem uma origem, certo? O SAFe nasceu oficialmente em
         2011, criado por Dean Leffingwell e Drew Jemilo . A ideia surgiu porque
@@ -19,12 +20,14 @@ const SAFeHistory = () => {
         desafio: como aplicar a agilidade em larga escala?
       </p>
       <p> Para isso, o SAFe misturou boas ideias de várias fontes : </p>
-      <strong>Desenvolvimento Ágil:</strong> A base de tudo, com foco em
-      entregas curtas e adaptação.
-      <strong>Lean Thinking (Pensamento Enxuto):</strong> Foco em eliminar
-      desperdícios e entregar valor rapidamente.
-      <strong>Systems Thinking (Pensamento Sistêmico):</strong> Olhar para o
-      todo, não apenas para as partes isoladas.
+      <p>
+        <strong>Desenvolvimento Ágil:</strong> A base de tudo, com foco em
+        entregas curtas e adaptação. <br />
+        <strong>Lean Thinking (Pensamento Enxuto):</strong> Foco em eliminar
+        desperdícios e entregar valor rapidamente. <br />
+        <strong>Systems Thinking (Pensamento Sistêmico):</strong> Olhar para o
+        todo, não apenas para as partes isoladas.
+      </p>
     </div>
   );
 };

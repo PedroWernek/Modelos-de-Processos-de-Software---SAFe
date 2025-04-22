@@ -1,3 +1,8 @@
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: #20385c #0c1329;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -16,13 +21,13 @@
   height: 70px;
   padding: 10px;
 
-  .navbar-logo {
+  & .navbar-logo {
     margin: 10px;
     width: 100px;
     height: 100px;
   }
 
-  .navbar-links {
+  & .navbar-links {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -31,7 +36,7 @@
     margin-right: 10px;
   }
 
-  a {
+  & a {
     text-decoration: none;
     color: white;
   }

@@ -19,7 +19,7 @@ const Home = () => {
             backgroundColor="#1c1f2c"
             hasRambow={true}
             textColor="white"
-            text="Veja O conteúdo Completo"
+            text="O que é SAFe?"
             link="/introducao-safe"
           />
           <CustomButton

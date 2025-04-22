@@ -1,6 +1,6 @@
 import React from "react";
 
-const SafeIntro = () => {
+const SAFeIntro = () => {
   return (
     <section id="o-que-e-safe" className="py-8">
       <h2 className="text-3xl font-bold mb-4">1. O que é SAFe?</h2>
@@ -11,7 +11,7 @@ const SafeIntro = () => {
           seguir uma partitura, um maestro e trabalhar juntos. O Scaled Agile
           Framework (SAFe) é como essa partitura e esse maestro para grandes
           empresas que querem usar métodos ágeis – aqueles que priorizam
-          flexibilidade e trabalho em equipe – em toda a sua organização.
+          flexibilidade e trabalho em equipe – em toda a sua organização.''
         </p>
         <p>
           Basicamente, o SAFe é um conjunto de regras e formas de trabalhar que
@@ -44,4 +44,4 @@ const SafeIntro = () => {
   );
 };
 
-export default SafeIntro;
+export default SAFeIntro;
