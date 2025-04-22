@@ -6,6 +6,7 @@ import ErrorPage from "./routes/ErrorPage";
 import Home from "./routes/Home";
 
 import "./css/index.css";
+import ExplicacaoSAFe from "./routes/conteudo/modulos/pagina-principal/ExplicacaoSAFe";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/explicacao-safe",
+        element: <ExplicacaoSAFe />,
       },
     ],
   },
