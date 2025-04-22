@@ -6,7 +6,7 @@
   height: 90dvh;
   padding: 1dvh;
   text-align: center;
-  background: url("../assets/fundoHome.jpg") no-repeat center center fixed;
+  background: url("../assets/homeimg.png") no-repeat center center fixed;
   background-size: cover;
   z-index: 0;
 }

@@ -2,11 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ErrorPage from "./routes/ErrorPage";
-import Home from "./routes/Home";
+import ErrorPage from "./pages/ErrorPage";
+import Home from "./pages/routes/Home";
 
 import "./css/index.css";
-import ExplicacaoSAFe from "./routes/conteudo/modulos/pagina-principal/ExplicacaoSAFe";
+import SafeGuide from "./pages/routes/SAFeGuide";
 
 const router = createBrowserRouter([
   {
@@ -20,8 +20,8 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/explicacao-safe",
-        element: <ExplicacaoSAFe />,
+        path: "/introducao-safe",
+        element: <SafeGuide />,
       },
     ],
   },
