@@ -16,8 +16,9 @@ public class User : IEntity
     [MinLength(2, ErrorMessage = "Name must be at least 2 characters long.")]
     public string Name { get; set; } = null!;
 
-    // required, null! e ? tudo no mesmo lugar? kkkkk
     [Required]
+    [MaxLength(25, ErrorMessage = "Email cannot exceed 20 characters.")]
+    [MinLength(5, ErrorMessage = "Email must be at least 5 characters long.")]
     public string Email { get; set; } = null!;
 
     [Required]
