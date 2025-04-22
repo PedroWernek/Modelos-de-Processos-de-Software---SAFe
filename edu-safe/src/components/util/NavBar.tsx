@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logoEduSAFe from "../assets/logoEduSAFe.png";
+import logoEduSAFe from "../../assets/logoEduSAFe.png";
 
 const NavBar = () => {
   return (

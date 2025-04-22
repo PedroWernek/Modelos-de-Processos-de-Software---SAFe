@@ -19,10 +19,12 @@ const SAFeHistory = () => {
         desafio: como aplicar a agilidade em larga escala?
       </p>
       <p> Para isso, o SAFe misturou boas ideias de várias fontes : </p>
-      Desenvolvimento Ágil: A base de tudo, com foco em entregas curtas e
-      adaptação. Lean Thinking (Pensamento Enxuto): Foco em eliminar
-      desperdícios e entregar valor rapidamente. Systems Thinking (Pensamento
-      Sistêmico): Olhar para o todo, não apenas para as partes isoladas.
+      <strong>Desenvolvimento Ágil:</strong> A base de tudo, com foco em
+      entregas curtas e adaptação.
+      <strong>Lean Thinking (Pensamento Enxuto):</strong> Foco em eliminar
+      desperdícios e entregar valor rapidamente.
+      <strong>Systems Thinking (Pensamento Sistêmico):</strong> Olhar para o
+      todo, não apenas para as partes isoladas.
     </div>
   );
 };

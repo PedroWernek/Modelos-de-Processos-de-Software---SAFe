@@ -1,5 +1,5 @@
-import "../css/Home.css";
-import img1home from "../assets/img1home.webp";
+import "../../css/Home.css";
+import img1home from "../../assets/img1home.webp";
 import CustomButton from "../../components/buttons/CustomButton";
 
 const Home = () => {
