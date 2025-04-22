@@ -2,11 +2,9 @@ import React from "react";
 
 const SafeEvents = () => {
   return (
-    <section id="eventos-importantes" className="py-8">
-      <h2 className="text-3xl font-bold mb-4">
-        4. Eventos e cerimônias mais importantes
-      </h2>
-      <ul className="list-disc list-inside space-y-2">
+    <section>
+      <h2>4. Eventos e cerimônias mais importantes</h2>
+      <ul>
         <li>
           <strong>PI Planning:</strong> Reunião de dois dias para planejamento
           do próximo Program Increment, definindo objetivos, dependências e

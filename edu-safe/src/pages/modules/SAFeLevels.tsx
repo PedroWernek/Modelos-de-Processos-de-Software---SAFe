@@ -2,13 +2,11 @@ import React from "react";
 
 const SafeLevels = () => {
   return (
-    <section id="organizacao-e-niveis" className="py-8">
-      <h2 className="text-3xl font-bold mb-4">
-        2. Como o SAFe organiza o trabalho em diferentes níveis
-      </h2>
-      <ol className="list-decimal list-inside space-y-4">
+    <section>
+      <h2>2. Como o SAFe organiza o trabalho em diferentes níveis</h2>
+      <ol>
         <li>
-          <h3 className="font-semibold">Nível de Equipe</h3>
+          <h3>Nível de Equipe</h3>
           <p>
             No Nível de Equipe, o foco está na entrega de pequenos incrementos
             de valor por equipes ágeis, similares ao Scrum ou Kanban. As equipes
@@ -20,7 +18,7 @@ const SafeLevels = () => {
           </p>
         </li>
         <li>
-          <h3 className="font-semibold">Nível de Programa</h3>
+          <h3>Nível de Programa</h3>
           <p>
             O Nível de Programa agrupa de 5 a 12 equipes em um Agile Release
             Train (ART). Cada ART executa Program Increments (PI) de 8–12
@@ -31,7 +29,7 @@ const SafeLevels = () => {
           </p>
         </li>
         <li>
-          <h3 className="font-semibold">Nível de Grande Solução</h3>
+          <h3>Nível de Grande Solução</h3>
           <p>
             Quando um projeto envolve vários ARTs, utiliza-se o Nível de Grande
             Solução. O Solution Train Engineer (STE), Solution Manager e
@@ -42,7 +40,7 @@ const SafeLevels = () => {
           </p>
         </li>
         <li>
-          <h3 className="font-semibold">Nível de Portfólio</h3>
+          <h3>Nível de Portfólio</h3>
           <p>
             O nível mais alto, o Portfólio, alinha iniciativas estratégicas
             (epics) à visão da empresa. Lean Portfolio Management (LPM) define

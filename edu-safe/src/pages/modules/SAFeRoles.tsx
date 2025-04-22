@@ -2,14 +2,12 @@ import React from "react";
 
 const SafeRoles = () => {
   return (
-    <section id="papeis-e-responsabilidades" className="py-8">
-      <h2 className="text-3xl font-bold mb-4">
-        3. Papéis e responsabilidades em cada nível
-      </h2>
-      <div className="space-y-6">
+    <section>
+      <h2>3. Papéis e responsabilidades em cada nível</h2>
+      <div>
         <div>
-          <h3 className="text-2xl font-semibold mb-2">Nível de Equipe</h3>
-          <ul className="list-disc list-inside space-y-1">
+          <h3>Nível de Equipe</h3>
+          <ul>
             <li>
               <strong>Time Ágil:</strong> Desenvolve e entrega incrementos de
               valor, realizando planejamento, stand‑ups diários, reviews e
@@ -26,8 +24,8 @@ const SafeRoles = () => {
           </ul>
         </div>
         <div>
-          <h3 className="text-2xl font-semibold mb-2">Nível de Programa</h3>
-          <ul className="list-disc list-inside space-y-1">
+          <h3>Nível de Programa</h3>
+          <ul>
             <li>
               <strong>Release Train Engineer (RTE):</strong> Coach e facilitador
               do ART, garante cadência e remove impedimentos em escala.
@@ -43,10 +41,8 @@ const SafeRoles = () => {
           </ul>
         </div>
         <div>
-          <h3 className="text-2xl font-semibold mb-2">
-            Nível de Grande Solução
-          </h3>
-          <ul className="list-disc list-inside space-y-1">
+          <h3>Nível de Grande Solução</h3>
+          <ul>
             <li>
               <strong>Solution Train Engineer (STE):</strong> Coordena eventos e
               remove impedimentos para múltiplos ARTs.
@@ -62,8 +58,8 @@ const SafeRoles = () => {
           </ul>
         </div>
         <div>
-          <h3 className="text-2xl font-semibold mb-2">Nível de Portfólio</h3>
-          <ul className="list-disc list-inside space-y-1">
+          <h3>Nível de Portfólio</h3>
+          <ul>
             <li>
               <strong>Epic Owners:</strong> Gerenciam epics estratégicas, tendo
               visão do ROI e roadmap.
