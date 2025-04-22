@@ -9,12 +9,11 @@ const Home = () => {
         <div className="home-text">
           <h1>TORNE-SE EXTRAORDINARIO EM SUA EQUIPE</h1>
           <p className="home-text1">
-            Aprenda a como ser mais produtivo e eficiente utilizando
-            metodologias agéis
+            Seja mais produtivo e eficiente utilizando a SAFe
           </p>
           <p className="home-text2">
-            Essa plataforma possui o intuito de permitir que você aprenda, e
-            consiga aplicar as práticas do SAFe em seu ambiente de trabalho!
+            A EDUSAFe possui o intuito de permitir que você aprenda de
+            forma divertida como aplicar a SAFe em seu ambiente de trabalho!
           </p>
           <CustomButton
             backgroundColor="#1c1f2c"
@@ -36,7 +35,7 @@ const Home = () => {
       <span className="trapezioinvertido"></span>
       <div className="additional-info">
         <p className="additional-info-text1">
-          Conheça a oportunidade de se destacar em um grande <b>time</b>
+          Seja <b>destaque</b> dentro de seu time
         </p>
         <img src={img1home} alt="Imagem 1" />
       </div>
@@ -44,8 +43,7 @@ const Home = () => {
         <img src={img1home} alt="Imagem 1" />
         <div>
           <p className="additional-info-text1">
-            Desenvolva sua habilidade com a metodologia SAFe de maneira{" "}
-            <b>gameficada</b>
+            Desenvolva sua habilidade com a metodologia SAFe de maneira <b>gameficada</b>
           </p>
           <p className="additional-info-text2">
             Utilize seu conhecimento para resolver puzzles e desafios baseados
@@ -54,7 +52,6 @@ const Home = () => {
         </div>
       </div>
       <span className="trapezio"></span>
-
       <div className="footer"></div>
     </div>
   );
