@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EduSAFe.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250422225416_FixingModels")]
-    partial class FixingModels
+    [Migration("20250424234526_AjustandoQuestionType")]
+    partial class AjustandoQuestionType
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,15 +24,15 @@ namespace EduSAFe.Migrations
 
             modelBuilder.Entity("EduSAFe.Model.Answer", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("int");
 
                     b.Property<bool>("IsCorrectAnswer")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<Guid?>("QuestionId")
-                        .HasColumnType("char(36)");
+                    b.Property<int?>("QuestionId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Text")
                         .IsRequired()
@@ -48,12 +48,11 @@ namespace EduSAFe.Migrations
 
             modelBuilder.Entity("EduSAFe.Model.Question", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("int");
 
                     b.Property<int>("CorrectAnswerIndex")
-                        .HasMaxLength(3)
                         .HasColumnType("int");
 
                     b.Property<string>("Text")
@@ -71,9 +70,9 @@ namespace EduSAFe.Migrations
 
             modelBuilder.Entity("EduSAFe.Model.User", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()
