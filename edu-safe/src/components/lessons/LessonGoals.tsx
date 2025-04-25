@@ -1,9 +1,8 @@
 import React from "react";
 import { createStyles } from "antd-style";
 
-interface LessonHeaderProps {
-  title: string;
-  description: string;
+interface LessonGoalsProps {
+  goals: string[];
   backgroundColor?: string;
   textColor?: string;
 }
@@ -21,39 +20,38 @@ const useStyles = createStyles((
     container: {
       backgroundColor: backgroundColor || "#1a1a1a",
       padding: "2rem",
+      marginTop: "3rem", // NO TESTE, SO P NAO COLAR ALI COM O DE CIMA
       borderRadius: "12px",
       color: textColor || "#ffffff",
       display: "flex",
       flexDirection: "column",
-      alignItems: "flex-start",
+      alignItems: "center",
       gap: "1rem",
     },
-    unidade: {
-      fontSize: "1.2rem",
-      fontWeight: 500,
-    },
     title: {
-      fontSize: "3rem",
-      fontWeight: "bold",
+      fontSize: "2.5rem",
+      fontWeight: "thin", // acho que n ta funcionando?
       margin: 0,
     },
     line: {
-      width: "10%",
-      height: "2px",
-      backgroundColor: textColor || "#ffffff",
-      border: "none",
-    },
-    description: {
-      fontSize: "1rem",
+        width: "20%",
+        height: "2px",
+        backgroundColor: textColor || "#ffffff",
+        border: "none",
+      },
+    lessonGoals: {
+      fontSize: "1.25rem", // DEPOIS CONVERSAR SOBRE! OS TAMANHOS DE FONTE!
       margin: 0,
       lineHeight: 1.5,
+      listStyleType: "disc", 
+      paddingLeft: "1.5rem", 
+      alignSelf: "flex-start", 
     },
   }),
 );
 
-const LessonHeader: React.FC<LessonHeaderProps> = ({
-  title,
-  description,
+const LessonGoals: React.FC<LessonGoalsProps> = ({
+  goals,
   backgroundColor,
   textColor,
 }) => {
@@ -61,12 +59,15 @@ const LessonHeader: React.FC<LessonHeaderProps> = ({
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.unidade}>Unidade</h2>
-      <h1 className={styles.title}>{title}</h1>
+      <h1 className={styles.title}>Objetivos da Unidade :3</h1>
       <hr className={styles.line} />
-      <p className={styles.description}>{description}</p>
+      <ul className={styles.lessonGoals}>
+        {goals.map((goal, index) => (
+          <li key={index}>{goal}</li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default LessonHeader;
+export default LessonGoals;

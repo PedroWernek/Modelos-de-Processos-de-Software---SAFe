@@ -1,5 +1,6 @@
 import React from "react";
 import LessonHeader from "../../components/lessons/LessonHeader";
+import LessonGoals from "../../components/lessons/LessonGoals";
 
 const LessonsPage: React.FC = () => {
     return (
@@ -9,6 +10,15 @@ const LessonsPage: React.FC = () => {
           description="Descrição bonita."
           backgroundColor="#1a1a1a" 
           textColor="#ffffff"       
+        />
+        <LessonGoals
+            goals={[
+              "pipiipipi",
+              "poooooooooooooooooooooooo.",
+              "blasmkowidsa asdsndiw  KAOASDWMKOWCI."
+            ]}
+          backgroundColor="pink"
+          textColor="black"
         />
       </div>
     );
