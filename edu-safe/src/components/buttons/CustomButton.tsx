@@ -88,7 +88,7 @@ const CustomButton: React.FC<RainbowButtonProps> = ({
   const { styles } = useStyle({
     backgroundColor,
     textColor,
-    hasRambow,
+    hasRambow: hasRambow || false,
     borderColor,
     borderTickness,
     link: "",

@@ -71,3 +71,14 @@ b {
 .background-2 {
   background-color: #0c1329;
 }
+
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #0c1329;
+  color: #ccced5;
+  font-size: 2rem;
+}

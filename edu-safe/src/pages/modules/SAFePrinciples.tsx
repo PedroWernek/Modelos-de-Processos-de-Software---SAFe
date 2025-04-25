@@ -1,6 +1,6 @@
 import React from "react";
 import { PrincipiosSAFeArray } from "../../data/PrincipiosSAFe";
-import ShowContentCompont from "../../components/dropdown/ShowContentComponent";
+import ShowContentComponent from "../../components/dropdown/ShowContentComponent";
 
 const PrincipiosSAFe = () => {
   const titleColor = "#3ac7a6";
@@ -20,7 +20,7 @@ const PrincipiosSAFe = () => {
         eficiente.
       </p>
       {principiosSAFe.map(({ title, text, exemple }, index) => (
-        <ShowContentCompont
+        <ShowContentComponent
           key={index}
           title={title}
           text={text}
