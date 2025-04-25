@@ -2,6 +2,22 @@ import React from "react";
 import "../../css/Modules.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
+import ImageButtom from "../../components/buttons/ImageButtom";
+
+import img1 from "../../assets/img1home.webp";
+import ModuleCarrousel from "../../components/ModuleCarrousel";
+
+const LinksIniciante = [
+  () => (
+    <ImageButtom imgScr={img1} alt="Imagem 1" link="/modulos/iniciante/1" />
+  ),
+  () => (
+    <ImageButtom imgScr={img1} alt="Imagem 2" link="/modulos/iniciante/2" />
+  ),
+  () => (
+    <ImageButtom imgScr={img1} alt="Imagem 3" link="/modulos/iniciante/3" />
+  ),
+];
 
 const Modules = () => {
   return (
@@ -18,13 +34,15 @@ const Modules = () => {
       <div className="modules-content">
         <div className="modules-content__iniciante">
           <h1 className="text-4">Iniciante</h1>
-          <div className=""></div>
+          <ModuleCarrousel Componentes={LinksIniciante} />
         </div>
         <div className="modules-content__intermediario">
           <h1 className="text-4">Intermediário</h1>
+          <ModuleCarrousel Componentes={LinksIniciante} />
         </div>
         <div className="modules-content__avancado">
           <h1 className="text-4">Avançado</h1>
+          <ModuleCarrousel Componentes={LinksIniciante} />
         </div>
       </div>
     </div>

@@ -23,3 +23,16 @@
 
   }
 }
+
+.modules-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20vh;
+
+
+}
+
+.text-4 {
+  padding-left: 5dvw;
+}
