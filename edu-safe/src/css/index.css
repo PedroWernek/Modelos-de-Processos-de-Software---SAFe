@@ -40,4 +40,34 @@ html {
     text-decoration: none;
     color: white;
   }
+
+
+}
+
+b {
+  color: #a773ff;
+}
+
+.text-1 {
+  color: #a79fca;
+}
+
+.text-2 {
+  color: #c8fff4;
+}
+
+.text-3 {
+  color: #8dc2b7;
+}
+
+.text-4 {
+  color: #a773ff;
+}
+
+.background-1 {
+  background-color: #0d183a;
+}
+
+.background-2 {
+  background-color: #0c1329;
 }

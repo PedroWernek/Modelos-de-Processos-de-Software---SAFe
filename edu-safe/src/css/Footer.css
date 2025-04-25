@@ -17,7 +17,7 @@
   }
 
   & .footer-logo {
-    width: 20vw;
+    width: 15vw;
     height: auto;
     position: relative;
     left: 2dvw;
@@ -27,7 +27,7 @@
   & .footer-links {
     display: flex;
     flex-direction: column;
-    font-size: 2dvw;
+    font-size: 1.5dvw;
     gap: 20px;
     position: relative;
     bottom: 8dvh;
@@ -37,6 +37,7 @@
 
   & .footer-links--link {
     transition: 0.2s ease-in-out;
+
     &:hover {
       color: #ffffff;
       text-decoration: underline;

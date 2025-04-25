@@ -7,6 +7,7 @@ import Home from "./pages/routes/Home";
 
 import "./css/index.css";
 import SafeGuide from "./pages/routes/SAFeGuide";
+import Modules from "./pages/routes/Modules";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/introducao-safe",
         element: <SafeGuide />,
+      },
+      {
+        path: "/modulos",
+        element: <Modules />,
       },
     ],
   },
