@@ -7,7 +7,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion, AnimatePresence } from "framer-motion";
 
-interface ShowContentCompontProps {
+interface ShowContentComponentProps {
   icon?: React.ReactNode;
   title: string;
   titleColor?: string;
@@ -81,7 +81,7 @@ const useStyle = createStyles(
   }),
 );
 
-const ShowContentCompont: React.FC<ShowContentCompontProps> = ({
+const ShowContentComponent: React.FC<ShowContentComponentProps> = ({
   icon,
   title,
   titleColor,
@@ -138,4 +138,4 @@ const ShowContentCompont: React.FC<ShowContentCompontProps> = ({
   );
 };
 
-export default ShowContentCompont;
+export default ShowContentComponent;

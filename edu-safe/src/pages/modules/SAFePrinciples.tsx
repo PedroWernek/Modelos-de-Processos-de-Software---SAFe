@@ -1,6 +1,6 @@
 import React from "react";
 import { PrincipiosSAFeArray } from "../../data/PrincipiosSAFe";
-import ShowContentCompont from "../../components/dropdown/ShowContentCompont";
+import ShowContentCompont from "../../components/dropdown/ShowContentComponent";
 
 const PrincipiosSAFe = () => {
   const titleColor = "#3ac7a6";
