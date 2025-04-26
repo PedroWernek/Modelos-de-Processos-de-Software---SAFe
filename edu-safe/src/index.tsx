@@ -6,9 +6,11 @@ import ErrorPage from "./pages/ErrorPage";
 import LessonSample from "./pages/lessons/LessonSample";
 import Home from "./pages/routes/Home";
 
+
 import "./css/index.css";
 import SafeGuide from "./pages/routes/SAFeGuide";
 import Modules from "./pages/routes/Modules";
+import { QuestionForms } from "./components/forms/QuestionForms";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +35,20 @@ const router = createBrowserRouter([
         path: "/teste-ana",
         element: <LessonSample />,
       },
+      {
+        path: "/teste-enzo",
+        element:  <QuestionForms 
+        questionNumber={1}
+        difficulty="Médio"
+        questionText="Tá funcionando?"
+        options={["Sim", "Não", "Talvez", "Mais ou menos", "Cadê",]}
+        correctAnswer="Sim"
+        onSubmit={(result) => {
+          console.log(`Resposta selecionada: ${result.selectedOption}`);
+          console.log(`Resposta ${result.isCorrect ? 'correta' : 'incorreta'}`);
+        }}
+        />,
+      }
     ],
   },
 ]);

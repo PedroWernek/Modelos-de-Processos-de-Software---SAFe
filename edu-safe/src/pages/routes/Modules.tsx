@@ -9,7 +9,7 @@ import ModuleCarrousel from "../../components/ModuleCarrousel";
 
 const LinksIniciante = [
   () => (
-    <ImageButtom imgScr={img1} alt="Imagem 1" link="/modulos/iniciante/1" />
+    <ImageButtom imgScr={img1} alt="Imagem 1" link="/teste-enzo" />
   ),
   () => (
     <ImageButtom imgScr={img1} alt="Imagem 2" link="/modulos/iniciante/2" />
