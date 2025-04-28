@@ -7,11 +7,11 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion, AnimatePresence } from "framer-motion";
 
-interface ShowContentCompontProps {
+interface ShowListContentComponentProps {
   icon?: React.ReactNode;
   title: string;
   titleColor?: string;
-  text: string;
+  texts: string[];
   textColor?: string;
   exemple?: string;
   exempleColor?: string;
@@ -65,7 +65,10 @@ const useStyle = createStyles(
       "& .text": {
         color: textColor || "black",
         fontSize: "3dvh",
-        padding: "10px",
+        padding: "20px",
+        paddingLeft: "30px", // <- Adiciona espaço para os bullets aparecerem
+        listStyleType: "disc",
+        listStylePosition: "outside",
       },
       "& .exemple": {
         color: exempleColor || "black",
@@ -81,11 +84,11 @@ const useStyle = createStyles(
   }),
 );
 
-const ShowContentCompont: React.FC<ShowContentCompontProps> = ({
+const ShowListContentComponent: React.FC<ShowListContentComponentProps> = ({
   icon,
   title,
   titleColor,
-  text,
+  texts,
   textColor,
   exemple,
   exempleColor,
@@ -129,7 +132,11 @@ const ShowContentCompont: React.FC<ShowContentCompontProps> = ({
             transition={{ duration: 0.5, ease: "easeInOut" }}
             style={{ overflow: "hidden" }}
             className="content">
-            <p className="text">{text}</p>
+            <ul className="text">
+              {texts.map((text, i) => (
+                <li key={i}>{text}</li>
+              ))}
+            </ul>
             {exemple && <div className="exemple">{exemple}</div>}
           </motion.div>
         )}
@@ -138,4 +145,4 @@ const ShowContentCompont: React.FC<ShowContentCompontProps> = ({
   );
 };
 
-export default ShowContentCompont;
+export default ShowListContentComponent;

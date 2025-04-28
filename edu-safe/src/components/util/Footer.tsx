@@ -7,6 +7,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
+        <span className="trapezioinvertido"></span>
         <img className="footer-logo" src={logoEduSAFe} alt="logo EduSAFe" />
         <nav className="footer-links">
           <Link className="footer-links--link" to="/">
@@ -16,6 +17,7 @@ const Footer = () => {
             Termos de Serviço
           </Link>
         </nav>
+        <span className="trapezio"></span>
       </div>
     </footer>
   );

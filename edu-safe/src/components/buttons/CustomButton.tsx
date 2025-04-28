@@ -1,6 +1,7 @@
 import { createStyles } from "antd-style";
 import React from "react";
 import { Link } from "react-router-dom";
+import "../../css/index.css";
 
 interface RainbowButtonProps {
   backgroundColor: string;
@@ -88,7 +89,7 @@ const CustomButton: React.FC<RainbowButtonProps> = ({
   const { styles } = useStyle({
     backgroundColor,
     textColor,
-    hasRambow,
+    hasRambow: hasRambow || false,
     borderColor,
     borderTickness,
     link: "",

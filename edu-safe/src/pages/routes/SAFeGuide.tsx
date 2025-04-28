@@ -1,10 +1,10 @@
-import SAFeIntro from "../modules/SAFeIntro";
+import SAFeIntro from "../modules/beginner/SAFeIntro";
 import "../../css/SAFeGuide.css";
-import WhatIsSAFe from "../content/WhatIsSAFe";
-import SAFeStructure from "../content/SAFeStructure";
-import SAFeFundamentalPrincipes from "../content/SAFeFundamentalPrincipes";
-import SAFeCentralValues from "../content/SAFeCentralValues";
-import SAFeBenefits from "../content/SAFeBenefits";
+import WhatIsSAFe from "../SAFeGuide content/WhatIsSAFe";
+import SAFeStructure from "../SAFeGuide content/SAFeStructure";
+import SAFeFundamentalPrincipes from "../SAFeGuide content/SAFeFundamentalPrincipes";
+import SAFeCentralValues from "../SAFeGuide content/SAFeCentralValues";
+import SAFeBenefits from "../SAFeGuide content/SAFeBenefits";
 
 const SafeGuide = () => {
   return (

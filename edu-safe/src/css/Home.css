@@ -44,7 +44,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  padding: 4dvw;
 
   text-align: center;
 
@@ -53,9 +53,7 @@
   p {
     margin: 20px 0;
     padding: 10px 20px;
-    b {
-      color: #a773ff;
-    }
+
   }
 
   .additional-info-text1 {
