@@ -70,17 +70,26 @@ public class QuestionController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    
     public async Task<ActionResult> DeleteQuestion(int id)
+{
+    var question = await _appDbContext.Questions
+        .Include(q => q.Answers)
+        .FirstOrDefaultAsync(q => q.Id == id);
+
+    if (question is null)
     {
-        var question = await _appDbContext.Questions.FindAsync(id);
-        if (question is null)
-        {
-            return NotFound("Question não encontrada!");
-        }
-
-        _appDbContext.Remove(question);
-        await _appDbContext.SaveChangesAsync();
-
-        return Ok("Question deletada com sucesso.");
+        return NotFound("Question não encontrada!");
     }
+
+    // Remove as respostas relacionadas primeiro
+    _appDbContext.Answers.RemoveRange(question.Answers);
+
+    // Depois remove a pergunta
+    _appDbContext.Questions.Remove(question);
+
+    await _appDbContext.SaveChangesAsync();
+
+    return Ok("Question deletada com sucesso.");
+}
 }

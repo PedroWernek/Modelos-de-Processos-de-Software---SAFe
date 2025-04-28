@@ -9,7 +9,7 @@ namespace EduSAFe.Model;
 public class Answer
 {
     [Key]
-    public Guid Id { get; set; }
+    public int Id { get; set; }
 
     [Required]
     [MaxLength(25, ErrorMessage = "Text cannot exceed 25 characters.")]
