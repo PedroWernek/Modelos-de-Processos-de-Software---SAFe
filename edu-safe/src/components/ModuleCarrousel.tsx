@@ -17,6 +17,9 @@ const useStyle = createStyles((css) => ({
     backgroundColor: "#0d183a",
     boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
     padding: "2rem",
+    [css.token.screenXS]: {
+      padding: "1rem",
+    },
   },
   CarrouselContent: {
     display: "flex",
@@ -30,6 +33,7 @@ const useStyle = createStyles((css) => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    textAlign: "center",
     padding: "1rem",
     borderRadius: "16px",
     backgroundColor: "#0d183a",
@@ -37,7 +41,8 @@ const useStyle = createStyles((css) => ({
   },
   CarrouselNavButtons: {
     display: "flex",
-    gap: "1rem",
+    flexWrap: "wrap",
+    gap: "0.5rem",
     marginTop: "0.75rem",
     justifyContent: "center",
   },
@@ -54,12 +59,17 @@ const useStyle = createStyles((css) => ({
     "&:hover": {
       backgroundColor: "#40a9ff",
     },
+    [css.token.screenXS]: {
+      padding: "0.4rem 0.8rem",
+      fontSize: "0.8rem",
+    },
   },
   CarrouselNavDots: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     gap: "0.5rem",
+    marginTop: "0.5rem",
   },
   CarrouselNavDot: {
     width: "12px",
@@ -88,6 +98,7 @@ const ModuleCarrousel: React.FC<ModuleCarouselProps> = ({ Componentes }) => {
     );
   const prox = () =>
     setIndex((anterior) => (anterior + 1) % Componentes.length);
+
   return (
     <div className={styles.CarrouselContainer}>
       {/* Modulos */}
@@ -99,7 +110,7 @@ const ModuleCarrousel: React.FC<ModuleCarouselProps> = ({ Componentes }) => {
             <div
               style={{
                 border: "3px solid #00eeff", // <- só aqui está a borda
-                borderRadius: "12px",
+                borderRadius: "10px",
                 boxShadow: "0 4px 10px rgba(0,0,0,1)",
               }}>
               <Componente />
@@ -108,10 +119,10 @@ const ModuleCarrousel: React.FC<ModuleCarouselProps> = ({ Componentes }) => {
               style={{
                 color: "#a773ff",
                 paddingTop: "1rem",
-                fontSize: "1.5rem",
+                fontSize: "2.5rem",
                 fontWeight: "bold",
-                display: "flex",
-                transform: "translateX(-4rem)",
+                textAlign: "center",
+                transform: "translateX(0)",
               }}>
               Aula {i + 1}
             </p>

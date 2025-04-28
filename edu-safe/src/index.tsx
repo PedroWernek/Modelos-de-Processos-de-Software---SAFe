@@ -6,11 +6,13 @@ import ErrorPage from "./pages/ErrorPage";
 import LessonSample from "./pages/lessons/LessonSample";
 import Home from "./pages/routes/Home";
 
-
 import "./css/index.css";
 import SafeGuide from "./pages/routes/SAFeGuide";
-import Modules from "./pages/routes/Modules";
+import Modules from "./pages/routes/ModulesNav";
 import { QuestionForms } from "./components/forms/QuestionForms";
+import SAFeIntro from "./pages/modules/beginner/SAFeIntro";
+import ModulesNav from "./pages/routes/ModulesNav";
+import ModulesContent from "./pages/routes/ModulesContent";
 
 const router = createBrowserRouter([
   {
@@ -29,26 +31,22 @@ const router = createBrowserRouter([
       },
       {
         path: "/modulos",
-        element: <Modules />,
+        element: <ModulesNav />,
+      },
+      {
+        path: "/modulos/conteudo",
+        element: <ModulesContent />,
+        children: [
+          {
+            path: "/modulos/conteudo/iniciante/1",
+            element: <SAFeIntro />,
+          },
+        ],
       },
       {
         path: "/teste-ana",
         element: <LessonSample />,
       },
-      {
-        path: "/teste-enzo",
-        element:  <QuestionForms 
-        questionNumber={1}
-        difficulty="Médio"
-        questionText="Tá funcionando?"
-        options={["Sim", "Não", "Talvez", "Mais ou menos", "Cadê",]}
-        correctAnswer="Sim"
-        onSubmit={(result) => {
-          console.log(`Resposta selecionada: ${result.selectedOption}`);
-          console.log(`Resposta ${result.isCorrect ? 'correta' : 'incorreta'}`);
-        }}
-        />,
-      }
     ],
   },
 ]);

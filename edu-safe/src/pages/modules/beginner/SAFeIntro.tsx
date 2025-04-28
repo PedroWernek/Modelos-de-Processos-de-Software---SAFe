@@ -1,8 +1,25 @@
 import React from "react";
+import LessonHeader from "../../../components/lessons/LessonHeader";
+import LessonGoals from "../../../components/lessons/LessonGoals";
 
 const SAFeIntro = () => {
   return (
-    <section>
+    <div>
+      <LessonHeader
+        title="Título Bonito"
+        description="Descrição bonita."
+        backgroundColor="#1a1a1a"
+        textColor="#ffffff"
+      />
+      <LessonGoals
+        goals={[
+          "pipiipipi",
+          "poooooooooooooooooooooooo.",
+          "blasmkowidsa asdsndiw  KAOASDWMKOWCI.",
+        ]}
+        backgroundColor="pink"
+        textColor="black"
+      />
       <h2>1. O que é SAFe?</h2>
       <div>
         <p>
@@ -95,7 +112,7 @@ const SAFeIntro = () => {
           processos e ferramentas.
         </p>
       </div>
-    </section>
+    </div>
   );
 };
 

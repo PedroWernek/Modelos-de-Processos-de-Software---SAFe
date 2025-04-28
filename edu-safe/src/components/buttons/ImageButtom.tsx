@@ -3,11 +3,17 @@ import { Link } from "react-router-dom";
 
 interface ImageButtomProps {
   imgScr: string;
+  imgSize?: string;
   alt: string;
   link: string;
 }
 
-const ImageButtom: React.FC<ImageButtomProps> = ({ imgScr, alt, link }) => {
+const ImageButtom: React.FC<ImageButtomProps> = ({
+  imgScr,
+  imgSize,
+  alt,
+  link,
+}) => {
   return (
     <div className="image-button__container">
       <Link to={link} className="image-button__link">
@@ -16,10 +22,12 @@ const ImageButtom: React.FC<ImageButtomProps> = ({ imgScr, alt, link }) => {
           alt={alt}
           className="image-button__img"
           style={{
-            width: "200px",
-            height: "150px",
-            objectFit: "cover",
+            maxHeight: imgSize ? `${Number(imgSize)}dvw` : "30dvh",
+            maxWidth: "100vw",
+            width: "auto",
+            height: "auto",
             borderRadius: "10px",
+            objectFit: "cover",
           }}
         />
       </Link>

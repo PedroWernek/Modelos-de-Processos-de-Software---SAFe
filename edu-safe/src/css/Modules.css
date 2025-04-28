@@ -14,12 +14,12 @@
   margin-top: 10vh;
 
   & .title {
-    font-size: 3.5dvw;
+    font-size: 4.5dvh;
   }
 
   & .subtitle {
     padding-top: 3rem;
-    font-size: 2dvw;
+    font-size: 3.5dvh;
 
   }
 }

@@ -9,13 +9,28 @@ import ModuleCarrousel from "../../components/ModuleCarrousel";
 
 const LinksIniciante = [
   () => (
-    <ImageButtom imgScr={img1} alt="Imagem 1" link="/teste-enzo" />
+    <ImageButtom
+      imgScr={img1}
+      alt="Imagem 1"
+      link="/modulos/conteudo/iniciante/1"
+      imgSize="40"
+    />
   ),
   () => (
-    <ImageButtom imgScr={img1} alt="Imagem 2" link="/modulos/iniciante/2" />
+    <ImageButtom
+      imgScr={img1}
+      alt="Imagem 2"
+      link="/modulos/iniciante/2"
+      imgSize="40"
+    />
   ),
   () => (
-    <ImageButtom imgScr={img1} alt="Imagem 3" link="/modulos/iniciante/3" />
+    <ImageButtom
+      imgScr={img1}
+      alt="Imagem 3"
+      link="/modulos/iniciante/3"
+      imgSize="40"
+    />
   ),
 ];
 
