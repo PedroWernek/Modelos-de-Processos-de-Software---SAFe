@@ -2,73 +2,82 @@
   display: grid;
   grid-template-columns: 1fr 6fr;
   grid-template-areas:
-    "safe-guide__container__sidebar safe-guide__container__conten";
+    "safe-guide__container__sidebar safe-guide__container__content";
   height: 100%;
 
-  & .safe-guide__container__sidebar {
+  .safe-guide__container__sidebar {
     grid-area: safe-guide__container__sidebar;
     background-color: #17325a;
     height: 100%;
-    /* necessário para o sticky funcionar */
 
-
-    & .safe-guide__container__sidebar__list {
+    .safe-guide__container__sidebar__list {
       position: sticky;
       top: 0;
+      padding: 2rem 1rem;
 
-      & a {
+      a {
         text-decoration: none;
         color: #fff;
         width: 100%;
         display: inline-block;
-
       }
 
-      & li {
+      li {
         list-style: none;
         padding: 1em;
         font-size: 1.2rem;
         font-weight: 600;
-
       }
     }
   }
 
-  & .safe-guide__container {
-    grid-area: safe-guide__container__conten;
+  .safe-guide__container__content {
+    grid-area: safe-guide__container__content;
     color: #fff;
     font-size: 1.2rem;
     font-weight: 400;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 3dvw 3dvw 0 3dvw;
+    justify-content: flex-start;
+    padding: 3vw;
 
-
-    & h2 {
+    h2 {
       font-size: 3rem;
-      padding: 3dvw 3dvw 0 3dvw;
+      padding: 2vw 0;
     }
 
-    & p {
+    p {
       font-size: 1.5rem;
-      padding: 1dvw 8dvw 0dvw 8dvw;
-      margin: 10px;
+      padding: 1vw 4vw;
+      margin: 10px 0;
       line-height: 1.5;
     }
 
-    & ul,
+    ul,
     ol {
-      /*superior,
-        direita,
-        inferior e esquerda*/
-      padding: 1dvw 1dvw 0dvw 10dvw;
+      padding: 1vw 1vw 1vw 5vw;
 
-      & li {
-        padding: 0.5dvw;
-        margin: 10px;
+      li {
+        padding: 0.5vw;
+        margin: 10px 0;
         line-height: 1.5;
       }
+    }
+  }
+
+  .gotoModules {
+    margin-top: 3vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      padding: 0 10vw;
+      line-height: 1.5;
     }
   }
 }

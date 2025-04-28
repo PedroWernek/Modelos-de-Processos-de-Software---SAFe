@@ -1,4 +1,3 @@
-import SAFeIntro from "../modules/beginner/SAFeIntro";
 import "../../css/SAFeGuide.css";
 import WhatIsSAFe from "../SAFeGuide content/WhatIsSAFe";
 import SAFeStructure from "../SAFeGuide content/SAFeStructure";
@@ -29,39 +28,39 @@ const SafeGuide = () => {
           </li>
         </ul>
       </nav>
-      <div className="safe-guide__container">
-        <div className="safe-guide__container__content">
-          <div id="o-que-e-safe" className="o-que-e-safe">
-            <WhatIsSAFe />
-          </div>
-          <div id="estrutura-do-safe" className="estrutura-do-safe">
-            <SAFeStructure />
-          </div>
-          <div id="principios-fundamentais" className="principios-fundamentais">
-            <SAFeFundamentalPrincipes />
-          </div>
-          <div id="valores-centrais" className="valores-centrais">
-            <SAFeCentralValues />
-          </div>
-          <div id="beneficios" className="beneficios">
-            <SAFeBenefits />
-          </div>
-          <div>
-            <p>
-              Gostou de nosso conteúdo e deseja ter uma explicação mais
-              detalhada da metodologia SAFe? <br />
-              Então faça seu registro agora mesmo e tenha acesso a um conteúdo
-              exclusivo e gratuito! <br />
-            </p>
-            <CustomButton
-              backgroundColor="#3ac7a6"
-              borderColor="#1c1f2c"
-              borderTickness="2px"
-              textColor="#1c1f2c"
-              text="Veja Nossos Módulos"
-              link="/modulos"
-            />
-          </div>
+
+      <div className="safe-guide__container__content">
+        <div id="o-que-e-safe">
+          <WhatIsSAFe />
+        </div>
+        <div id="estrutura-do-safe">
+          <SAFeStructure />
+        </div>
+        <div id="principios-fundamentais">
+          <SAFeFundamentalPrincipes />
+        </div>
+        <div id="valores-centrais">
+          <SAFeCentralValues />
+        </div>
+        <div id="beneficios">
+          <SAFeBenefits />
+        </div>
+
+        <div className="gotoModules">
+          <p>
+            Gostou do nosso conteúdo e deseja uma explicação mais detalhada da
+            metodologia SAFe? <br />
+            Então faça seu registro agora mesmo e tenha acesso a um conteúdo
+            exclusivo e gratuito!
+          </p>
+          <CustomButton
+            backgroundColor="#3ac7a6"
+            borderColor="#1c1f2c"
+            borderTickness="2px"
+            textColor="#1c1f2c"
+            text="Veja Nossos Módulos"
+            link="/modulos"
+          />
         </div>
       </div>
     </div>
