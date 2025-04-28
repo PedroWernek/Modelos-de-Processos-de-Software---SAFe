@@ -1,116 +1,184 @@
 import React from "react";
 import LessonHeader from "../../../components/lessons/LessonHeader";
 import LessonGoals from "../../../components/lessons/LessonGoals";
+import ShowListContentComponent from "../../../components/dropdown/ShowListContentComponent";
+import ImageComponent from "../../../components/image/ImageComponent";
+
+import scrumImg from "../../../assets/scrumImg.svg";
+import Musico from "../../../assets/musico.jpg";
+import dean from "../../../assets/Dean-245x300.jpg";
+import scrum from "../../../assets/scrum.jpg";
+import CustomButton from "../../../components/buttons/CustomButton";
 
 const SAFeIntro = () => {
   return (
     <div>
       <LessonHeader
-        title="Título Bonito"
-        description="Descrição bonita."
-        backgroundColor="#1a1a1a"
+        unit="Unidade básica 1"
+        title="Introdução ao SAFe"
+        backgroundImage={scrum}
         textColor="#ffffff"
       />
       <LessonGoals
         goals={[
-          "pipiipipi",
-          "poooooooooooooooooooooooo.",
-          "blasmkowidsa asdsndiw  KAOASDWMKOWCI.",
+          "Entender o que é o SAFe (Scaled Agile Framework).",
+          "Conhecer os criadores do SAFe e o contexto de sua criação.",
+          "Identificar os principais benefícios de usar o SAFe.",
+          "Reconhecer situações em que o SAFe é mais utilizado.",
+          "Começar a se familiarizar com os conceitos fundamentais do framework.",
         ]}
-        backgroundColor="pink"
-        textColor="black"
+        backgroundColor="#0c1329"
+        textColor="white"
       />
-      <h2>1. O que é SAFe?</h2>
-      <div>
-        <p>
-          Imagine que você tem uma grande orquestra. Cada músico é talentoso
-          individualmente, mas para criar uma sinfonia harmoniosa, eles precisam
-          seguir uma partitura, um maestro e trabalhar juntos. O Scaled Agile
-          Framework (SAFe) é como essa partitura e esse maestro para grandes
-          empresas que querem usar métodos ágeis – aqueles que priorizam
-          flexibilidade e trabalho em equipe – em toda a sua organização.''
-        </p>
-        <p>
-          Basicamente, o SAFe é um conjunto de regras e formas de trabalhar que
-          ajudam muitas equipes a colaborarem em projetos grandes e complexos.
-          Pense nele como um guia para aplicar a agilidade – a capacidade de se
-          adaptar rapidamente a mudanças – em uma escala maior do que apenas um
-          pequeno time.
-        </p>
-        <p>
-          Uma coisa legal sobre o SAFe é que ele não se preocupa só com um time
-          ou um projeto, mas com a estratégia geral da empresa. O SAFe ajuda a
-          garantir que todos na empresa estejam trabalhando na mesma direção,
-          mesmo que haja muitas equipes espalhadas por diferentes lugares.
-        </p>
-        <p>
-          A estrutura do SAFe é como uma construção com três grandes partes: a
-          Equipe, o Programa e o Portfólio, cada uma focada em um nível
-          diferente da organização. Ele também adapta conceitos de Scrum e
-          Kanban para funcionar em projetos maiores, oferecendo práticas
-          testadas e aprovadas por várias empresas.
-        </p>
-        <p>
-          O objetivo principal do SAFe é fazer com que toda a empresa pense de
-          forma ágil, não só o pessoal de tecnologia. Ele ajuda a mudar a
-          cultura da empresa, fazendo com que todos valorizem flexibilidade,
-          colaboração e melhoria contínua.
-        </p>
+      <div className="modules-content__content">
+        <section>
+          <h1>O que é o SAFe?</h1>
+
+          <p>
+            Imagine que você já conhece o Scrum, um jeito ágil de organizar
+            projetos em pequenas equipes. Agora imagine tentar usar Scrum em uma
+            empresa gigante como a Amazon ou o Google. Parece complicado, né?
+          </p>
+
+          <p>
+            Foi pensando nesses desafios que o SAFe – Scaled Agile Framework –
+            foi criado. O SAFe é como uma versão "turbinada" das práticas ágeis
+            para que empresas muito grandes consigam organizar várias equipes
+            trabalhando juntas, mantendo agilidade, qualidade e foco no que
+            importa: entregar valor ao cliente.
+          </p>
+          <ImageComponent width="40rem" src={scrumImg} font="FreePik" />
+          <p>
+            Imagine que você tem uma grande orquestra. Cada músico é talentoso
+            individualmente, mas para criar uma sinfonia harmoniosa, eles
+            precisam seguir uma partitura, um maestro e trabalhar juntos.
+          </p>
+          <p>
+            O Scaled Agile Framework (SAFe) é como essa partitura e esse maestro
+            para grandes empresas que querem usar métodos ágeis – aqueles que
+            priorizam flexibilidade e trabalho em equipe – em toda a sua
+            organização.
+          </p>
+          <ImageComponent width="20rem" src={Musico} font="FreePik" />
+        </section>
+        <section>
+          <h1>Quem criou o SAFe?</h1>
+
+          <p>
+            O SAFe foi criado por Dean Leffingwell, um veterano da indústria de
+            software e especialista em métodos ágeis. Ele lançou a primeira
+            versão do framework em 2011, com o objetivo de ajudar grandes
+            organizações a aplicar práticas ágeis de forma eficaz em larga
+            escala. Dean Leffingwell é também cofundador da empresa Scaled
+            Agile, Inc., que mantém e evolui o SAFe até hoje .
+          </p>
+          <ImageComponent
+            src={dean}
+            width="20rem"
+            font="https://framework.scaledagile.com/contributors"
+          />
+        </section>
+        <section>
+          <h1>Por que o SAFe foi criado?</h1>
+
+          <ShowListContentComponent
+            title={"Na prática, as empresas perceberam que:"}
+            texts={[
+              "Times pequenos funcionavam bem com métodos ágeis;",
+
+              "Quando precisavam escalar para dezenas ou centenas de times, surgia o caos;",
+
+              "Projetos grandes atrasavam, a comunicação se perdia e os produtos não atendiam às necessidades do cliente;",
+            ]}
+          />
+
+          <p>O SAFe surgiu para organizar essa escalada.</p>
+          <ShowListContentComponent
+            title={"Ele mostra como:"}
+            texts={[
+              "Coordenar várias equipes trabalhando juntas.",
+
+              "Manter todos alinhados com o objetivo maior.",
+
+              "Planejar entregas em larga escala de forma eficiente.",
+            ]}
+          />
+        </section>
+        <section>
+          <h1>Quais são os principais benefícios do SAFe?</h1>
+          <div>
+            <ol>
+              <li>Melhor alinhamento entre equipes</li>
+              <p>
+                Todo mundo trabalha com o mesmo objetivo em mente, evitando
+                retrabalho.
+              </p>
+              <li>Mais velocidade nas entregas</li>
+              <p>
+                As empresas conseguem entregar versões melhores dos produtos de
+                forma mais frequente.
+              </p>
+              <li>Qualidade aprimorada</li>
+              <p>
+                Com práticas ágeis em larga escala, é possível testar, corrigir
+                e melhorar continuamente.
+              </p>
+              <li>Motivação e engajamento das equipes</li>
+              <p>
+                As equipes têm mais autonomia para tomar decisões e são
+                reconhecidas pelo seu trabalho.
+              </p>
+            </ol>
+          </div>
+        </section>
+        <section>
+          <h1>Quando usar o SAFe?</h1>
+          <p>Você deve considerar usar o SAFe quando:</p>
+          <ul>
+            <li>
+              Sua organização tem muitas equipes (mais de 50 pessoas)
+              trabalhando no mesmo produto.
+            </li>
+            <li>
+              Há necessidade de coordenação entre diferentes áreas: TI,
+              marketing, vendas, jurídico, etc.
+            </li>
+            <li>
+              Você precisa entregar soluções complexas que envolvem várias
+              tecnologias ou regiões.
+            </li>
+          </ul>
+        </section>
+        <section className="last-section">
+          <h1>Resumo</h1>
+          <p>
+            O SAFe é um framework que ajuda grandes empresas a aplicar métodos
+            ágeis de forma eficaz. Ele foi criado por Dean Leffingwell e é
+            utilizado para coordenar várias equipes, melhorar a comunicação e
+            aumentar a velocidade e qualidade das entregas.
+          </p>
+          <p>
+            O SAFe é especialmente útil em organizações grandes, onde a
+            colaboração entre equipes é essencial para o sucesso dos projetos.
+          </p>
+        </section>
       </div>
-      <div>
-        <h2>1.1 História do SAFe</h2>
+      <div className="gotoQuestions">
+        <h2 className="text-4">Pronto para o próximo passo?</h2>
         <p>
-          Toda grande ideia tem uma origem, certo? O SAFe nasceu oficialmente em
-          2011, criado por Dean Leffingwell e Drew Jemilo . A ideia surgiu
-          porque muitas empresas grandes queriam usar os benefícios do "jeito
-          ágil" de trabalhar (como flexibilidade e entregas rápidas, comuns no
-          Scrum ou Kanban), mas tinham dificuldade em fazer isso com muitas
-          equipes ao mesmo tempo .
+          Agora que você já conhece os conceitos básicos do SAFe, vamos
+          aprofundar um pouco mais. Clique no botão abaixo para continuar!
         </p>
-        <p>
-          Pense assim: construir uma casa pode ser feito por uma equipe pequena
-          e ágil . Mas construir um condomínio inteiro, com vários prédios,
-          exige muito mais coordenação, planejamento e comunicação entre as
-          diversas equipes de construção. O SAFe veio para resolver justamente
-          esse desafio: como aplicar a agilidade em larga escala?
-        </p>
-        <p> Para isso, o SAFe misturou boas ideias de várias fontes : </p>
-        <p>
-          <strong>Desenvolvimento Ágil:</strong> A base de tudo, com foco em
-          entregas curtas e adaptação. <br />
-          <strong>Lean Thinking (Pensamento Enxuto):</strong> Foco em eliminar
-          desperdícios e entregar valor rapidamente. <br />
-          <strong>Systems Thinking (Pensamento Sistêmico):</strong> Olhar para o
-          todo, não apenas para as partes isoladas.
-        </p>
-      </div>
-      <div>
-        <h2>1.2 Os Objetivos e as Ideias Centrais do SAFe </h2>
-        <p>
-          {" "}
-          SAFe tem um conjunto de objetivos claros e se baseia em algumas ideias
-          importantes que guiam como ele deve ser usado e que visam melhorar o
-          desempenho de grandes empresas.
-        </p>
-        <p>
-          O SAFe quer ajudar as empresas a serem realmente ágeis, para que
-          possam mudar rapidamente quando o mercado mudar e criar produtos e
-          serviços melhores. Ele também quer diminuir o tempo que leva para
-          lançar coisas novas, melhorar a qualidade do que é entregue e garantir
-          que todos na empresa entendam para onde estão indo e como seu trabalho
-          ajuda a chegar lá.
-        </p>
-        <p>
-          Em empresas grandes, com muitas equipes diferentes trabalhando juntas,
-          o SAFe busca alinhar todo mundo com a mesma visão e os mesmos
-          objetivos. Ele também quer melhorar a forma como essas equipes
-          trabalham juntas, facilitando a troca de informações e a resolução de
-          problemas, para que o cliente receba valor mais rápido. Além disso, o
-          SAFe ajuda a empresa a ter uma estratégia de negócios mais clara e a
-          ser mais flexível ao mesmo tempo. No final das contas, o SAFe quer que
-          todas as equipes trabalhem juntas como uma orquestra, usando os mesmos
-          processos e ferramentas.
-        </p>
+        <a href="/modules/beginner/SAFeIntroQuestions">
+          <CustomButton
+            backgroundColor="#3ac7a6"
+            borderColor="#1c1f2c"
+            borderTickness="2px"
+            textColor="#1c1f2c"
+            text="Questionário"
+            link="/modulos"
+          />
+        </a>
       </div>
     </div>
   );

@@ -13,6 +13,8 @@ import { QuestionForms } from "./components/forms/QuestionForms";
 import SAFeIntro from "./pages/modules/beginner/SAFeIntro";
 import ModulesNav from "./pages/routes/ModulesNav";
 import ModulesContent from "./pages/routes/ModulesContent";
+import Questionnaires from "./pages/routes/Questionnaires";
+import SAFeIntroQuest from "./pages/questionnaries/beginner/SAFeIntroQuest";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +42,16 @@ const router = createBrowserRouter([
           {
             path: "/modulos/conteudo/iniciante/1",
             element: <SAFeIntro />,
+          },
+        ],
+      },
+      {
+        path: "/modulos/avaliacao",
+        element: <Questionnaires />,
+        children: [
+          {
+            path: "/modulos/avaliacao/basico/1",
+            element: <SAFeIntroQuest />,
           },
         ],
       },

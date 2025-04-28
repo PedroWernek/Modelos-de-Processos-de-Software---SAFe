@@ -7,7 +7,8 @@ interface LessonGoalsProps {
   textColor?: string;
 }
 
-const useStyles = createStyles((
+const useStyles = createStyles(
+  (
     _,
     {
       backgroundColor,
@@ -19,8 +20,7 @@ const useStyles = createStyles((
   ) => ({
     container: {
       backgroundColor: backgroundColor || "#1a1a1a",
-      padding: "2rem",
-      marginTop: "3rem", // NO TESTE, SO P NAO COLAR ALI COM O DE CIMA
+      padding: "6rem",
       borderRadius: "12px",
       color: textColor || "#ffffff",
       display: "flex",
@@ -32,20 +32,24 @@ const useStyles = createStyles((
       fontSize: "2.5rem",
       fontWeight: "thin", // acho que n ta funcionando?
       margin: 0,
+      textAlign: "center",
     },
     line: {
-        width: "20%",
-        height: "2px",
-        backgroundColor: textColor || "#ffffff",
-        border: "none",
-      },
+      width: "15%",
+      height: "2px",
+      backgroundColor: textColor || "#ffffff",
+      border: "none",
+      paddingBottom: "0.3rem",
+      marginBottom: "3rem",
+    },
     lessonGoals: {
       fontSize: "1.25rem", // DEPOIS CONVERSAR SOBRE! OS TAMANHOS DE FONTE!
       margin: 0,
       lineHeight: 1.5,
-      listStyleType: "disc", 
-      paddingLeft: "1.5rem", 
-      alignSelf: "flex-start", 
+      listStyleType: "disc",
+      paddingLeft: "15dvw",
+      alignSelf: "flex-start",
+      paddingBottom: "5rem",
     },
   }),
 );
@@ -59,7 +63,7 @@ const LessonGoals: React.FC<LessonGoalsProps> = ({
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Objetivos da Unidade :3</h1>
+      <h1 className={styles.title}>Objetivos da Unidade</h1>
       <hr className={styles.line} />
       <ul className={styles.lessonGoals}>
         {goals.map((goal, index) => (

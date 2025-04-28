@@ -1,5 +1,5 @@
 import React from "react";
-import "../../css/Modules.css";
+import "../../css/ModulesNav.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
 import ImageButtom from "../../components/buttons/ImageButtom";
