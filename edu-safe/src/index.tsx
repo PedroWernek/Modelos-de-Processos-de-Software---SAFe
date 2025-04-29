@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage";
-import LessonSample from "./pages/lessons/LessonSample";
 import Home from "./pages/routes/Home";
 
 import "./css/index.css";
@@ -52,10 +51,6 @@ const router = createBrowserRouter([
             element: <SAFeIntroQuest />,
           },
         ],
-      },
-      {
-        path: "/teste-ana",
-        element: <LessonSample />,
       },
     ],
   },
