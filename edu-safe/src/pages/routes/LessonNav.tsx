@@ -7,7 +7,7 @@ import ImageButtom from "../../components/buttons/ImageButtom";
 import img1 from "../../assets/img1home.webp";
 import ImageCarrousel from "../../components/carousels/Carrousel";
 
-const LinksIniciante = [
+const BeginnerLinks = [
   () => (
     <ImageButtom
       imgScr={img1}
@@ -34,10 +34,10 @@ const LinksIniciante = [
   ),
 ];
 
-const Modules = () => {
+const Lesson = () => {
   return (
-    <div className="modules-container">
-      <div className="modules-header">
+    <div className="lesson-container">
+      <div className="lesson-header">
         <h1 className="text-2 title">Módulos</h1>
         <p className="text-2 subtitle">Comece aqui sua nova etapa</p>
         <FontAwesomeIcon
@@ -46,22 +46,22 @@ const Modules = () => {
           style={{ color: "#c8fff4", paddingTop: "3rem" }}
         />
       </div>
-      <div className="modules-content">
-        <div className="modules-content__iniciante">
+      <div className="lesson-content">
+        <div className="lesson-content__iniciante">
           <h1 className="text-4">Iniciante</h1>
-          <ImageCarrousel Componentes={LinksIniciante} />
+          <ImageCarrousel Componentes={BeginnerLinks} />
         </div>
-        <div className="modules-content__intermediario">
+        <div className="lesson-content__intermediario">
           <h1 className="text-4">Intermediário</h1>
-          <ImageCarrousel Componentes={LinksIniciante} />
+          <ImageCarrousel Componentes={BeginnerLinks} />
         </div>
-        <div className="modules-content__avancado">
+        <div className="lesson-content__avancado">
           <h1 className="text-4">Avançado</h1>
-          <ImageCarrousel Componentes={LinksIniciante} />
+          <ImageCarrousel Componentes={BeginnerLinks} />
         </div>
       </div>
     </div>
   );
 };
 
-export default Modules;
+export default Lesson;

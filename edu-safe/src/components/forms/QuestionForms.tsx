@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 
-interface QuestionFormsProps {
+interface QuestionFormProps {
   questionNumber?: number;
   difficulty?: "Fácil" | "Médio" | "Difícil";
   questionText: string;
@@ -9,14 +9,14 @@ interface QuestionFormsProps {
   onSubmit?: (data: { selectedOption: string; isCorrect: boolean }) => void;
 }
 
-export function QuestionForms({
+export function QuestionForm({
   questionNumber,
   difficulty,
   questionText,
   options,
   correctAnswer,
   onSubmit,
-}: QuestionFormsProps) {
+}: QuestionFormProps) {
   const { register, handleSubmit } = useForm<{ selectedOption: string }>();
   const handleFormSubmit = (data: { selectedOption: string }) => {
     const isCorrect = data.selectedOption === correctAnswer;

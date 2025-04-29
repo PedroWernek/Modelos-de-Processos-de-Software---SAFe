@@ -1,5 +1,5 @@
 import React from "react";
-import { QuestionForms } from "../../../components/forms/QuestionForms";
+import { QuestionForm } from "../../../components/forms/QuestionForms";
 
 const SAFeIntroQuest = () => {
   return (
@@ -7,46 +7,46 @@ const SAFeIntroQuest = () => {
       <h1>Questionário de Introdução ao SAFe</h1>
       <p>Este questionário é para avaliar seu conhecimento sobre o SAFe.</p>
       <div>
-        <QuestionForms
+        <QuestionForm
           questionText=""
           options={[]}
-          correctAnswer=""></QuestionForms>
-        <QuestionForms
+          correctAnswer=""></QuestionForm>
+        <QuestionForm
           questionText=""
           options={[]}
-          correctAnswer=""></QuestionForms>
-        <QuestionForms
+          correctAnswer=""></QuestionForm>
+        <QuestionForm
           questionText=""
           options={[]}
-          correctAnswer=""></QuestionForms>
-        <QuestionForms
+          correctAnswer=""></QuestionForm>
+        <QuestionForm
           questionText=""
           options={[]}
-          correctAnswer=""></QuestionForms>
-        <QuestionForms
+          correctAnswer=""></QuestionForm>
+        <QuestionForm
           questionText=""
           options={[]}
-          correctAnswer=""></QuestionForms>
-        <QuestionForms
+          correctAnswer=""></QuestionForm>
+        <QuestionForm
           questionText=""
           options={[]}
-          correctAnswer=""></QuestionForms>
-        <QuestionForms
+          correctAnswer=""></QuestionForm>
+        <QuestionForm
           questionText=""
           options={[]}
-          correctAnswer=""></QuestionForms>
-        <QuestionForms
+          correctAnswer=""></QuestionForm>
+        <QuestionForm
           questionText=""
           options={[]}
-          correctAnswer=""></QuestionForms>
-        <QuestionForms
+          correctAnswer=""></QuestionForm>
+        <QuestionForm
           questionText=""
           options={[]}
-          correctAnswer=""></QuestionForms>
-        <QuestionForms
+          correctAnswer=""></QuestionForm>
+        <QuestionForm
           questionText=""
           options={[]}
-          correctAnswer=""></QuestionForms>
+          correctAnswer=""></QuestionForm>
       </div>
     </div>
   );

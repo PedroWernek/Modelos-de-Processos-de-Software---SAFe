@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 
 import "../../css/ModulesContent.css";
 
-const ModulesContent = () => {
+const LessonContent = () => {
   return (
     <div className="modules-content__container">
       <Outlet />
@@ -11,4 +11,4 @@ const ModulesContent = () => {
   );
 };
 
-export default ModulesContent;
+export default LessonContent;

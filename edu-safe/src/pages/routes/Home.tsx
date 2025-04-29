@@ -1,7 +1,7 @@
 import "../../css/Home.css";
 import img1home from "../../assets/img1home.webp";
 import CustomButton from "../../components/buttons/CustomButton";
-import { QuestionForms } from "../../components/forms/QuestionForms";
+import { QuestionForm } from "../../components/forms/QuestionForms";
 
 const Home = () => {
   const handleSubmit = (data: { selectedOption: string }) => {

@@ -8,9 +8,9 @@ import Home from "./pages/routes/Home";
 
 import "./css/index.css";
 import SafeGuide from "./pages/routes/SAFeGuide";
-import SAFeIntro from "./pages/modules/beginner/SAFeIntro";
-import ModulesNav from "./pages/routes/ModulesNav";
-import ModulesContent from "./pages/routes/ModulesContent";
+import SAFeIntro from "./pages/lessons/beginner/SAFeIntro";
+import ModulesNav from "./pages/routes/LessonNav";
+import LessonContent from "./pages/routes/LessonContent";
 import Questionnaires from "./pages/routes/Questionnaires";
 import SAFeIntroQuest from "./pages/questionnaries/beginner/SAFeIntroQuest";
 
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/modulos/conteudo",
-        element: <ModulesContent />,
+        element: <LessonContent />,
         children: [
           {
             path: "/modulos/conteudo/iniciante/1",

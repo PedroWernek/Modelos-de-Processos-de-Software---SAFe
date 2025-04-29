@@ -30,7 +30,7 @@ const SAFeIntro = () => {
         backgroundColor="#0c1329"
         textColor="white"
       />
-      <div className="modules-content__content">
+      <div className="lesson-content__content">
         <section>
           <h1>O que é o SAFe?</h1>
 
@@ -169,7 +169,7 @@ const SAFeIntro = () => {
           Agora que você já conhece os conceitos básicos do SAFe, vamos
           aprofundar um pouco mais. Clique no botão abaixo para continuar!
         </p>
-        <a href="/modules/beginner/SAFeIntroQuestions">
+        <a href="/lessons/beginner/SAFeIntroQuestions">
           <CustomButton
             backgroundColor="#3ac7a6"
             borderColor="#1c1f2c"
