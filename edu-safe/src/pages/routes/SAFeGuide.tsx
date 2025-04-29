@@ -5,48 +5,22 @@ import SAFeFundamentalPrincipes from "../SAFeGuide content/SAFeFundamentalPrinci
 import SAFeCentralValues from "../SAFeGuide content/SAFeCentralValues";
 import SAFeBenefits from "../SAFeGuide content/SAFeBenefits";
 import CustomButton from "../../components/buttons/CustomButton";
+import Carrousel from "../../components/carousels/Carrousel";
+
+const basicSAFe = [
+  () => <WhatIsSAFe />,
+  () => <SAFeStructure />,
+  () => <SAFeFundamentalPrincipes />,
+  () => <SAFeCentralValues />,
+  () => <SAFeBenefits />,
+];
 
 const SafeGuide = () => {
   return (
     <div className="safe-guide">
-      <nav className="safe-guide__container__sidebar">
-        <ul className="safe-guide__container__sidebar__list">
-          <li>
-            <a href="#o-que-e-safe">O que é SAFe</a>
-          </li>
-          <li>
-            <a href="#estrutura-do-safe">Estrutura do SAFe</a>
-          </li>
-          <li>
-            <a href="#principios-fundamentais">Princípios Fundamentais</a>
-          </li>
-          <li>
-            <a href="#valores-centrais">Valores Centrais</a>
-          </li>
-          <li>
-            <a href="#beneficios">Benefícios do SAFe</a>
-          </li>
-        </ul>
-      </nav>
-
       <div className="safe-guide__container__content">
-        <div id="o-que-e-safe">
-          <WhatIsSAFe />
-        </div>
-        <div id="estrutura-do-safe">
-          <SAFeStructure />
-        </div>
-        <div id="principios-fundamentais">
-          <SAFeFundamentalPrincipes />
-        </div>
-        <div id="valores-centrais">
-          <SAFeCentralValues />
-        </div>
-        <div id="beneficios">
-          <SAFeBenefits />
-        </div>
-
-        <div className="gotoModules">
+        <Carrousel Componentes={basicSAFe} />
+        <div className="goToModules">
           <p>
             Gostou do nosso conteúdo e deseja uma explicação mais detalhada da
             metodologia SAFe? <br />

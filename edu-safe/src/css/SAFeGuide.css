@@ -1,83 +1,54 @@
 .safe-guide {
   display: grid;
-  grid-template-columns: 1fr 6fr;
-  grid-template-areas:
-    "safe-guide__container__sidebar safe-guide__container__content";
+  text-align: justify;
   height: 100%;
+}
 
-  .safe-guide__container__sidebar {
-    grid-area: safe-guide__container__sidebar;
-    background-color: #17325a;
-    height: 100%;
+.safe-guide__container__content {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 3vw;
 
-    .safe-guide__container__sidebar__list {
-      position: sticky;
-      top: 0;
-      padding: 2rem 1rem;
-
-      a {
-        text-decoration: none;
-        color: #fff;
-        width: 100%;
-        display: inline-block;
-      }
-
-      li {
-        list-style: none;
-        padding: 1em;
-        font-size: 1.2rem;
-        font-weight: 600;
-      }
-    }
+  h2 {
+    font-size: 3rem;
+    padding: 2vw 0;
   }
 
-  .safe-guide__container__content {
-    grid-area: safe-guide__container__content;
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: 400;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 3vw;
+  p {
+    font-size: 1.5rem;
+    padding: 1vw 4vw;
+    margin: 10px 0;
+    line-height: 1.5;
+  }
 
-    h2 {
-      font-size: 3rem;
-      padding: 2vw 0;
-    }
+  ul,
+  ol {
+    padding: 1vw 1vw 1vw 5vw;
 
-    p {
-      font-size: 1.5rem;
-      padding: 1vw 4vw;
+    li {
+      padding: 0.5vw;
       margin: 10px 0;
       line-height: 1.5;
     }
-
-    ul,
-    ol {
-      padding: 1vw 1vw 1vw 5vw;
-
-      li {
-        padding: 0.5vw;
-        margin: 10px 0;
-        line-height: 1.5;
-      }
-    }
   }
+}
 
-  .gotoModules {
-    margin-top: 3vw;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.goToModules {
+  margin-top: 3vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    p {
-      margin-bottom: 2rem;
-      font-size: 1.5rem;
-      padding: 0 10vw;
-      line-height: 1.5;
-    }
+  p {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    padding: 0 10vw;
+    line-height: 1.5;
   }
 }

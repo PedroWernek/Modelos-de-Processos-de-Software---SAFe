@@ -4,16 +4,15 @@ const SAFeStructure = () => {
   return (
     <section>
       <h2>2. Estrutura do SAFe</h2>
-      <p>
-        O SAFe organiza as atividades ágeis em diferentes níveis hierárquicos:
-      </p>
+      <p>O SAFe organiza as atividades ágeis em diferentes níveis:</p>
       <ul>
         <li>
-          <strong>Nível de Equipe:</strong> Foca nas equipes ágeis individuais.
+          <strong>Nível de Equipe:</strong> Ideal para equipes ágeis
+          individuais.
         </li>
         <li>
-          <strong>Nível de Programa (Agile Release Train - ART):</strong>{" "}
-          Coordena múltiplas equipes para entregar valor conjunto.
+          <strong>Nível de Programa:</strong> Feito para múltiplas equipes que
+          entregam valor conjunto.
         </li>
         <li>
           <strong>Nível de Portfólio:</strong> Alinha a execução com a

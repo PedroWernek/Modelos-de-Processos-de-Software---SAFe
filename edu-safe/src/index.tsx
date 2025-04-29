@@ -8,8 +8,6 @@ import Home from "./pages/routes/Home";
 
 import "./css/index.css";
 import SafeGuide from "./pages/routes/SAFeGuide";
-import Modules from "./pages/routes/ModulesNav";
-import { QuestionForms } from "./components/forms/QuestionForms";
 import SAFeIntro from "./pages/modules/beginner/SAFeIntro";
 import ModulesNav from "./pages/routes/ModulesNav";
 import ModulesContent from "./pages/routes/ModulesContent";

@@ -175,8 +175,8 @@ const SAFeIntro = () => {
             borderColor="#1c1f2c"
             borderTickness="2px"
             textColor="#1c1f2c"
-            text="Questionário"
-            link="/modulos"
+            text="Quiz"
+            link="/modulos/avaliacao/basico/1"
           />
         </a>
       </div>
