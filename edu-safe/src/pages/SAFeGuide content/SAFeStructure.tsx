@@ -1,9 +1,7 @@
-import React from "react";
-
 const SAFeStructure = () => {
   return (
     <section>
-      <h2>2. Estrutura do SAFe</h2>
+      <h2>2. Estrutura</h2>
       <p>O SAFe organiza as atividades ágeis em diferentes níveis:</p>
       <ul>
         <li>
@@ -15,18 +13,13 @@ const SAFeStructure = () => {
           entregam valor conjunto.
         </li>
         <li>
-          <strong>Nível de Portfólio:</strong> Alinha a execução com a
+          <strong>Nível de Portfólio:</strong> Utilizado para alinhar a execução com a
           estratégia empresarial.
         </li>
         <li>
-          <strong>Nível de Solução Grande:</strong> Gerencia soluções complexas
-          que requerem múltiplos ARTs.
+          <strong>Nível de Solução Grande:</strong> Criado para gerenciar soluções ainda mais complexas.
         </li>
       </ul>
-      <p>
-        Cada nível possui papéis e responsabilidades específicos, como Product
-        Owner, Scrum Master, Release Train Engineer (RTE) e System Architect.
-      </p>
     </section>
   );
 };

@@ -6,7 +6,7 @@
 
 .safe-guide__container__content {
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 400;
   display: flex;
   flex-direction: column;
@@ -19,10 +19,8 @@
   }
 
   p {
-    font-size: 1.5rem;
     padding: 1vw 4vw;
     margin: 10px 0;
-    line-height: 1.5;
   }
 
   ul,
@@ -32,7 +30,6 @@
     li {
       padding: 0.5vw;
       margin: 10px 0;
-      line-height: 1.5;
     }
   }
 }

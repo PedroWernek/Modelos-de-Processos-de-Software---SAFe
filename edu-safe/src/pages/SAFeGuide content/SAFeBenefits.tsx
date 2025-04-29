@@ -4,7 +4,6 @@ const SAFeBenefits = () => {
   return (
     <section>
       <h2>6. Benefícios do SAFe</h2>
-      <p>A adoção do SAFe pode trazer diversos benefícios, como:</p>
       <ul>
         <li>
           <strong>Aumento da produtividade:</strong> 20% a 50%.
