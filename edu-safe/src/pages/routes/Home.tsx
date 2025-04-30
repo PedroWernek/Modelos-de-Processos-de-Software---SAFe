@@ -1,10 +1,11 @@
 import "../../css/Home.css";
 import img1home from "../../assets/img1home.webp";
 import CustomButton from "../../components/buttons/CustomButton";
-import { QuestionForms } from "../../components/forms/QuestionForms";
+import { QuestionForm } from "../../components/forms/QuestionForms";
+import InfoCard from "../../components/lessons/InfoCard";
+import iconDELETAR from "../../assets/iconDELETAR.png";
 
 const Home = () => {
-
   const handleSubmit = (data: { selectedOption: string }) => {
     console.log("Resposta:", data.selectedOption);
   };
@@ -13,7 +14,7 @@ const Home = () => {
     <div className="home">
       <div className="home-container">
         <div className="home-text">
-          <h1>TORNE-SE EXTRAORDINARIO EM SUA EQUIPE</h1>
+          <h1>TORNE-SE EXTRAORDINÁRIO EM SUA EQUIPE</h1>
           <p className="home-text1">
             Seja mais produtivo e eficiente utilizando a SAFe
           </p>
@@ -56,20 +57,6 @@ const Home = () => {
             Utilize seu conhecimento para resolver puzzles e desafios baseados
             em aplicações reais no mercado de trabalho.
           </p>
-          <div style={{backgroundColor: "#999"}}>
-            <QuestionForms 
-            questionNumber={1}
-            difficulty="Médio"
-            questionText="Tá funcionando?"
-            options={["Sim", "Não", "Talvez", "Mais ou menos", "Cadê",]}
-            correctAnswer="Sim"
-            onSubmit={(result) => {
-              console.log(`Resposta selecionada: ${result.selectedOption}`);
-              console.log(`Resposta ${result.isCorrect ? 'correta' : 'incorreta'}`);
-            }}
-            />
-          </div>
-          
         </div>
       </div>
       <span className="trapezio"></span>

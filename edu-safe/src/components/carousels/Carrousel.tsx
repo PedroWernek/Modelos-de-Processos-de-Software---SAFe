@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 interface ModuleCarouselProps {
   Componentes: React.ComponentType[];
+  hasAula?: boolean | false;
 }
 
 const useStyle = createStyles((css) => ({
@@ -16,7 +17,7 @@ const useStyle = createStyles((css) => ({
     overflow: "hidden",
     backgroundColor: "#0d183a",
     boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-    padding: "2rem",
+    padding: "1rem",
     [css.token.screenXS]: {
       padding: "1rem",
     },
@@ -88,7 +89,7 @@ const useStyle = createStyles((css) => ({
   },
 }));
 
-const ModuleCarrousel: React.FC<ModuleCarouselProps> = ({ Componentes }) => {
+const Carrousel: React.FC<ModuleCarouselProps> = ({ Componentes, hasAula }) => {
   const { styles } = useStyle();
   const [index, setIndex] = useState(0);
 
@@ -115,17 +116,19 @@ const ModuleCarrousel: React.FC<ModuleCarouselProps> = ({ Componentes }) => {
               }}>
               <Componente />
             </div>
-            <p
-              style={{
-                color: "#a773ff",
-                paddingTop: "1rem",
-                fontSize: "2.5rem",
-                fontWeight: "bold",
-                textAlign: "center",
-                transform: "translateX(0)",
-              }}>
-              Aula {i + 1}
-            </p>
+            {hasAula && (
+              <p
+                style={{
+                  color: "#a773ff",
+                  paddingTop: "1rem",
+                  fontSize: "2.5rem",
+                  fontWeight: "bold",
+                  textAlign: "center",
+                  transform: "translateX(0)",
+                }}>
+                Aula {i + 1}
+              </p>
+            )}
           </div>
         ))}
       </div>
@@ -154,4 +157,4 @@ const ModuleCarrousel: React.FC<ModuleCarouselProps> = ({ Componentes }) => {
   );
 };
 
-export default ModuleCarrousel;
+export default Carrousel;

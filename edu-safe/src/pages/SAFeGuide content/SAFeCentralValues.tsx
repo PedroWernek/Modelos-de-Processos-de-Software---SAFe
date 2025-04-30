@@ -4,7 +4,6 @@ const SAFeCentralValues = () => {
   return (
     <section>
       <h2>4. Valores Centrais</h2>
-      <p>O SAFe enfatiza quatro valores essenciais:</p>
       <ul>
         <li>
           <strong>Alinhamento:</strong> Garantir que todos estejam na mesma

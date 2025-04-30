@@ -1,7 +1,6 @@
 import React from "react";
 import { createStyles } from "antd-style";
 import fundoModulos from "../../assets/fundoMoulos.png";
-import musico from "../../assets/musico.jpg";
 
 interface LessonHeaderProps {
   unit: string;
@@ -53,7 +52,7 @@ const useStyles = createStyles(
       fontWeight: 500,
     },
     title: {
-      fontSize: "3em",
+      fontSize: "2.5em",
       fontWeight: "bold",
       margin: 0,
     },

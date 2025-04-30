@@ -25,7 +25,7 @@ const ImageComponent: React.FC<ImageComponentProps> = ({
         alt={alt}
         style={{ width: width || "100%", height: "auto" }}
       />
-      <p style={{ fontSize: "0.7em", alignSelf: "flex-start" }}>
+      <p style={{ fontSize: "0.7em" }}>
         <strong>fonte:</strong>
         {font}
       </p>
