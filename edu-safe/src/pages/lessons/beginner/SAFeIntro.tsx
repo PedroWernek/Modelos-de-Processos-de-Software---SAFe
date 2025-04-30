@@ -177,6 +177,8 @@ const SAFeIntro = () => {
             textColor="#1c1f2c"
             text="Quiz"
             link="/modulos/avaliacao/basico/1"
+            width="2dvw"
+            height="10dvh"
           />
         </a>
       </div>

@@ -11,6 +11,8 @@ interface RainbowButtonProps {
   borderColor?: string;
   borderTickness?: string;
   link: string;
+  width?: string;
+  height?: string;
 }
 
 const useStyle = createStyles(
@@ -22,6 +24,8 @@ const useStyle = createStyles(
       hasRambow,
       borderColor,
       borderTickness,
+      width,
+      height,
     }: RainbowButtonProps,
   ) => ({
     RainBowButton: {
@@ -30,7 +34,7 @@ const useStyle = createStyles(
       color: textColor,
       border: "none",
       borderRadius: "12px",
-      padding: "1.5dvw 2.5dvh",
+      padding: `${width || "1.5dvw"} ${height || "2.5dvh"}`,
       margin: "2.5dvh",
       cursor: "pointer",
       transition: "all 0.3s",
@@ -72,6 +76,10 @@ const useStyle = createStyles(
         : {
             border: `${borderTickness} solid ${borderColor || "transparent"}`,
             backgroundColor: backgroundColor,
+
+            "&:hover": {
+              opacity: 0.7,
+            },
           }),
     },
   }),
@@ -85,6 +93,8 @@ const CustomButton: React.FC<RainbowButtonProps> = ({
   borderColor,
   borderTickness,
   link,
+  width,
+  height,
 }) => {
   const { styles } = useStyle({
     backgroundColor,
@@ -93,6 +103,8 @@ const CustomButton: React.FC<RainbowButtonProps> = ({
     borderColor,
     borderTickness,
     link: "",
+    width,
+    height,
   });
 
   return (
