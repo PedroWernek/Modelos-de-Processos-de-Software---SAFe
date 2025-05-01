@@ -1,33 +1,30 @@
-.modules-container {
+.lesson-container {
   display: flex;
   flex-direction: column;
   gap: 20px;
   margin-top: 10vh;
 }
 
-.modules-header {
+.lesson-header {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 20px;
-  margin-top: 10vh;
 
   & .title {
     font-size: 4.5dvh;
   }
 
   & .subtitle {
-    padding-top: 3rem;
     font-size: 3.5dvh;
   }
 }
 
-.modules-content {
+.lesson-content {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-top: 20vh;
 }
 
 .text-4 {

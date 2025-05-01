@@ -42,13 +42,6 @@ export const SAFeIntroQuestions = [
       "Quando muitas equipes precisam colaborar em um grande projeto.",
   },
   {
-    pergunta:
-      "Empresas como Fitbit, Airbus e PepsiCo já usaram o SAFe para melhorar seus processos.",
-    tipo: "verdadeiro_falso",
-    opcoes: ["Verdadeiro", "Falso"],
-    resposta_correta: "Verdadeiro",
-  },
-  {
     pergunta: "Quem é o criador do SAFe?",
     tipo: "multipla_escolha",
     opcoes: [

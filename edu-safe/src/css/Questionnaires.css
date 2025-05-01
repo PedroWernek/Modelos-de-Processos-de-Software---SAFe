@@ -5,7 +5,7 @@
   gap: 1rem;
   margin: 0 auto;
   max-width: 600px;
-  height: 60dvh;
+
 }
 
 .question-header {
@@ -55,12 +55,7 @@ input:enabled {
   background-color: #1a1f3c;
 }
 
-li::marker {
-  color: #a773ff;
-  font-size: 3rem;
-  font-weight: bold;
 
-}
 
 .submission-button {
   background-color: #8dc2b7;
@@ -70,10 +65,20 @@ li::marker {
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
+
   transition: background-color 0.3s ease;
 
   &:hover {
     background-color: #bcf8ec;
     color: #0c1329;
+  }
+}
+
+.question-list {
+  li::marker {
+    color: #a773ff;
+    font-size: 3rem;
+    font-weight: bold;
+
   }
 }
