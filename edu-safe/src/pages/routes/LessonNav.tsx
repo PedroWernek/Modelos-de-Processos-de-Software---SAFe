@@ -21,7 +21,7 @@ const BeginnerLinks = [
       imgScr={img1}
       alt="Imagem 2"
       link="/modulos/iniciante/2"
-      imgSize="40"
+      imgSize="20"
     />
   ),
   () => (
@@ -29,7 +29,7 @@ const BeginnerLinks = [
       imgScr={img1}
       alt="Imagem 3"
       link="/modulos/iniciante/3"
-      imgSize="40"
+      imgSize="20"
     />
   ),
 ];

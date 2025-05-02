@@ -6,7 +6,7 @@ const WhatIsSAFe = () => {
       <h2>1. O que é SAFe?</h2>
       <p>
         O Scaled Agile Framework (SAFe) é uma estrutura que permite aplicar{" "}
-        <strong>práticas ágeis em larga escala</strong>, integrando equipes,
+        <strong>práticas ágeis em larga escala</strong>, pintegrando equipes,
         programas e portfólios dentro de uma organização — promovendo a{" "}
         <strong>agilidade empresarial.</strong>
       </p>

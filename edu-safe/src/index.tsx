@@ -12,6 +12,7 @@ import ModulesNav from "./pages/routes/LessonNav";
 import LessonContent from "./pages/routes/LessonContent";
 import Questionnaires from "./pages/routes/Questionnaires";
 import SAFeIntroQuest from "./pages/questionnaries/beginner/SAFeIntroQuest";
+import { AuthPage } from "./pages/AuthPage";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
             element: <SAFeIntroQuest />,
           },
         ],
+      },
+      {
+        path: "/autenticar", // rever nome
+        element: <AuthPage />,
       },
     ],
   },

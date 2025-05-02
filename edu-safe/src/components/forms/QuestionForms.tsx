@@ -20,12 +20,11 @@ export function QuestionForm({
   const { register, handleSubmit } = useForm<{ selectedOption: string }>();
   const handleFormSubmit = (data: { selectedOption: string }) => {
     const isCorrect = data.selectedOption === correctAnswer;
-    {
-      onSubmit &&
-        onSubmit({
-          selectedOption: data.selectedOption,
-          isCorrect: isCorrect,
-        });
+    if (onSubmit) {
+      onSubmit({
+        selectedOption: data.selectedOption,
+        isCorrect: isCorrect,
+      });
     }
   };
 
@@ -57,7 +56,7 @@ export function QuestionForm({
           </div>
         ))}
       </div>
-      <button type="submit" className="submition-button">
+      <button type="submit" className="submission-button">
         Enviar
       </button>
     </form>

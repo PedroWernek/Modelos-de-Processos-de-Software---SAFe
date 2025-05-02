@@ -1,15 +1,8 @@
 import "../../css/Home.css";
 import img1home from "../../assets/img1home.webp";
 import CustomButton from "../../components/buttons/CustomButton";
-import { QuestionForm } from "../../components/forms/QuestionForms";
-import InfoCard from "../../components/lessons/InfoCard";
-import iconDELETAR from "../../assets/iconDELETAR.png";
 
 const Home = () => {
-  const handleSubmit = (data: { selectedOption: string }) => {
-    console.log("Resposta:", data.selectedOption);
-  };
-
   return (
     <div className="home">
       <div className="home-container">

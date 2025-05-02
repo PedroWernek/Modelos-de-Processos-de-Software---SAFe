@@ -169,16 +169,16 @@ const SAFeIntro = () => {
           Agora que você já conhece os conceitos básicos do SAFe, vamos
           aprofundar um pouco mais. Clique no botão abaixo para continuar!
         </p>
-        <a href="/lessons/beginner/SAFeIntroQuestions">
-          <CustomButton
-            backgroundColor="#3ac7a6"
-            borderColor="#1c1f2c"
-            borderTickness="2px"
-            textColor="#1c1f2c"
-            text="Quiz"
-            link="/modulos/avaliacao/basico/1"
-          />
-        </a>
+        <CustomButton
+          backgroundColor="#3ac7a6"
+          borderColor="#1c1f2c"
+          borderTickness="2px"
+          textColor="#1c1f2c"
+          text="Quiz"
+          link="/modulos/avaliacao/basico/1"
+          width="2dvw"
+          height="10dvh"
+        />
       </div>
     </div>
   );

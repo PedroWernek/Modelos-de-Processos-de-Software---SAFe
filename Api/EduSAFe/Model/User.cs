@@ -2,14 +2,11 @@ using System.ComponentModel.DataAnnotations;
 using EduSAFe.Interfaces;
 
 namespace EduSAFe.Model;
-
-// sim, implementa a ientity, mas por quê?
 public class User : IEntity
 {
     [Key]
     public int Id { get; set; }
 
-    // misturando inglês e ptbr, não é melhor a gente definir um idioma só para seguir?
     [Required]
     [StringLength(100, ErrorMessage = "Name cannot exceed 100 characters.")]
     [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Name can only contain letters and spaces.")]

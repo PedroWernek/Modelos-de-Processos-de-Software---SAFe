@@ -1,10 +1,10 @@
-import { Row } from "antd";
 import { createStyles } from "antd-style";
 import React, { useState } from "react";
 
 interface ModuleCarouselProps {
   Componentes: React.ComponentType[];
   hasAula?: boolean | false;
+  hasBorder?: boolean | false;
 }
 
 const useStyle = createStyles((css) => ({
@@ -89,7 +89,11 @@ const useStyle = createStyles((css) => ({
   },
 }));
 
-const Carrousel: React.FC<ModuleCarouselProps> = ({ Componentes, hasAula }) => {
+const Carrousel: React.FC<ModuleCarouselProps> = ({
+  Componentes,
+  hasAula,
+  hasBorder,
+}) => {
   const { styles } = useStyle();
   const [index, setIndex] = useState(0);
 
@@ -108,14 +112,20 @@ const Carrousel: React.FC<ModuleCarouselProps> = ({ Componentes, hasAula }) => {
         style={{ transform: `translateX(-${index * 100}%)` }}>
         {Componentes.map((Componente, i) => (
           <div key={i} className={styles.CarrouselItem}>
-            <div
-              style={{
-                border: "3px solid #00eeff", // <- só aqui está a borda
-                borderRadius: "10px",
-                boxShadow: "0 4px 10px rgba(0,0,0,1)",
-              }}>
-              <Componente />
-            </div>
+            {hasBorder ? (
+              <div
+                style={{
+                  border: "3px solid #00eeff", // <- só aqui está a borda
+                  borderRadius: "10px",
+                  boxShadow: "0 4px 10px rgba(0,0,0,1)",
+                }}>
+                <Componente />
+              </div>
+            ) : (
+              <div>
+                <Componente />
+              </div>
+            )}
             {hasAula && (
               <p
                 style={{
