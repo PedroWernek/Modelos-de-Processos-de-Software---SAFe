@@ -1,10 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using EduSAFe.Enums;
-using EduSAFe.Interfaces;
 
-namespace EduSAFe.Model;
+namespace EduSAFe.Models;
 
-public class Question : IEntity
+public class Question
 {
     [Key]
     public int Id { get; set; }
