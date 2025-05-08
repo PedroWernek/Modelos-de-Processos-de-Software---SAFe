@@ -25,7 +25,7 @@ Ela ensina a SAFe por meio de módulos divididos em níveis (fácil, médio, dif
 - **Framework:** ASP.NET Core
 - **ORM:** Entity Framework Core
 - **Banco de Dados:** MySQL
-- **Front-end:** JavaScript
+- **Front-end:** React, JavaScript
 - **Versionamento:** Git + GitHub
 
 ---
@@ -42,15 +42,31 @@ Ela ensina a SAFe por meio de módulos divididos em níveis (fácil, médio, dif
 
 ### Passos
 
-```bash
+```
 # 1. Clone o repositório
-git clone https://github.com/PedroWernek/dev-web-sistema-penal
+git clone https://github.com/PedroWernek/Modelos-de-Processos-de-Software---SAFe
 
 # 2. Acesse a pasta do projeto
-cd nome-da-pasta
+cd Api\EduSAFe
 
 # 3. Restaure os pacotes
 dotnet restore
 
 # 4. Execute a aplicação
 dotnet run
+```
+```
+# 5. Crie uma nova janela
+Ctrl + Shift + N
+
+# 6. Abra o projeto novamente
+
+# 7. Acesse a pasta do front do projeto
+cd edu-safe
+
+# 8. Instale as dependências do front-end
+npm i
+
+# 9. Execute a aplicação
+npm start
+```
