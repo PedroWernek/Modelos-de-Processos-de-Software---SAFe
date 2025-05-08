@@ -38,7 +38,6 @@ Ela ensina a SAFe por meio de módulos divididos em níveis (fácil, médio, dif
 - MySQL instalado
 - Git instalado
 - Node.js instalado
-- [... EM CONSTRUÇÃO]
 
 ### Passos
 
