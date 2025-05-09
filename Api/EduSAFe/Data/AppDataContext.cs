@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using EduSAFe.Enums;
-using EduSAFe.Model;
+using EduSAFe.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace EduSAFe.Data;
