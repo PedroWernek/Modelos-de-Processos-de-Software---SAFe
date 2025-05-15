@@ -30,7 +30,7 @@ const SAFeIntroQuest = () => {
         <h1>Questionário de Introdução ao SAFe</h1>
       </div>
       <ol className="question-list">
-        <Carrousel Componentes={Questões} hasBorder={false}></Carrousel>
+        <Carrousel Componentes={Questões}></Carrousel>
       </ol>
     </div>
   );
