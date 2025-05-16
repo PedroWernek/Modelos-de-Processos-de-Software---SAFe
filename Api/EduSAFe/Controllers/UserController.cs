@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace EduSAFe.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/users")]
 public class UserController : ControllerBase
 {
     private readonly AppDbContext _appDbContext;
@@ -27,11 +27,11 @@ public class UserController : ControllerBase
         _appDbContext.Users.Add(user);
         await _appDbContext.SaveChangesAsync();
 
-        return Created("Usuário criado com sucesso!", user);
+        return Created("Usuário criado com sucesso.", user);
     }
 
     [HttpGet]
-    public async Task<ActionResult <IEnumerable<User>>> GetUser()
+    public async Task<ActionResult <IEnumerable<User>>> GetUsers()
     {
         var users = await _appDbContext.Users.ToListAsync();
 
@@ -44,25 +44,25 @@ public class UserController : ControllerBase
         var user = await _appDbContext.Users.FindAsync(id);
         if (user is null)
         {
-            return NotFound("Usuário não encontrado!");
+            return NotFound("Usuário não encontrado.");
         }
 
         return Ok(user);
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateUser(int id, [FromBody] User userAtualizado)
+    public async Task<IActionResult> UpdateUser(int id, [FromBody] User updatedUser)
     {
-        var userExistente = await _appDbContext.Users.FindAsync(id);
-        if (userExistente is null)
+        var existingUser = await _appDbContext.Users.FindAsync(id);
+        if (existingUser is null)
         {
-            return NotFound("Usuário não encontrado!");
+            return NotFound("Usuário não encontrado.");
         }
 
-        _appDbContext.Entry(userExistente).CurrentValues.SetValues(userAtualizado);
+        _appDbContext.Entry(existingUser).CurrentValues.SetValues(updatedUser);
         await _appDbContext.SaveChangesAsync();
 
-        return StatusCode(201, userAtualizado);
+        return Ok(updatedUser);
     }
 
     [HttpDelete("{id}")]
@@ -71,7 +71,7 @@ public class UserController : ControllerBase
         var user = await _appDbContext.Users.FindAsync(id);
         if (user is null)
         {
-            return NotFound("User não encontrado!");
+            return NotFound("Usuário não encontrado.");
         }
 
         _appDbContext.Remove(user);

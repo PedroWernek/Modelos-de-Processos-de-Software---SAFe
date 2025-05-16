@@ -9,5 +9,7 @@ public class Question
     [Required]
     public string Description { get; set; } = null!;
     [Required]
-    public List<Answer> Answers { get; set; } = [];
+    public string CorrectAnswer { get; set; } = null!;
+    [Required]
+    public List<string> IncorrectAnswers { get; set; } = [];
 }
