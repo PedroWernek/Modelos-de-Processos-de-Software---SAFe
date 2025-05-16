@@ -49,18 +49,19 @@ const useStyle = createStyles((css) => ({
     color: "#fff",
     border: "none",
     padding: "0.5rem 1rem",
+    margin: "auto 0.5rem",
     borderRadius: "8px",
     cursor: "pointer",
     fontWeight: "bold",
-    fontSize: "0.9rem",
+    fontSize: "2dvh",
     transition: "background-color 0.3s ease",
     "&:hover": {
       backgroundColor: "#40a9ff",
     },
     [css.token.screenXS]: {
       padding: "0.4rem 0.8rem",
-      fontSize: "0.8rem",
-    },
+      fontSize: "0.8rem", // ana: pedro o que é isso?
+    }, 
   },
   CarouselNavDots: {
     display: "flex",
@@ -123,7 +124,7 @@ const Carousel: React.FC<ModuleCarouselProps> = ({
                 style={{
                   color: "#a773ff",
                   paddingTop: "1rem",
-                  fontSize: "2.5rem",
+                  fontSize: "2.5rem", // ana: pedro e onde tem isso kkkkkkkkk
                   fontWeight: "bold",
                   textAlign: "center",
                   transform: "translateX(0)",

@@ -21,7 +21,7 @@ const useStyle = createStyles(
     {
       backgroundColor,
       textColor,
-      hasRambow,
+      hasRambow: hasRainbow,
       borderColor,
       borderTickness,
       width,
@@ -29,7 +29,7 @@ const useStyle = createStyles(
     }: RainbowButtonProps,
   ) => ({
     RainBowButton: {
-      fontSize: "1.5rem",
+      fontSize: "3.5dvh",
       fontWeight: "bold",
       color: textColor,
       border: "none",
@@ -43,7 +43,7 @@ const useStyle = createStyles(
       background: "transparent",
       textDecoration: "none",
 
-      ...(hasRambow
+      ...(hasRainbow
         ? {
             "&::before": {
               content: '""',

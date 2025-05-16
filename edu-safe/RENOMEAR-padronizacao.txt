@@ -1,0 +1,5 @@
+RASCUNHO DE PADRONIZACAO AMORES!
+
+FONT-SIZE:
+* botao > texto normal (pra chamar atencao)
+
