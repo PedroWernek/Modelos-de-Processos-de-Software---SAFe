@@ -18,9 +18,6 @@ const useStyle = createStyles((css) => ({
     backgroundColor: "#0d183a",
     boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
     padding: "1rem",
-    [css.token.screenXS]: {
-      padding: "1rem",
-    },
   },
   CarrouselContent: {
     display: "flex",
@@ -113,12 +110,7 @@ const Carrousel: React.FC<ModuleCarouselProps> = ({
         {Componentes.map((Componente, i) => (
           <div key={i} className={styles.CarrouselItem}>
             {hasBorder ? (
-              <div
-                style={{
-                  border: "3px solid #00eeff", // <- só aqui está a borda
-                  borderRadius: "10px",
-                  boxShadow: "0 4px 10px rgba(0,0,0,1)",
-                }}>
+              <div>
                 <Componente />
               </div>
             ) : (
