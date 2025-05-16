@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
 
 import Carrousel from "../../components/carousels/Carrousel";
-import { IntermediaryLinks } from "../../data/leasonLinks/Intermediary";
-import { BeginnerLinks } from "../../data/leasonLinks/Begginer";
-import { AdvancedLinks } from "../../data/leasonLinks/Advanced";
+import { IntermediaryLinks } from "../../data/lessonLinks/Intermediary";
+import { BeginnerLinks } from "../../data/lessonLinks/Begginer";
+import { AdvancedLinks } from "../../data/lessonLinks/Advanced";
 
 const Lesson = () => {
   return (
