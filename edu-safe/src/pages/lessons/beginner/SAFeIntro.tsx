@@ -6,7 +6,7 @@ import ImageComponent from "../../../components/image/ImageComponent";
 
 import scrumImg from "../../../assets/scrumImg.svg";
 import Musico from "../../../assets/musico.jpg";
-import dean from "../../../assets/Dean-245x300.jpg";
+import dean from "../../../assets/Dean.jpg";
 import scrum from "../../../assets/scrum.jpg";
 import CustomButton from "../../../components/buttons/CustomButton";
 

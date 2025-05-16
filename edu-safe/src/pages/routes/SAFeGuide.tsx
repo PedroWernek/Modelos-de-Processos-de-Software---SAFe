@@ -1,9 +1,9 @@
 import "../../css/SAFeGuide.css";
-import WhatIsSAFe from "../SAFeGuide-content/WhatIsSAFe";
-import SAFeStructure from "../SAFeGuide-content/SAFeStructure";
-import SAFeFundamentalPrincipes from "../SAFeGuide-content/SAFeFundamentalPrincipes";
-import SAFeCentralValues from "../SAFeGuide-content/SAFeCentralValues";
-import SAFeBenefits from "../SAFeGuide-content/SAFeBenefits";
+import WhatIsSAFe from "../SAFeGuideContent/WhatIsSAFe";
+import SAFeStructure from "../SAFeGuideContent/SAFeStructure";
+import SAFeFundamentalPrincipes from "../SAFeGuideContent/SAFeFundamentalPrincipes";
+import SAFeCentralValues from "../SAFeGuideContent/SAFeCentralValues";
+import SAFeBenefits from "../SAFeGuideContent/SAFeBenefits";
 import CustomButton from "../../components/buttons/CustomButton";
 import Carousel from "../../components/carousels/Carousel";
 
