@@ -8,7 +8,7 @@ interface ModuleCarouselProps {
 }
 
 const useStyle = createStyles((css) => ({
-  CarrouselContainer: {
+  CarouselContainer: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -19,13 +19,13 @@ const useStyle = createStyles((css) => ({
     boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
     padding: "1rem",
   },
-  CarrouselContent: {
+  CarouselContent: {
     display: "flex",
     flexDirection: "row",
     transition: "transform 0.5s ease-in-out",
     width: "100%",
   },
-  CarrouselItem: {
+  CarouselItem: {
     flex: "0 0 100%",
     display: "flex",
     flexDirection: "column",
@@ -37,14 +37,14 @@ const useStyle = createStyles((css) => ({
     backgroundColor: "#0d183a",
     boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
   },
-  CarrouselNavButtons: {
+  CarouselNavButtons: {
     display: "flex",
     flexWrap: "wrap",
     gap: "0.5rem",
     marginTop: "0.75rem",
     justifyContent: "center",
   },
-  CarrouselNavButton: {
+  CarouselNavButton: {
     backgroundColor: "#1890ff",
     color: "#fff",
     border: "none",
@@ -62,14 +62,14 @@ const useStyle = createStyles((css) => ({
       fontSize: "0.8rem",
     },
   },
-  CarrouselNavDots: {
+  CarouselNavDots: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     gap: "0.5rem",
     marginTop: "0.5rem",
   },
-  CarrouselNavDot: {
+  CarouselNavDot: {
     width: "12px",
     height: "12px",
     borderRadius: "50%",
@@ -86,7 +86,7 @@ const useStyle = createStyles((css) => ({
   },
 }));
 
-const Carrousel: React.FC<ModuleCarouselProps> = ({
+const Carousel: React.FC<ModuleCarouselProps> = ({
   Componentes,
   hasAula,
   hasBorder,
@@ -102,13 +102,13 @@ const Carrousel: React.FC<ModuleCarouselProps> = ({
     setIndex((anterior) => (anterior + 1) % Componentes.length);
 
   return (
-    <div className={styles.CarrouselContainer}>
+    <div className={styles.CarouselContainer}>
       {/* Modulos */}
       <div
-        className={styles.CarrouselContent}
+        className={styles.CarouselContent}
         style={{ transform: `translateX(-${index * 100}%)` }}>
         {Componentes.map((Componente, i) => (
-          <div key={i} className={styles.CarrouselItem}>
+          <div key={i} className={styles.CarouselItem}>
             {hasBorder ? (
               <div>
                 <Componente />
@@ -135,23 +135,23 @@ const Carrousel: React.FC<ModuleCarouselProps> = ({
         ))}
       </div>
       {/* Botão de navegação */}
-      <div className={styles.CarrouselNavButtons}>
-        <button className={styles.CarrouselNavButton} onClick={anterior}>
+      <div className={styles.CarouselNavButtons}>
+        <button className={styles.CarouselNavButton} onClick={anterior}>
           Anterior
         </button>
 
-        <div className={styles.CarrouselNavDots}>
+        <div className={styles.CarouselNavDots}>
           {Componentes.map((_, i) => (
             <button
               key={i}
-              className={`${styles.CarrouselNavDot} ${
+              className={`${styles.CarouselNavDot} ${
                 index === i ? "active" : ""
               }`}
               onClick={() => setIndex(i)}
             />
           ))}
         </div>
-        <button className={styles.CarrouselNavButton} onClick={prox}>
+        <button className={styles.CarouselNavButton} onClick={prox}>
           Proximo
         </button>
       </div>
@@ -159,4 +159,4 @@ const Carrousel: React.FC<ModuleCarouselProps> = ({
   );
 };
 
-export default Carrousel;
+export default Carousel;

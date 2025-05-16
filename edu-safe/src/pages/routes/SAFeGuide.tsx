@@ -5,7 +5,7 @@ import SAFeFundamentalPrincipes from "../SAFeGuide content/SAFeFundamentalPrinci
 import SAFeCentralValues from "../SAFeGuide content/SAFeCentralValues";
 import SAFeBenefits from "../SAFeGuide content/SAFeBenefits";
 import CustomButton from "../../components/buttons/CustomButton";
-import Carrousel from "../../components/carousels/Carrousel";
+import Carousel from "../../components/carousels/Carousel";
 
 const basicSAFe = [
   () => <WhatIsSAFe />,
@@ -19,7 +19,7 @@ const SafeGuide = () => {
   return (
     <div className="safe-guide">
       <div className="safe-guide__container__content">
-        <Carrousel Componentes={basicSAFe} />
+        <Carousel Componentes={basicSAFe} />
         <div className="goToModules">
           <p>
             Gostou do nosso conteúdo e deseja uma explicação mais detalhada da
