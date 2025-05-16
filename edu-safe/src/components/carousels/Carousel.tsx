@@ -15,8 +15,7 @@ const useStyle = createStyles((css) => ({
     justifyContent: "center",
     width: "100%",
     overflow: "hidden",
-    backgroundColor: "#0d183a",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+    backgroundColor: "#2b2c28",
     padding: "1rem",
   },
   CarouselContent: {
@@ -34,29 +33,27 @@ const useStyle = createStyles((css) => ({
     textAlign: "center",
     padding: "1rem",
     borderRadius: "16px",
-    backgroundColor: "#0d183a",
-    boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
   },
   CarouselNavButtons: {
     display: "flex",
     flexWrap: "wrap",
-    gap: "0.5rem",
-    marginTop: "0.75rem",
+    gap: "1rem",
     justifyContent: "center",
   },
   CarouselNavButton: {
-    backgroundColor: "#1890ff",
-    color: "#fff",
+    backgroundColor: "#131515",
+    color: "#fffafb",
     border: "none",
     padding: "0.5rem 1rem",
     margin: "auto 0.5rem",
     borderRadius: "8px",
     cursor: "pointer",
     fontWeight: "bold",
-    fontSize: "2rem",
-    transition: "background-color 0.3s ease",
+    fontSize: "1.5rem",
+    transition: "background-color 1s ease",
     "&:hover": {
-      backgroundColor: "#40a9ff",
+      backgroundColor: "#fffafb",
+      color: "#131515"
     },
     [css.token.screenXS]: {
       padding: "0.4rem 0.8rem",
@@ -67,22 +64,22 @@ const useStyle = createStyles((css) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    gap: "0.5rem",
+    gap: "1rem",
     marginTop: "0.5rem",
   },
   CarouselNavDot: {
     width: "12px",
     height: "12px",
     borderRadius: "50%",
-    backgroundColor: "#ccc",
+    backgroundColor: "#fffafb",
     border: "none",
     cursor: "pointer",
     transition: "background-color 0.3s",
     "&.active": {
-      backgroundColor: "#1890ff",
+      backgroundColor: "#7de2d1",
     },
     "&:hover": {
-      backgroundColor: "#40a9ff",
+      backgroundColor: "#339989",
     },
   },
 }));
@@ -122,14 +119,14 @@ const Carousel: React.FC<ModuleCarouselProps> = ({
             {hasAula && (
               <p
                 style={{
-                  color: "#a773ff",
+                  color: "#7de2d1",
                   paddingTop: "1rem",
-                  fontSize: "2rem",
+                  fontSize: "1.25rem",
                   fontWeight: "bold",
                   textAlign: "center",
                   transform: "translateX(0)",
                 }}>
-                Aula {i + 1}
+                Módulo {i + 1}
               </p>
             )} 
           </div>

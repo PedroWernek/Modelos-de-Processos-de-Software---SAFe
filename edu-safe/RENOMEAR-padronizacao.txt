@@ -4,8 +4,31 @@ FONT-SIZE:
 * botao > texto normal (pra chamar atencao)
 
 CORES: 
-#FFFFFF
-#00171F
-#003459
-#007EA7
-#00A8E8
+#131515
+#2b2c28
+#339989
+#7de2d1
+#fffafb
+
+#0d183a = mais claro
+#0c1329 = mais escuro
+
+FONTES
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+título:
+.ubuntu-bold {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+normal:
+.open-sans-normal {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}

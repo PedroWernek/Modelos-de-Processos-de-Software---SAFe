@@ -3,12 +3,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #0c1329;
 
   & .footer-content {
     display: flex;
     flex-direction: column;
-    background-color: #0d183a;
+    background-color: #339989;
     width: 100%;
     height: fit-content;
   }
@@ -36,13 +35,12 @@
     transition: 0.2s ease-in-out;
 
     &:hover {
-      color: #ffffff;
-      text-decoration: underline;
+      text-decoration: none;
     }
   }
 
   & a {
     text-decoration: none;
-    color: #ccced5;
+    color: #fffafb;
   }
 }

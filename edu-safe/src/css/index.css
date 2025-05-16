@@ -1,6 +1,5 @@
-html {
-  scroll-behavior: smooth;
-  scrollbar-color: #20385c #0c1329;
+::-webkit-scrollbar {
+    display: none;
 }
 
 * {
@@ -11,14 +10,13 @@ html {
 }
 
 .navbar {
-  background-color: #20385c;
-
+  background-color: #339989;
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: #ccced5;
+  color: #fffafb;
   width: 100%;
-  height: 70px;
+  height: 60px;
   padding: 10px;
 
   & .navbar-logo {
@@ -38,39 +36,37 @@ html {
 
   & a {
     text-decoration: none;
-    color: white;
+    color: #fffafb;
   }
-
-
 }
 
 b {
-  color: #a773ff;
+  color: #7de2d1;
 }
 
-.text-1 {
+/* .text-1 {
   color: #a79fca;
-}
+} */
 
 .text-2 {
   color: #c8fff4;
 }
 
-.text-3 {
+/* .text-3 {
   color: #8dc2b7;
-}
+} */
 
 .text-4 {
-  color: #a773ff;
+  color: #7de2d1;
 }
 
-.background-1 {
-  background-color: #0d183a;
-}
+/* .background-1 {
+  background-color: #2b2c28;
+} */
 
-.background-2 {
+/* .background-2 {
   background-color: #0c1329;
-}
+} */
 
 .error-page {
   display: flex;
@@ -78,7 +74,7 @@ b {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #0c1329;
-  color: #ccced5;
+  background-color: #131515;
+  color: #fffafb;
   font-size: 2rem;
 }

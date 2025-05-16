@@ -29,7 +29,7 @@ const useStyle = createStyles(
     }: RainbowButtonProps,
   ) => ({
     RainbowButton: {
-      fontSize: "2rem",
+      fontSize: "1.75dvw",
       fontWeight: "bold",
       color: textColor,
       border: "none",
@@ -51,7 +51,7 @@ const useStyle = createStyles(
               inset: 0,
               borderRadius: "12px",
               padding: "2px",
-              background: "linear-gradient(270deg, lime, blue, purple)",
+              background: "linear-gradient(270deg, #fffafb, #7de2d1, #339989)",
               backgroundSize: "400% 400%",
               zIndex: -1,
               transition: "1s",
