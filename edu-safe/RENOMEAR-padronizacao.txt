@@ -3,3 +3,9 @@ RASCUNHO DE PADRONIZACAO AMORES!
 FONT-SIZE:
 * botao > texto normal (pra chamar atencao)
 
+CORES: 
+#FFFFFF
+#00171F
+#003459
+#007EA7
+#00A8E8

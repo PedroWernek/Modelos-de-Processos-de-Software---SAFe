@@ -23,7 +23,7 @@ const Lesson = () => {
       <div className="lesson-content">
         <div className="lesson-content__iniciante">
           <h1 className="text-4">Iniciante</h1>
-          <Carousel Componentes={BeginnerLinks} />
+          <Carousel Componentes={BeginnerLinks} hasAula={true}/>
         </div>
         <div className="lesson-content__intermediario">
           <h1 className="text-4">Intermediário</h1>

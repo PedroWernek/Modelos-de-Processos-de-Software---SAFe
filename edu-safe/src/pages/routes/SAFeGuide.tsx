@@ -30,7 +30,7 @@ const SafeGuide = () => {
           <CustomButton
             backgroundColor="#3ac7a6"
             borderColor="#1c1f2c"
-            borderTickness="2px"
+            borderThickness="2px"
             textColor="#1c1f2c"
             text="Veja Nossos Módulos"
             link="/modulos"

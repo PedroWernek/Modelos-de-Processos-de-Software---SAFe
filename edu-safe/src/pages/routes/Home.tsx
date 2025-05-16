@@ -17,7 +17,7 @@ const Home = () => {
           </p>
           <CustomButton
             backgroundColor="#1c1f2c"
-            hasRambow={true}
+            hasRainbow={true}
             textColor="white"
             text="O que é SAFe?"
             link="/introducao-safe"
@@ -25,7 +25,7 @@ const Home = () => {
           <CustomButton
             backgroundColor="#3ac7a6"
             borderColor="#1c1f2c"
-            borderTickness="2px"
+            borderThickness="2px"
             textColor="#1c1f2c"
             text="Veja Nossos Módulos"
             link="/modulos"
