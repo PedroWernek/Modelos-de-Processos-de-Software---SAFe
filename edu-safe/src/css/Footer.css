@@ -16,27 +16,17 @@
     width: 15dvw;
     height: auto;
     position: relative;
-    left: 10dvw;
-    bottom: 3dvh;
+    left: 2.5dvw;
   }
 
   & .footer-links {
     display: flex;
-    flex-direction: column;
     font-size: 2.5dvh;
     gap: 20px;
     position: relative;
     bottom: 10dvh;
-    left: 30dvw;
+    left: 20dvw;
     width: fit-content;
-  }
-
-  & .footer-links--link {
-    transition: 0.2s ease-in-out;
-
-    &:hover {
-      text-decoration: none;
-    }
   }
 
   & a {

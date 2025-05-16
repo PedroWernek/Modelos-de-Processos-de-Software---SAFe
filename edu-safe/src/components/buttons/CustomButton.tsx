@@ -42,6 +42,7 @@ const useStyle = createStyles(
       zIndex: 0,
       background: "transparent",
       textDecoration: "none",
+      fontFamily: "Open Sans",
 
       ...(hasRainbow
         ? {

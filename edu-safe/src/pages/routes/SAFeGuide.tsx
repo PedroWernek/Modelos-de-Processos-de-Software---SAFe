@@ -27,11 +27,9 @@ const SafeGuide = () => {
             Então faça seu registro agora mesmo e tenha acesso a um conteúdo
             exclusivo e gratuito!
           </p>
-          <CustomButton
-            backgroundColor="#3ac7a6"
-            borderColor="#1c1f2c"
-            borderThickness="2px"
-            textColor="#1c1f2c"
+         <CustomButton
+            backgroundColor="#7de2d1"
+            textColor="#131515"
             text="Veja Nossos Módulos"
             link="/modulos"
           />

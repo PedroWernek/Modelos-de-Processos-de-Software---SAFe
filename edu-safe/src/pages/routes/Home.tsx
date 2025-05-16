@@ -40,7 +40,7 @@ const Home = () => {
         <div>
           <p className="additional-info-text1">
             Desenvolva sua habilidade com a metodologia SAFe de maneira{" "}
-            <b>gameficada</b>
+            <b>gameficada</b>!
           </p>
           <p className="additional-info-text2">
             Utilize seu conhecimento para resolver puzzles e desafios baseados
