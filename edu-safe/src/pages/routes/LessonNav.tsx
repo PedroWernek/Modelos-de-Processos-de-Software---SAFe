@@ -5,7 +5,7 @@ import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
 
 import Carrousel from "../../components/carousels/Carrousel";
 import { IntermediaryLinks } from "../../data/lessonLinks/Intermediary";
-import { BeginnerLinks } from "../../data/lessonLinks/Begginer";
+import { BeginnerLinks } from "../../data/lessonLinks/Beginner";
 import { AdvancedLinks } from "../../data/lessonLinks/Advanced";
 
 const Lesson = () => {
