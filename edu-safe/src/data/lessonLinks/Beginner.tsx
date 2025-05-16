@@ -1,12 +1,12 @@
 import img1 from "../../assets/img1home.webp";
 import scrum from "../../assets/scrum.jpg";
-import ImageButtom from "../../components/buttons/ImageButtom";
+import ImageButton from "../../components/buttons/ImageButton";
 
 const imgSize = "200";
 
 export const BeginnerLinks = [
   () => (
-    <ImageButtom
+    <ImageButton
       imgScr={scrum}
       alt="Imagem Módulo 1"
       link="/modulos/conteudo/iniciante/1"
@@ -14,7 +14,7 @@ export const BeginnerLinks = [
     />
   ),
   () => (
-    <ImageButtom
+    <ImageButton
       imgScr={img1}
       alt="Imagem 2"
       link="/modulos/iniciante/2"
@@ -22,7 +22,7 @@ export const BeginnerLinks = [
     />
   ),
   () => (
-    <ImageButtom
+    <ImageButton
       imgScr={img1}
       alt="Imagem 3"
       link="/modulos/iniciante/3"
