@@ -33,7 +33,7 @@ const SafeGuide = () => {
             borderTickness="2px"
             textColor="#1c1f2c"
             text="Veja Nossos Módulos"
-            link="/modulos"
+            linkNav="/modulos"
           />
         </div>
       </div>

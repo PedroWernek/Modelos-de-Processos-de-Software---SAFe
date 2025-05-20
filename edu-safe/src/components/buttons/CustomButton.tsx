@@ -10,9 +10,9 @@ interface RainbowButtonProps {
   hasRambow?: boolean;
   borderColor?: string;
   borderTickness?: string;
-  link: string;
-  width?: string;
+  linkNav?: string;
   height?: string;
+  width?: string;
 }
 
 const useStyle = createStyles(
@@ -24,8 +24,8 @@ const useStyle = createStyles(
       hasRambow,
       borderColor,
       borderTickness,
-      width,
-      height,
+      height: width,
+      width: height,
     }: RainbowButtonProps,
   ) => ({
     RainBowButton: {
@@ -92,9 +92,9 @@ const CustomButton: React.FC<RainbowButtonProps> = ({
   hasRambow,
   borderColor,
   borderTickness,
-  link,
-  width,
-  height,
+  linkNav,
+  height: width,
+  width: height,
 }) => {
   const { styles } = useStyle({
     backgroundColor,
@@ -102,15 +102,21 @@ const CustomButton: React.FC<RainbowButtonProps> = ({
     hasRambow: hasRambow || false,
     borderColor,
     borderTickness,
-    link: "",
-    width,
-    height,
+    linkNav: "",
+    height: width,
+    width: height,
   });
 
   return (
-    <Link to={link} className={styles.RainBowButton}>
-      {text}
-    </Link>
+    <>
+      {linkNav ? (
+        <Link to={linkNav} className={styles.RainBowButton}>
+          {text}
+        </Link>
+      ) : (
+        <div className={styles.RainBowButton}>{text}</div>
+      )}
+    </>
   );
 };
 

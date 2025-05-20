@@ -9,7 +9,7 @@ const ErrorPage = () => {
       <p>erro 404!</p>
       <CustomButton
         text="Voltar para o início"
-        link="/"
+        linkNav="/"
         backgroundColor="#3ac7a6"
         textColor="#0c1329"
         borderColor="#0c1320"

@@ -20,7 +20,7 @@ const Home = () => {
             hasRambow={true}
             textColor="white"
             text="O que é SAFe?"
-            link="/introducao-safe"
+            linkNav="/introducao-safe"
           />
           <CustomButton
             backgroundColor="#3ac7a6"
@@ -28,7 +28,7 @@ const Home = () => {
             borderTickness="2px"
             textColor="#1c1f2c"
             text="Veja Nossos Módulos"
-            link="/modulos"
+            linkNav="/modulos"
           />
         </div>
       </div>
