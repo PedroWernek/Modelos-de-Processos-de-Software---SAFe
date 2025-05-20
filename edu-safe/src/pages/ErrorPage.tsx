@@ -1,5 +1,5 @@
 import React from "react";
-import CustomButton from "../components/buttons/CustomButton";
+import CustomButton from "../components/random/buttons/CustomButton";
 
 const ErrorPage = () => {
   return (
