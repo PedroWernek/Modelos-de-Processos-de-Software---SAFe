@@ -1,14 +1,14 @@
 import React from "react";
 import LessonHeader from "../../../components/lessons/LessonHeader";
 import LessonGoals from "../../../components/lessons/LessonGoals";
-import ShowListContentComponent from "../../../components/dropdown/ShowListContentComponent";
-import ImageComponent from "../../../components/image/ImageComponent";
+import ShowListContentComponent from "../../../components/random/dropdown/ShowListContentComponent";
+import ImageComponent from "../../../components/random/image/ImageComponent";
 
 import scrumImg from "../../../assets/scrumImg.svg";
 import Musico from "../../../assets/musico.jpg";
-import dean from "../../../assets/Dean-245x300.jpg";
+import dean from "../../../assets/Dean.jpg";
 import scrum from "../../../assets/scrum.jpg";
-import CustomButton from "../../../components/buttons/CustomButton";
+import CustomButton from "../../../components/random/buttons/CustomButton";
 
 const SAFeIntro = () => {
   return (
@@ -172,7 +172,7 @@ const SAFeIntro = () => {
         <CustomButton
           backgroundColor="#3ac7a6"
           borderColor="#1c1f2c"
-          borderTickness="2px"
+          borderThickness="2px"
           textColor="#1c1f2c"
           text="Quiz"
           linkNav="/modulos/avaliacao/basico/1"

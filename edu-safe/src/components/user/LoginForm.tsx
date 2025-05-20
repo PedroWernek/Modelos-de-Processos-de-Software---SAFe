@@ -17,7 +17,7 @@ export function LoginForm({ onSubmit }: LoginFormProps) {
   } = useForm<LoginFormData>();
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="login-form space-y-4">
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label htmlFor="email">E-mail</label>
         <input

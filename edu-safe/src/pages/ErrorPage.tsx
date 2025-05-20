@@ -1,12 +1,11 @@
 import React from "react";
-import CustomButton from "../components/buttons/CustomButton";
+import CustomButton from "../components/random/buttons/CustomButton";
 
 const ErrorPage = () => {
   return (
     <div className="error-page">
       <h1>Ops!</h1>
-      <p>acho que não encontramos o que você queria 😅</p>
-      <p>erro 404!</p>
+      <p>Acho que não encontramos o que você queria. 😅</p>
       <CustomButton
         text="Voltar para o início"
         linkNav="/"

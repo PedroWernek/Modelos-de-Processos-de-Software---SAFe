@@ -1,6 +1,3 @@
-// usei register pq juro que nunca lembro qual eh registrar e qual eh logar com sign in e sign up
-// TODO: conversar com o pedro... tipo me baseei nas coisa do back-end, mas como o conteudo do site eh em ptbr, sera que essas msg de erro... tb n deveriam ser?
-
 import { useForm } from "react-hook-form";
 
 interface RegisterFormData {
@@ -21,7 +18,7 @@ export function RegisterForm({ onSubmit }: RegisterFormProps) {
   } = useForm<RegisterFormData>();
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="register-form space-y-4">
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label htmlFor="name">Nome</label>
         <input
@@ -31,7 +28,7 @@ export function RegisterForm({ onSubmit }: RegisterFormProps) {
             minLength: { value: 2, message: "At least 2 characters" },
             maxLength: { value: 100, message: "Max 100 characters" },
             pattern: {
-              value: /^[a-zA-Z\s]+$/, // regex amores
+              value: /^[a-zA-Z\s]+$/, 
               message: "Only letters and spaces allowed",
             },
           })}

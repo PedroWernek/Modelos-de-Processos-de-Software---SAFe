@@ -8,24 +8,23 @@ interface ModuleCarouselProps {
 }
 
 const useStyle = createStyles((css) => ({
-  CarrouselContainer: {
+  CarouselContainer: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
     overflow: "hidden",
-    backgroundColor: "#0d183a",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+    backgroundColor: "#2b2c28",
     padding: "1rem",
   },
-  CarrouselContent: {
+  CarouselContent: {
     display: "flex",
     flexDirection: "row",
     transition: "transform 0.5s ease-in-out",
     width: "100%",
   },
-  CarrouselItem: {
+  CarouselItem: {
     flex: "0 0 100%",
     display: "flex",
     flexDirection: "column",
@@ -34,59 +33,58 @@ const useStyle = createStyles((css) => ({
     textAlign: "center",
     padding: "1rem",
     borderRadius: "16px",
-    backgroundColor: "#0d183a",
-    boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
   },
-  CarrouselNavButtons: {
+  CarouselNavButtons: {
     display: "flex",
     flexWrap: "wrap",
-    gap: "0.5rem",
-    marginTop: "0.75rem",
+    gap: "1rem",
     justifyContent: "center",
   },
-  CarrouselNavButton: {
-    backgroundColor: "#1890ff",
-    color: "#fff",
+  CarouselNavButton: {
+    backgroundColor: "#131515",
+    color: "#fffafb",
     border: "none",
     padding: "0.5rem 1rem",
+    margin: "auto 0.5rem",
     borderRadius: "8px",
     cursor: "pointer",
     fontWeight: "bold",
-    fontSize: "0.9rem",
-    transition: "background-color 0.3s ease",
+    fontSize: "1.5rem",
+    transition: "background-color 1s ease",
     "&:hover": {
-      backgroundColor: "#40a9ff",
+      backgroundColor: "#fffafb",
+      color: "#131515"
     },
     [css.token.screenXS]: {
       padding: "0.4rem 0.8rem",
       fontSize: "0.8rem",
-    },
+    }, 
   },
-  CarrouselNavDots: {
+  CarouselNavDots: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    gap: "0.5rem",
+    gap: "1rem",
     marginTop: "0.5rem",
   },
-  CarrouselNavDot: {
+  CarouselNavDot: {
     width: "12px",
     height: "12px",
     borderRadius: "50%",
-    backgroundColor: "#ccc",
+    backgroundColor: "#fffafb",
     border: "none",
     cursor: "pointer",
     transition: "background-color 0.3s",
     "&.active": {
-      backgroundColor: "#1890ff",
+      backgroundColor: "#7de2d1",
     },
     "&:hover": {
-      backgroundColor: "#40a9ff",
+      backgroundColor: "#339989",
     },
   },
 }));
 
-const Carrousel: React.FC<ModuleCarouselProps> = ({
+const Carousel: React.FC<ModuleCarouselProps> = ({
   Componentes,
   hasAula,
   hasBorder,
@@ -102,13 +100,13 @@ const Carrousel: React.FC<ModuleCarouselProps> = ({
     setIndex((anterior) => (anterior + 1) % Componentes.length);
 
   return (
-    <div className={styles.CarrouselContainer}>
+    <div className={styles.CarouselContainer}>
       {/* Modulos */}
       <div
-        className={styles.CarrouselContent}
+        className={styles.CarouselContent}
         style={{ transform: `translateX(-${index * 100}%)` }}>
         {Componentes.map((Componente, i) => (
-          <div key={i} className={styles.CarrouselItem}>
+          <div key={i} className={styles.CarouselItem}>
             {hasBorder ? (
               <div>
                 <Componente />
@@ -121,37 +119,37 @@ const Carrousel: React.FC<ModuleCarouselProps> = ({
             {hasAula && (
               <p
                 style={{
-                  color: "#a773ff",
+                  color: "#7de2d1",
                   paddingTop: "1rem",
-                  fontSize: "2.5rem",
+                  fontSize: "1.25rem",
                   fontWeight: "bold",
                   textAlign: "center",
                   transform: "translateX(0)",
                 }}>
-                Aula {i + 1}
+                Módulo {i + 1}
               </p>
-            )}
+            )} 
           </div>
         ))}
       </div>
       {/* Botão de navegação */}
-      <div className={styles.CarrouselNavButtons}>
-        <button className={styles.CarrouselNavButton} onClick={anterior}>
+      <div className={styles.CarouselNavButtons}>
+        <button className={styles.CarouselNavButton} onClick={anterior}>
           Anterior
         </button>
 
-        <div className={styles.CarrouselNavDots}>
+        <div className={styles.CarouselNavDots}>
           {Componentes.map((_, i) => (
             <button
               key={i}
-              className={`${styles.CarrouselNavDot} ${
+              className={`${styles.CarouselNavDot} ${
                 index === i ? "active" : ""
               }`}
               onClick={() => setIndex(i)}
             />
           ))}
         </div>
-        <button className={styles.CarrouselNavButton} onClick={prox}>
+        <button className={styles.CarouselNavButton} onClick={prox}>
           Proximo
         </button>
       </div>
@@ -159,4 +157,4 @@ const Carrousel: React.FC<ModuleCarouselProps> = ({
   );
 };
 
-export default Carrousel;
+export default Carousel;

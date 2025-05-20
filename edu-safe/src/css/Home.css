@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
 .home-container {
   display: flex;
   flex-direction: column;
@@ -6,13 +8,12 @@
   height: 90dvh;
   padding: 1dvh;
   text-align: center;
-  background: url("../assets/homeimg.png") no-repeat center center fixed;
   background-size: cover;
   z-index: 0;
 }
 
 .home-text {
-  width: 70%;
+  width: 60%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -20,22 +21,33 @@
   justify-content: center;
 
   & h1 {
-    color: #c8fff4;
+    color: #7de2d1;
     font-size: 3.5dvw;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: normal;
   }
 
   & p.home-text1 {
-    color: #8dc2b7;
-    font-size: 3dvw;
+    color: #339989;
+    font-size: 2.5dvw;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: normal;
     margin: 10px 0;
   }
 
   & p.home-text2 {
-    color: #a79fca;
-    font-size: 2dvw;
+    color: #fffafb;
+    font-size: 1.5dvw;
     margin: 10px 0;
     padding: 10px 20px;
-    font-weight: bold;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
   }
 }
 
@@ -45,25 +57,27 @@
   align-items: center;
   justify-content: center;
   padding: 4dvw;
-
   text-align: center;
-
-  background-color: #0d183a;
-
+  background-color: #2b2c28;
+  
   p {
+    color: #fffafb;
     margin: 20px 0;
     padding: 10px 20px;
-
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
   }
 
   .additional-info-text1 {
-    color: #c8fff4;
-    font-size: 3.5vw;
+    font-size: 2.5dvw;
   }
 
   .additional-info-text2 {
-    color: #a79fca;
-    font-size: 2.2vw;
+    font-size: 1.5dvw;
   }
 
   img {
@@ -71,29 +85,4 @@
     width: 50%;
     height: auto;
   }
-}
-
-.trapezioinvertido {
-  width: 100%;
-  height: 0;
-  border-bottom: 70px solid #0c1329;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  rotate: 180deg;
-  display: block;
-  margin: 0;
-  padding: 0;
-  background-color: #0d183a;
-}
-
-.trapezio {
-  width: 100%;
-  height: 0;
-  border-bottom: 70px solid #0c1329;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  display: block;
-  margin: 0;
-  padding: 0;
-  background-color: #0d183a;
 }

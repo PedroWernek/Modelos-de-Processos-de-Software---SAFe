@@ -13,10 +13,10 @@ interface ShowContentComponentProps {
   titleColor?: string;
   text: string;
   textColor?: string;
-  exemple?: string;
-  exempleColor?: string;
+  example?: string;
+  exampleColor?: string;
   backgroundCustomColor?: string;
-  exempleBackgroundCustomColor?: string;
+  exampleBackgroundCustomColor?: string;
 }
 
 const useStyle = createStyles(
@@ -26,14 +26,14 @@ const useStyle = createStyles(
       titleColor,
       textColor,
       backgroundCustomColor,
-      exempleBackgroundCustomColor,
-      exempleColor,
+      exampleBackgroundCustomColor: exampleBackgroundCustomColor,
+      exampleColor: exampleColor,
     }: {
       backgroundCustomColor?: string;
-      exempleBackgroundCustomColor?: string;
+      exampleBackgroundCustomColor?: string;
       titleColor?: string;
       textColor?: string;
-      exempleColor?: string;
+      exampleColor?: string;
     },
   ) => ({
     showComponent: {
@@ -54,7 +54,7 @@ const useStyle = createStyles(
       },
       "& .title": {
         color: titleColor || "black",
-        fontSize: "2dvh",
+        fontSize: "3dvh", // ana: onde isso é usado?
         fontWeight: "bold",
         display: "flex",
         flexDirection: "row",
@@ -64,15 +64,15 @@ const useStyle = createStyles(
       },
       "& .text": {
         color: textColor || "black",
-        fontSize: "3dvh",
+        fontSize: "3dvh", // ana: onde isso é usado?
         padding: "10px",
       },
-      "& .exemple": {
-        color: exempleColor || "black",
-        fontSize: "20px",
+      "& .example": {
+        color: exampleColor || "black",
+        fontSize: "20px", // ana: onde isso é usado?
         fontWeight: "bold",
         marginTop: "10px",
-        backgroundColor: exempleBackgroundCustomColor || "#f0f0f0",
+        backgroundColor: exampleBackgroundCustomColor || "#f0f0f0",
         padding: "10px",
         borderRadius: "10px",
         width: "fit-content",
@@ -87,16 +87,16 @@ const ShowContentComponent: React.FC<ShowContentComponentProps> = ({
   titleColor,
   text,
   textColor,
-  exemple,
-  exempleColor,
-  exempleBackgroundCustomColor,
+  example,
+  exampleColor,
+  exampleBackgroundCustomColor,
   backgroundCustomColor,
 }) => {
   const { styles } = useStyle({
     titleColor,
     textColor,
-    exempleColor,
-    exempleBackgroundCustomColor,
+    exampleColor,
+    exampleBackgroundCustomColor,
     backgroundCustomColor,
   });
   const [visible, setVisible] = useState(false);
@@ -130,7 +130,7 @@ const ShowContentComponent: React.FC<ShowContentComponentProps> = ({
             style={{ overflow: "hidden" }}
             className="content">
             <p className="text">{text}</p>
-            {exemple && <div className="exemple">{exemple}</div>}
+            {example && <div className="example">{example}</div>}
           </motion.div>
         )}
       </AnimatePresence>

@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-interface ImageButtomProps {
+interface ImageButtonProps {
   imgScr: string;
   alt: string;
   link: string;
   imgSize?: string;
 }
 
-const ImageButtom: React.FC<ImageButtomProps> = ({
+const ImageButton: React.FC<ImageButtonProps> = ({
   imgScr,
   alt,
   link,
@@ -42,4 +42,4 @@ const ImageButtom: React.FC<ImageButtomProps> = ({
   );
 };
 
-export default ImageButtom;
+export default ImageButton;

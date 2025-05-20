@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { QuestionForm } from "../../../components/forms/QuestionForms";
 
 import { SAFeIntroQuestions } from "../../../data/questionnaries/SAfeIntroQuestions";
-import Carrousel from "../../../components/carousels/Carrousel";
 import AlertScreen from "../AlertScreen";
-import CustomButton from "../../../components/buttons/CustomButton";
+import CustomButton from "../../../components/random/buttons/CustomButton";
+import Carousel from "../../../components/random/carousels/Carousel";
 
 const SAFeIntroQuest = () => {
   const [OnAlertScreen, setOnAlertScreen] = useState(true);
@@ -84,7 +84,7 @@ const SAFeIntroQuest = () => {
             <h1>{questionaryName}</h1>
           </div>
           <ol className="question-list">
-            <Carrousel Componentes={Questões}></Carrousel>
+            <Carousel Componentes={Questões}></Carousel>
           </ol>
         </div>
       )}

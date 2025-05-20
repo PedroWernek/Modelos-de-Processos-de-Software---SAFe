@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using EduSAFe.DTOs;
+using EduSAFe.Enums;
 
 namespace EduSAFe.Models;
 
@@ -28,7 +29,8 @@ public class User
     public int Level { get; set; } = 1; // ana: após finalizar um módulo, chama a função de recalcular Level
     public List<FlashCard> FlashCards { get; set; } = [];
     public List<UserLessonDTO> UserLessons { get; set; } = [];
-
+    public Role Role { get; set; } = Role.User;
+    
     // ana: como é uma função muito básica de somente cálculo da propriedade Level, ela pode ficar aqui!
     public void CalculateLevel(int XP)
     {

@@ -7,7 +7,7 @@ interface RainbowButtonProps {
   backgroundColor: string;
   text?: string;
   textColor?: string;
-  hasRambow?: boolean;
+  hasRainbow?: boolean;
   borderColor?: string;
   borderTickness?: string;
   linkNav?: string;
@@ -21,15 +21,15 @@ const useStyle = createStyles(
     {
       backgroundColor,
       textColor,
-      hasRambow,
+      hasRainbow: hasRainbow,
       borderColor,
       borderTickness,
       height: width,
       width: height,
     }: RainbowButtonProps,
   ) => ({
-    RainBowButton: {
-      fontSize: "1.5rem",
+    RainbowButton: {
+      fontSize: "1.75dvw",
       fontWeight: "bold",
       color: textColor,
       border: "none",
@@ -42,8 +42,9 @@ const useStyle = createStyles(
       zIndex: 0,
       background: "transparent",
       textDecoration: "none",
+      fontFamily: "Open Sans",
 
-      ...(hasRambow
+      ...(hasRainbow
         ? {
             "&::before": {
               content: '""',
@@ -51,7 +52,7 @@ const useStyle = createStyles(
               inset: 0,
               borderRadius: "12px",
               padding: "2px",
-              background: "linear-gradient(270deg, lime, blue, purple)",
+              background: "linear-gradient(270deg, #fffafb, #7de2d1, #339989)",
               backgroundSize: "400% 400%",
               zIndex: -1,
               transition: "1s",
@@ -89,7 +90,7 @@ const CustomButton: React.FC<RainbowButtonProps> = ({
   backgroundColor,
   text,
   textColor,
-  hasRambow,
+  hasRainbow,
   borderColor,
   borderTickness,
   linkNav,
@@ -99,7 +100,7 @@ const CustomButton: React.FC<RainbowButtonProps> = ({
   const { styles } = useStyle({
     backgroundColor,
     textColor,
-    hasRambow: hasRambow || false,
+    hasRainbow: hasRainbow || false,
     borderColor,
     borderTickness,
     linkNav: "",
@@ -110,11 +111,11 @@ const CustomButton: React.FC<RainbowButtonProps> = ({
   return (
     <>
       {linkNav ? (
-        <Link to={linkNav} className={styles.RainBowButton}>
+        <Link to={linkNav} className={styles.RainbowButton}>
           {text}
         </Link>
       ) : (
-        <div className={styles.RainBowButton}>{text}</div>
+        <div className={styles.RainbowButton}>{text}</div>
       )}
     </>
   );
