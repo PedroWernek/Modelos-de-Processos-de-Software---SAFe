@@ -1,6 +1,6 @@
 import img1 from "../../assets/img1home.webp";
 import scrum from "../../assets/scrum.jpg";
-import ImageButton from "../../components/buttons/ImageButton";
+import ImageButton from "../../components/random/buttons/ImageButton";
 
 const imgSize = "200";
 

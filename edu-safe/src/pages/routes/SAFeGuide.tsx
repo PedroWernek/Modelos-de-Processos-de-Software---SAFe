@@ -4,8 +4,8 @@ import SAFeStructure from "../SAFeGuideContent/SAFeStructure";
 import SAFeFundamentalPrincipes from "../SAFeGuideContent/SAFeFundamentalPrincipes";
 import SAFeCentralValues from "../SAFeGuideContent/SAFeCentralValues";
 import SAFeBenefits from "../SAFeGuideContent/SAFeBenefits";
-import CustomButton from "../../components/buttons/CustomButton";
-import Carousel from "../../components/carousels/Carousel";
+import CustomButton from "../../components/random/buttons/CustomButton";
+import Carousel from "../../components/random/carousels/Carousel";
 
 const basicSAFe = [
   () => <WhatIsSAFe />,

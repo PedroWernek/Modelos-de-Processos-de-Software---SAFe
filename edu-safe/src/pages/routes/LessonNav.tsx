@@ -3,7 +3,7 @@ import "../../css/ModulesNav.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
 
-import Carousel from "../../components/carousels/Carousel";
+import Carousel from "../../components/random/carousels/Carousel";
 import { IntermediaryLinks } from "../../data/lessonLinks/Intermediary";
 import { BeginnerLinks } from "../../data/lessonLinks/Beginner";
 import { AdvancedLinks } from "../../data/lessonLinks/Advanced";

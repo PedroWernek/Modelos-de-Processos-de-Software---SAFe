@@ -2,7 +2,7 @@ import React from "react";
 import { QuestionForm } from "../../../components/forms/QuestionForms";
 
 import { SAFeIntroQuestions } from "../../../data/questionnaries/SAfeIntroQuestions";
-import Carousel from "../../../components/carousels/Carousel";
+import Carousel from "../../../components/random/carousels/Carousel";
 
 const SAFeIntroQuest = () => {
   const Questões = SAFeIntroQuestions.map((questao, index) => () => (
