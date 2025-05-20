@@ -13,10 +13,10 @@ interface ShowListContentComponentProps {
   titleColor?: string;
   texts: string[];
   textColor?: string;
-  exemple?: string;
-  exempleColor?: string;
+  example?: string;
+  exampleColor?: string;
   backgroundCustomColor?: string;
-  exempleBackgroundCustomColor?: string;
+  exampleBackgroundCustomColor?: string;
 }
 
 const useStyle = createStyles(
@@ -26,14 +26,14 @@ const useStyle = createStyles(
       titleColor,
       textColor,
       backgroundCustomColor,
-      exempleBackgroundCustomColor,
-      exempleColor,
+      exampleBackgroundCustomColor: exampleBackgroundCustomColor,
+      exampleColor,
     }: {
       backgroundCustomColor?: string;
-      exempleBackgroundCustomColor?: string;
+      exampleBackgroundCustomColor?: string;
       titleColor?: string;
       textColor?: string;
-      exempleColor?: string;
+      exampleColor?: string;
     },
   ) => ({
     showComponent: {
@@ -70,12 +70,12 @@ const useStyle = createStyles(
         listStyleType: "disc",
         listStylePosition: "outside",
       },
-      "& .exemple": {
-        color: exempleColor || "black",
-        fontSize: "20px",
+      "& .example": {
+        color: exampleColor || "black",
+        fontSize: "3dvh", // ana: não achei!
         fontWeight: "bold",
         marginTop: "10px",
-        backgroundColor: exempleBackgroundCustomColor || "#f0f0f0",
+        backgroundColor: exampleBackgroundCustomColor || "#f0f0f0",
         padding: "10px",
         borderRadius: "10px",
         width: "fit-content",
@@ -90,16 +90,16 @@ const ShowListContentComponent: React.FC<ShowListContentComponentProps> = ({
   titleColor,
   texts,
   textColor,
-  exemple,
-  exempleColor,
-  exempleBackgroundCustomColor,
+  example: example,
+  exampleColor: exampleColor,
+  exampleBackgroundCustomColor: exampleBackgroundCustomColor,
   backgroundCustomColor,
 }) => {
   const { styles } = useStyle({
     titleColor,
     textColor,
-    exempleColor,
-    exempleBackgroundCustomColor,
+    exampleColor,
+    exampleBackgroundCustomColor,
     backgroundCustomColor,
   });
   const [visible, setVisible] = useState(false);
@@ -137,7 +137,7 @@ const ShowListContentComponent: React.FC<ShowListContentComponentProps> = ({
                 <li key={i}>{text}</li>
               ))}
             </ul>
-            {exemple && <div className="exemple">{exemple}</div>}
+            {example && <div className="example">{example}</div>}
           </motion.div>
         )}
       </AnimatePresence>

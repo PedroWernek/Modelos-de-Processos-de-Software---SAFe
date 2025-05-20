@@ -16,35 +16,31 @@ const Home = () => {
             divertida como aplicar a SAFe em seu ambiente de trabalho!
           </p>
           <CustomButton
-            backgroundColor="#1c1f2c"
-            hasRambow={true}
+            backgroundColor="#2b2c28"
+            hasRainbow={true}
             textColor="white"
             text="O que é SAFe?"
             link="/introducao-safe"
           />
           <CustomButton
-            backgroundColor="#3ac7a6"
-            borderColor="#1c1f2c"
-            borderTickness="2px"
-            textColor="#1c1f2c"
+            backgroundColor="#7de2d1"
+            textColor="#131515"
             text="Veja Nossos Módulos"
             link="/modulos"
           />
         </div>
       </div>
-      <span className="trapezioinvertido"></span>
       <div className="additional-info">
         <p className="additional-info-text1">
-          Seja <b>destaque</b> dentro de seu time
+          Seja <b>destaque</b> dentro de seu time!
         </p>
-        <img src={img1home} alt="Imagem 1" />
       </div>
       <div className="additional-info">
         <img src={img1home} alt="Imagem 1" />
         <div>
           <p className="additional-info-text1">
             Desenvolva sua habilidade com a metodologia SAFe de maneira{" "}
-            <b>gameficada</b>
+            <b>gameficada</b>!
           </p>
           <p className="additional-info-text2">
             Utilize seu conhecimento para resolver puzzles e desafios baseados
@@ -52,7 +48,6 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <span className="trapezio"></span>
       <div className="footer"></div>
     </div>
   );

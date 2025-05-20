@@ -7,9 +7,9 @@ interface RainbowButtonProps {
   backgroundColor: string;
   text?: string;
   textColor?: string;
-  hasRambow?: boolean;
+  hasRainbow?: boolean;
   borderColor?: string;
-  borderTickness?: string;
+  borderThickness?: string;
   link: string;
   width?: string;
   height?: string;
@@ -21,15 +21,15 @@ const useStyle = createStyles(
     {
       backgroundColor,
       textColor,
-      hasRambow,
+      hasRainbow: hasRainbow,
       borderColor,
-      borderTickness,
+      borderThickness,
       width,
       height,
     }: RainbowButtonProps,
   ) => ({
-    RainBowButton: {
-      fontSize: "1.5rem",
+    RainbowButton: {
+      fontSize: "1.75dvw",
       fontWeight: "bold",
       color: textColor,
       border: "none",
@@ -42,8 +42,9 @@ const useStyle = createStyles(
       zIndex: 0,
       background: "transparent",
       textDecoration: "none",
+      fontFamily: "Open Sans",
 
-      ...(hasRambow
+      ...(hasRainbow
         ? {
             "&::before": {
               content: '""',
@@ -51,7 +52,7 @@ const useStyle = createStyles(
               inset: 0,
               borderRadius: "12px",
               padding: "2px",
-              background: "linear-gradient(270deg, lime, blue, purple)",
+              background: "linear-gradient(270deg, #fffafb, #7de2d1, #339989)",
               backgroundSize: "400% 400%",
               zIndex: -1,
               transition: "1s",
@@ -74,7 +75,7 @@ const useStyle = createStyles(
             },
           }
         : {
-            border: `${borderTickness} solid ${borderColor || "transparent"}`,
+            border: `${borderThickness} solid ${borderColor || "transparent"}`,
             backgroundColor: backgroundColor,
 
             "&:hover": {
@@ -89,9 +90,9 @@ const CustomButton: React.FC<RainbowButtonProps> = ({
   backgroundColor,
   text,
   textColor,
-  hasRambow,
+  hasRainbow,
   borderColor,
-  borderTickness,
+  borderThickness,
   link,
   width,
   height,
@@ -99,16 +100,16 @@ const CustomButton: React.FC<RainbowButtonProps> = ({
   const { styles } = useStyle({
     backgroundColor,
     textColor,
-    hasRambow: hasRambow || false,
+    hasRainbow: hasRainbow || false,
     borderColor,
-    borderTickness,
+    borderThickness,
     link: "",
     width,
     height,
   });
 
   return (
-    <Link to={link} className={styles.RainBowButton}>
+    <Link to={link} className={styles.RainbowButton}>
       {text}
     </Link>
   );

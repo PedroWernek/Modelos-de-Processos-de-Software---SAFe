@@ -3,10 +3,10 @@ import "../../css/ModulesNav.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
 
-import Carrousel from "../../components/carousels/Carrousel";
-import { IntermediaryLinks } from "../../data/leasonLinks/Intermediary";
-import { BeginnerLinks } from "../../data/leasonLinks/Begginer";
-import { AdvancedLinks } from "../../data/leasonLinks/Advanced";
+import Carousel from "../../components/carousels/Carousel";
+import { IntermediaryLinks } from "../../data/lessonLinks/Intermediary";
+import { BeginnerLinks } from "../../data/lessonLinks/Beginner";
+import { AdvancedLinks } from "../../data/lessonLinks/Advanced";
 
 const Lesson = () => {
   return (
@@ -23,15 +23,15 @@ const Lesson = () => {
       <div className="lesson-content">
         <div className="lesson-content__iniciante">
           <h1 className="text-4">Iniciante</h1>
-          <Carrousel Componentes={BeginnerLinks} />
+          <Carousel Componentes={BeginnerLinks} hasAula={true}/>
         </div>
         <div className="lesson-content__intermediario">
           <h1 className="text-4">Intermediário</h1>
-          <Carrousel Componentes={IntermediaryLinks} />
+          <Carousel Componentes={IntermediaryLinks} />
         </div>
         <div className="lesson-content__avancado">
           <h1 className="text-4">Avançado</h1>
-          <Carrousel Componentes={AdvancedLinks} />
+          <Carousel Componentes={AdvancedLinks} />
         </div>
       </div>
     </div>

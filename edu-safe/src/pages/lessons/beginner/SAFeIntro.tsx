@@ -6,7 +6,7 @@ import ImageComponent from "../../../components/image/ImageComponent";
 
 import scrumImg from "../../../assets/scrumImg.svg";
 import Musico from "../../../assets/musico.jpg";
-import dean from "../../../assets/Dean-245x300.jpg";
+import dean from "../../../assets/Dean.jpg";
 import scrum from "../../../assets/scrum.jpg";
 import CustomButton from "../../../components/buttons/CustomButton";
 
@@ -172,7 +172,7 @@ const SAFeIntro = () => {
         <CustomButton
           backgroundColor="#3ac7a6"
           borderColor="#1c1f2c"
-          borderTickness="2px"
+          borderThickness="2px"
           textColor="#1c1f2c"
           text="Quiz"
           link="/modulos/avaliacao/basico/1"

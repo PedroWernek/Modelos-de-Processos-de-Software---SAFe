@@ -2,7 +2,7 @@ import React from "react";
 import { QuestionForm } from "../../../components/forms/QuestionForms";
 
 import { SAFeIntroQuestions } from "../../../data/questionnaries/SAfeIntroQuestions";
-import Carrousel from "../../../components/carousels/Carrousel";
+import Carousel from "../../../components/carousels/Carousel";
 
 const SAFeIntroQuest = () => {
   const Questões = SAFeIntroQuestions.map((questao, index) => () => (
@@ -30,7 +30,7 @@ const SAFeIntroQuest = () => {
         <h1>Questionário de Introdução ao SAFe</h1>
       </div>
       <ol className="question-list">
-        <Carrousel Componentes={Questões}></Carrousel>
+        <Carousel Componentes={Questões}></Carousel>
       </ol>
     </div>
   );
