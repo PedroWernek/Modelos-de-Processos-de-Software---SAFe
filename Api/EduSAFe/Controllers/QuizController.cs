@@ -73,9 +73,8 @@ public class QuizController : ControllerBase
             MinCorrectAnswers = quiz.MinCorrectAnswers,
             Questions = quiz.Questions.Select(q =>
             {
-                var allAnswers = new List<string> { q.CorrectAnswer }; // ana: a lista começa com a resposta certa. só.
-                allAnswers.AddRange(q.IncorrectAnswers); // ana: agora enfia todas as incorretas também (VER SubmitQuiz PARA ENTENDER O RETORNO)
-
+                var allAnswers = q.Answers.Select(a => a.Description).ToList();
+                
                 var random = new Random();
                 var shuffled = allAnswers.OrderBy(x => random.Next()).ToList(); // ana: embaralha respostas
 
@@ -106,7 +105,10 @@ public class QuizController : ControllerBase
         foreach (var answer in answers)
         {
             var question = quiz.Questions.FirstOrDefault(q => q.Id == answer.QuestionId);
-            if (question != null && answer.SelectedAnswer == question.CorrectAnswer)
+
+            var correctAnswer = question?.Answers.FirstOrDefault(a => a.IsCorrect)?.Description;
+
+            if (question != null && answer.SelectedAnswer == correctAnswer)
             {
                 correctAnswers++;
             }
@@ -117,7 +119,7 @@ public class QuizController : ControllerBase
             var user = await _appDbContext.Users.FindAsync(userId);
             if (user is not null)
             {
-                var existingQuiz = user.UserLessons.FirstOrDefault(x => x.LessonId == id);
+                var existingQuiz = user.UserLessons.FirstOrDefault(x => x.Id == id);
                 if (existingQuiz is not null)
                     return Ok(new { message = "Boa revisão! Você passou!", correctAnswers });
                 // ana: ok. a parte de cima 1. impede que o user tenha uma lista de UserLessons com 30000000000 LessonId.3 e também impede hack de xp! mas ainda deixa o user revisar o conteúdo sei lá se ele tiver afim
@@ -125,11 +127,7 @@ public class QuizController : ControllerBase
                 user.XP += quiz.XP;
                 user.CalculateLevel(user.XP);
 
-                user.UserLessons.Add(new()
-                {
-                    LessonId = id,
-                    IsSuccess = true,
-                });
+                user.UserLessons.Add(quiz);
 
                 user.FlashCards.AddRange(_appDbContext.FlashCards.Where(x => x.LessonId == id));
 
