@@ -51,8 +51,9 @@ public class QuizController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Question>>> GetQuizzes()
     {
-        var quizzes = await _appDbContext.Quizzes.ToListAsync();
-
+        var quizzes = await _appDbContext.Quizzes.Where(x => !x.IsInteractiveStory).ToListAsync();
+        // ana: se deus quiser eh assim
+        
         return Ok(quizzes);
     }
 
