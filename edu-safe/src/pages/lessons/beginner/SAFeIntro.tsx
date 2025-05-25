@@ -172,12 +172,12 @@ const SAFeIntro = () => {
         <CustomButton
           backgroundColor="#3ac7a6"
           borderColor="#1c1f2c"
-          borderThickness="2px"
+          borderTickness="2px"
           textColor="#1c1f2c"
           text="Quiz"
-          link="/modulos/avaliacao/basico/1"
-          width="2dvw"
-          height="10dvh"
+          linkNav="/modulos/avaliacao/basico/1"
+          height="2dvw"
+          width="10dvh"
         />
       </div>
     </div>

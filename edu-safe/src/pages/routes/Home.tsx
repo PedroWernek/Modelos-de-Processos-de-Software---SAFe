@@ -20,13 +20,13 @@ const Home = () => {
             hasRainbow={true}
             textColor="white"
             text="O que é SAFe?"
-            link="/introducao-safe"
+            linkNav="/introducao-safe"
           />
           <CustomButton
             backgroundColor="#7de2d1"
             textColor="#131515"
             text="Veja Nossos Módulos"
-            link="/modulos"
+            linkNav="/modulos"
           />
         </div>
       </div>

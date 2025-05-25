@@ -8,9 +8,10 @@ const ErrorPage = () => {
       <p>Acho que não encontramos o que você queria. 😅</p>
       <CustomButton
         text="Voltar para o início"
-        link="/"
-        backgroundColor="#7de2d1"
-        textColor="#131515"
+        linkNav="/"
+        backgroundColor="#3ac7a6"
+        textColor="#0c1329"
+        borderColor="#0c1320"
       />
     </div>
   );

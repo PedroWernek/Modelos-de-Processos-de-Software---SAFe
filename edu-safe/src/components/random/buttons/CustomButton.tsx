@@ -1,7 +1,7 @@
 import { createStyles } from "antd-style";
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../css/index.css";
+import "../../../css/index.css";
 
 interface RainbowButtonProps {
   backgroundColor: string;
@@ -9,10 +9,10 @@ interface RainbowButtonProps {
   textColor?: string;
   hasRainbow?: boolean;
   borderColor?: string;
-  borderThickness?: string;
-  link: string;
-  width?: string;
+  borderTickness?: string;
+  linkNav?: string;
   height?: string;
+  width?: string;
 }
 
 const useStyle = createStyles(
@@ -23,9 +23,9 @@ const useStyle = createStyles(
       textColor,
       hasRainbow: hasRainbow,
       borderColor,
-      borderThickness,
-      width,
-      height,
+      borderTickness,
+      height: width,
+      width: height,
     }: RainbowButtonProps,
   ) => ({
     RainbowButton: {
@@ -75,7 +75,7 @@ const useStyle = createStyles(
             },
           }
         : {
-            border: `${borderThickness} solid ${borderColor || "transparent"}`,
+            border: `${borderTickness} solid ${borderColor || "transparent"}`,
             backgroundColor: backgroundColor,
 
             "&:hover": {
@@ -92,26 +92,32 @@ const CustomButton: React.FC<RainbowButtonProps> = ({
   textColor,
   hasRainbow,
   borderColor,
-  borderThickness,
-  link,
-  width,
-  height,
+  borderTickness,
+  linkNav,
+  height: width,
+  width: height,
 }) => {
   const { styles } = useStyle({
     backgroundColor,
     textColor,
     hasRainbow: hasRainbow || false,
     borderColor,
-    borderThickness,
-    link: "",
-    width,
-    height,
+    borderTickness,
+    linkNav: "",
+    height: width,
+    width: height,
   });
 
   return (
-    <Link to={link} className={styles.RainbowButton}>
-      {text}
-    </Link>
+    <>
+      {linkNav ? (
+        <Link to={linkNav} className={styles.RainbowButton}>
+          {text}
+        </Link>
+      ) : (
+        <div className={styles.RainbowButton}>{text}</div>
+      )}
+    </>
   );
 };
 

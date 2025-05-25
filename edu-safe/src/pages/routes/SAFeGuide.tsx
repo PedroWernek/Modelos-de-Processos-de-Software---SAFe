@@ -31,7 +31,7 @@ const SafeGuide = () => {
             backgroundColor="#7de2d1"
             textColor="#131515"
             text="Veja Nossos Módulos"
-            link="/modulos"
+            linkNav="/modulos"
           />
         </div>
       </div>
