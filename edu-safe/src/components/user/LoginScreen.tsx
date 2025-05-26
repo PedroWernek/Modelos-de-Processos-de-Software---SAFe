@@ -1,7 +1,6 @@
-import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
-import { useForm, Controller } from 'react-hook-form';
-import axios from 'axios';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React from "react";
+import { useForm, Controller } from "react-hook-form";
+import axios from "axios";
 
 interface LoginFormData {
   email: string;
@@ -16,90 +15,127 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess }) => {
   const {
     control,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm<LoginFormData>();
 
   const onSubmit = async (data: LoginFormData) => {
     try {
-      const res = await axios.post('http://localhost:5017/api/auth/login', {
+      const res = await axios.post("http://localhost:5017/api/auth/login", {
         email: data.email,
         senha: data.password,
       });
 
       const token = res.data.token;
-      await AsyncStorage.setItem('token', token);
+      localStorage.setItem("token", token); // Substitui AsyncStorage
 
       if (onLoginSuccess) onLoginSuccess();
     } catch (err) {
       if (axios.isAxiosError(err)) {
-        Alert.alert('Erro ao fazer login', err.response?.data?.mensagem || err.message);
+        alert(err.response?.data?.mensagem || err.message);
       } else {
-        Alert.alert('Erro desconhecido', 'Algo deu errado.');
+        alert("Erro desconhecido. Tente novamente.");
       }
     }
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+    <div style={styles.container}>
+      <h2 style={styles.title}>Login</h2>
 
-      <Controller
-        control={control}
-        name="email"
-        rules={{
-          required: "Email is required",
-          minLength: { value: 5, message: "At least 5 characters" },
-          maxLength: { value: 25, message: "Max 25 characters" },
-        }}
-        render={({ field: { onChange, value } }) => (
-          <TextInput
-            placeholder="Email"
-            value={value}
-            onChangeText={onChange}
-            style={styles.input}
-            keyboardType="email-address"
+      <form onSubmit={handleSubmit(onSubmit)} style={styles.form}>
+        <div style={styles.field}>
+          <Controller
+            control={control}
+            name="email"
+            rules={{
+              required: "Email é obrigatório",
+              minLength: { value: 5, message: "Mínimo de 5 caracteres" },
+              maxLength: { value: 25, message: "Máximo de 25 caracteres" },
+            }}
+            render={({ field }) => (
+              <input
+                type="email"
+                placeholder="Email"
+                {...field}
+                style={styles.input}
+              />
+            )}
           />
-        )}
-      />
-      {errors.email && <Text style={styles.error}>{errors.email.message}</Text>}
+          {errors.email && <p style={styles.error}>{errors.email.message}</p>}
+        </div>
 
-      <Controller
-        control={control}
-        name="password"
-        rules={{
-          required: "Password is required",
-          minLength: { value: 6, message: "At least 6 characters" },
-          maxLength: { value: 100, message: "Max 100 characters" },
-        }}
-        render={({ field: { onChange, value } }) => (
-          <TextInput
-            placeholder="Senha"
-            value={value}
-            onChangeText={onChange}
-            secureTextEntry
-            style={styles.input}
+        <div style={styles.field}>
+          <Controller
+            control={control}
+            name="password"
+            rules={{
+              required: "Senha é obrigatória",
+              minLength: { value: 6, message: "Mínimo de 6 caracteres" },
+              maxLength: { value: 100, message: "Máximo de 100 caracteres" },
+            }}
+            render={({ field }) => (
+              <input
+                type="password"
+                placeholder="Senha"
+                {...field}
+                style={styles.input}
+              />
+            )}
           />
-        )}
-      />
-      {errors.password && <Text style={styles.error}>{errors.password.message}</Text>}
+          {errors.password && (
+            <p style={styles.error}>{errors.password.message}</p>
+          )}
+        </div>
 
-      <Button title="Entrar" onPress={handleSubmit(onSubmit)} />
-    </View>
+        <button type="submit" style={styles.button}>
+          Entrar
+        </button>
+      </form>
+    </div>
   );
 };
 
-const styles = StyleSheet.create({
-  container: { padding: 20, marginTop: 80 },
-  title: { fontSize: 24, fontWeight: 'bold', marginBottom: 20 },
+const styles: { [key: string]: React.CSSProperties } = {
+  container: {
+    maxWidth: "400px",
+    margin: "80px auto",
+    padding: "20px",
+    border: "1px solid #ccc",
+    borderRadius: "10px",
+    boxShadow: "0px 0px 8px rgba(0,0,0,0.1)",
+  },
+  title: {
+    fontSize: "24px",
+    fontWeight: "bold",
+    marginBottom: "20px",
+    textAlign: "center",
+  },
+  form: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  field: {
+    marginBottom: "15px",
+  },
   input: {
-    borderBottomWidth: 1,
-    marginBottom: 15,
-    paddingVertical: 8,
-    fontSize: 16,
+    width: "100%",
+    padding: "10px",
+    fontSize: "16px",
+    borderRadius: "5px",
+    border: "1px solid #ccc",
+  },
+  button: {
+    padding: "10px",
+    fontSize: "16px",
+    backgroundColor: "#007bff",
+    color: "#fff",
+    border: "none",
+    borderRadius: "5px",
+    cursor: "pointer",
   },
   error: {
-    color: 'red',
-    marginBottom: 10,
-    fontSize: 14,
+    color: "red",
+    fontSize: "14px",
+    marginTop: "5px",
   },
-});
+};

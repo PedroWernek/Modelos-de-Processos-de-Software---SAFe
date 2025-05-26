@@ -3,7 +3,7 @@ import { LoginScreen } from "../components/user/LoginScreen";
 import { RegisterForm } from "./../components/user/RegisterForm";
 import "./../css/AuthPage.css";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 
 export function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
@@ -15,7 +15,7 @@ export function AuthPage() {
     password: string;
   }) => {
     try {
-      const res = await axios.post("http://localhost:5017/api/users", data);
+      await axios.post("http://localhost:5017/api/users", data);
       alert("Usuário registrado com sucesso!");
       setIsLogin(true);
     } catch (err) {
@@ -32,7 +32,7 @@ export function AuthPage() {
       <h1>{isLogin ? "Login" : "Registrar"}</h1>
 
       {isLogin ? (
-        <LoginScreen onLoginSuccess={() => navigate('/')} />
+        <LoginScreen onLoginSuccess={() => navigate("/")} />
       ) : (
         <RegisterForm onSubmit={handleRegisterSubmit} />
       )}
@@ -42,8 +42,7 @@ export function AuthPage() {
         <button
           type="button"
           className="toggle-button"
-          onClick={() => setIsLogin(!isLogin)}
-        >
+          onClick={() => setIsLogin(!isLogin)}>
           {isLogin ? "Registrar" : "Login"}
         </button>
       </p>

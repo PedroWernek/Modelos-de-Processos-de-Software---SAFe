@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { QuestionForm } from "../../../components/forms/QuestionForms";
+import { QuestionForm } from "../../components/forms/QuestionForms";
 
-import { SAFeIntroQuestions } from "../../../data/questionnaries/SAfeIntroQuestions";
-import AlertScreen from "../AlertScreen";
-import CustomButton from "../../../components/random/buttons/CustomButton";
-import Carousel from "../../../components/random/carousels/Carousel";
+import { SAFeIntroQuestions } from "../../data/questionnaries/SAfeIntroQuestions";
+import AlertScreen from "./AlertScreen";
+import CustomButton from "../../components/random/buttons/CustomButton";
+import Carousel from "../../components/random/carousels/Carousel";
 
 const SAFeIntroQuest = () => {
   const [OnAlertScreen, setOnAlertScreen] = useState(true);

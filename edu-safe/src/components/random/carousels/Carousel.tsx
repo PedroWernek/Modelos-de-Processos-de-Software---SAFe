@@ -53,12 +53,12 @@ const useStyle = createStyles((css) => ({
     transition: "background-color 1s ease",
     "&:hover": {
       backgroundColor: "#fffafb",
-      color: "#131515"
+      color: "#131515",
     },
     [css.token.screenXS]: {
       padding: "0.4rem 0.8rem",
       fontSize: "0.8rem",
-    }, 
+    },
   },
   CarouselNavDots: {
     display: "flex",
@@ -128,7 +128,7 @@ const Carousel: React.FC<ModuleCarouselProps> = ({
                 }}>
                 Módulo {i + 1}
               </p>
-            )} 
+            )}
           </div>
         ))}
       </div>

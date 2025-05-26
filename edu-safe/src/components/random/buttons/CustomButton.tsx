@@ -21,7 +21,7 @@ const useStyle = createStyles(
     {
       backgroundColor,
       textColor,
-      hasRainbow: hasRainbow,
+      hasRainbow,
       borderColor,
       borderTickness,
       height: width,
