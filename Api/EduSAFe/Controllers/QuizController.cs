@@ -48,10 +48,19 @@ public class QuizController : ControllerBase
         return Ok(quiz);
     }
 
-    [HttpGet]
+    [HttpGet("quizzes")]
     public async Task<ActionResult<IEnumerable<Question>>> GetQuizzes()
     {
         var quizzes = await _appDbContext.Quizzes.Where(x => !x.IsInteractiveStory).ToListAsync();
+        // ana: se deus quiser eh assim
+        
+        return Ok(quizzes);
+    }
+
+    [HttpGet("i-stories")]
+    public async Task<ActionResult<IEnumerable<Question>>> GetIStories()
+    {
+        var quizzes = await _appDbContext.Quizzes.Where(x => x.IsInteractiveStory).ToListAsync();
         // ana: se deus quiser eh assim
         
         return Ok(quizzes);
@@ -132,6 +141,7 @@ public class QuizController : ControllerBase
 
                 user.FlashCards.AddRange(_appDbContext.FlashCards.Where(x => x.LessonId == id));
 
+                _appDbContext.Update(user);
                 await _appDbContext.SaveChangesAsync();
             }
 

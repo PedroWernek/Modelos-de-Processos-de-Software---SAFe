@@ -48,7 +48,7 @@ namespace EduSAFe.Controllers;
 
     var token = new JwtSecurityToken(
         claims: claims,
-        expires: DateTime.UtcNow.AddHours(1),
+        expires: DateTime.UtcNow.AddHours(24),
         signingCredentials: credenciais);
 
     return new JwtSecurityTokenHandler().WriteToken(token);
