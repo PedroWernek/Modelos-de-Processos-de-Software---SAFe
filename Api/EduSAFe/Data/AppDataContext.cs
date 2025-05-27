@@ -12,4 +12,6 @@ public class AppDbContext : DbContext
     public DbSet<User> Users { get; set; }
     public DbSet<Quiz> Quizzes { get; set; }
     public DbSet<FlashCard> FlashCards { get; set; }
+
+    public DbSet<Narrativa> Narrativas { get; set; }
 }
