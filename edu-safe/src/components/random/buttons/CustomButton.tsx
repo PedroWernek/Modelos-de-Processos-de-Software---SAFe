@@ -13,6 +13,7 @@ interface RainbowButtonProps {
   linkNav?: string;
   height?: string;
   width?: string;
+  onClick?: () => void;
 }
 
 const useStyle = createStyles(

@@ -3,35 +3,38 @@ import { createStyles } from "antd-style";
 
 interface InfoCardProps {
   title: string;
-  description: string;
+  description: string | string[];
   borderColor: string;
-  icon?: string;
+  borderRadius?: string;
+  icon?: React.ReactNode;
 }
 
 const useStyles = createStyles(
   (
     _,
-    { borderColor }: { borderColor: string },
+    {
+      borderColor,
+      borderRadius,
+    }: { borderColor: string; borderRadius?: string },
   ) => ({
     container: {
-      border: `1px solid ${borderColor}`,
+      border: `5px solid ${borderColor}`,
       color: "#ffffff",
       backgroundColor: "#1a1a1a",
-      borderRadius: "8px", // TODO: REVER COM PEDRO PARA PADRONIZAÇÃO
+      borderRadius: borderRadius,
       display: "flex",
       alignItems: "left",
       padding: "4rem",
       position: "relative",
-      width: "90%", // ?? perguntar p o pedro se asi ta bom
+      width: "90%",
     },
     iconWrapper: {
       position: "absolute",
-      left: "-2rem", // no exemplo ta mais dentro que fora
+      left: "-2rem",
       top: "50%",
       transform: "translateY(-50%)",
       backgroundColor: borderColor,
       borderRadius: "50%",
-      padding: "0.5rem",
       width: "5rem",
       height: "5rem",
       display: "flex",
@@ -39,24 +42,27 @@ const useStyles = createStyles(
       justifyContent: "center",
       overflow: "hidden",
     },
-    iconImage: {
-      width: "80%",
-      height: "80%", // deppois revemos o tamanho
-      objectFit: "cover",
-      borderRadius: "50%",
-    },
     textWrapper: {
-      marginLeft: "2rem", // atencao: valor igual ao iconWrapper left
+      marginLeft: "2rem",
     },
     title: {
-      fontSize: "2rem", // ARRUMAR TAMANHO PADROZINAR
+      fontSize: "2.5rem",
       fontWeight: 600,
       margin: 0,
       textAlign: "left",
     },
     description: {
-      fontSize: "1rem", // PADRONIZAR
+      fontSize: "1.5rem",
       marginTop: "1rem",
+      textAlign: "justify",
+    },
+    list: {
+      fontSize: "1.5rem",
+      marginTop: "1rem",
+      paddingLeft: "1.5rem",
+    },
+    listItem: {
+      marginBottom: "0.5rem",
       textAlign: "justify",
     },
   }),
@@ -67,19 +73,27 @@ const InfoCard: React.FC<InfoCardProps> = ({
   description,
   borderColor,
   icon,
+  borderRadius,
 }) => {
-  const { styles } = useStyles({ borderColor });
+  const { styles } = useStyles({ borderColor, borderRadius });
 
   return (
     <div className={styles.container}>
-      {icon && (
-        <div className={styles.iconWrapper}>
-          <img src={icon} alt="Icon" className={styles.iconImage} />
-        </div>
-      )}
+      {icon && <div className={styles.iconWrapper}>{icon}</div>}
+
       <div className={styles.textWrapper}>
         <h2 className={styles.title}>{title}</h2>
-        <p className={styles.description}>{description}</p>
+        {Array.isArray(description) ? (
+          <ul className={styles.list}>
+            {description.map((item, index) => (
+              <li key={index} className={styles.listItem}>
+                {item}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className={styles.description}>{description}</p>
+        )}
       </div>
     </div>
   );
