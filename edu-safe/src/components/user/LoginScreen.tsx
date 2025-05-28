@@ -26,7 +26,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess }) => {
       });
 
       const token = res.data.token;
-      localStorage.setItem("token", token); // Substitui AsyncStorage
+      localStorage.setItem("token", token);
 
       if (onLoginSuccess) onLoginSuccess();
     } catch (err) {

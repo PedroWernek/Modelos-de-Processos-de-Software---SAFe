@@ -1,5 +1,6 @@
 using EduSAFe.Data;
 using EduSAFe.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,6 +17,7 @@ public class UserController : ControllerBase
         _appDbContext = appDbContext;
     }
 
+    [AllowAnonymous]
     [HttpPost]
     public async Task<IActionResult> AddUser([FromBody] User user)
     {
@@ -30,6 +32,7 @@ public class UserController : ControllerBase
         return Created("Usuário criado com sucesso.", user);
     }
 
+    [Authorize(Roles = "Owner")]
     [HttpGet]
     public async Task<ActionResult <IEnumerable<User>>> GetUsers()
     {
@@ -38,6 +41,7 @@ public class UserController : ControllerBase
         return Ok(users);
     }
 
+    [Authorize(Roles = "Owner,User")]
     [HttpGet("{id}")]
     public async Task<ActionResult<User>> GetUser(int id)
     {
@@ -50,6 +54,7 @@ public class UserController : ControllerBase
         return Ok(user);
     }
 
+    [Authorize(Roles = "User")]
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateUser(int id, [FromBody] User updatedUser)
     {
@@ -65,6 +70,7 @@ public class UserController : ControllerBase
         return Ok(updatedUser);
     }
 
+    [Authorize(Roles = "Owner,User")]
     [HttpDelete("{id}")]
     public async Task<ActionResult> DeleteUser(int id)
     {

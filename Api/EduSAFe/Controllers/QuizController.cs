@@ -1,11 +1,14 @@
 using EduSAFe.Data;
 using EduSAFe.DTOs;
+using EduSAFe.Enums;
 using EduSAFe.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace EduSAFe.Controllers;
 
+[Authorize(Roles = "Owner,User")]
 [ApiController]
 [Route("api/quizzes")]
 public class QuizController : ControllerBase
