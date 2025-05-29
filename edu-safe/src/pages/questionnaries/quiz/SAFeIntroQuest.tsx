@@ -5,22 +5,28 @@ import CustomButton from "../../../components/random/buttons/CustomButton";
 import Carousel from "../../../components/random/carousels/Carousel";
 import axios from "axios";
 
-interface QuestionDTO {
-  id: number;
-  description: string;
-  shuffledAnswers: string[];
+interface Answer {
+  Id: number;
+  Description: string;
+  IsCorrect: boolean;
 }
 
-interface QuizDTO {
-  id: number;
-  xp: number;
-  minCorrectAnswers: number;
-  questions: QuestionDTO[];
+interface Question {
+  Id: number;
+  Description: string;
+  ShuffledAnswers: Answer[];
+}
+
+interface Quiz {
+  Id: number;
+  XP: number;
+  MinCorrectAnswers: number;
+  Questions: Question[];
 }
 
 const SAFeIntroQuest = () => {
   const [onAlertScreen, setOnAlertScreen] = useState(true);
-  const [quiz, setQuiz] = useState<QuizDTO | null>(null);
+  const [quiz, setQuiz] = useState<Quiz | null>(null);
   const [userXP, setUserXP] = useState(0);
 
   const questionaryName = "Questionário de Introdução ao SAFe";
@@ -28,43 +34,23 @@ const SAFeIntroQuest = () => {
 
   useEffect(() => {
     axios
-      .get<QuizDTO>(`http://localhost:5017/api/quizzes/${quizId}`)
-      .then((res) => setQuiz(res.data))
+      .get(`http://localhost:5017/api/quizzes/${quizId}`)
+      .then((res) => {
+        console.log("Quiz fetched:", res.data);
+        setQuiz(res.data);
+        setUserXP(res.data.XP);
+        axios.get(`http://localhost:5017/api/quizzes/${quizId}`);
+      })
       .catch((err) => {
         alert("Erro ao buscar quiz: " + err.message);
       });
   }, []);
 
-  const handleQuestionSubmit = (isCorrect: boolean) => {
-    if (isCorrect && quiz) {
-      setUserXP((prev) => prev + quiz.xp);
-    }
-  };
-
-  const Questoes =
-    quiz?.questions.map((questao, index) => () => (
-      <li key={questao.id}>
-        <QuestionForm
-          questionNumber={index + 1}
-          questionText={questao.description}
-          options={questao.shuffledAnswers}
-          correctAnswer={
-            quiz.questions[index].shuffledAnswers.find(
-              (ans) => ans === questao.shuffledAnswers[0],
-            ) || ""
-          }
-          onSubmit={({ selectedOption }) =>
-            handleQuestionSubmit(
-              selectedOption === quiz.questions[index].shuffledAnswers[0],
-            )
-          }
-        />
-      </li>
-    )) || [];
-
   return (
     <div>
-      {onAlertScreen ? (
+      {!quiz ? (
+        <p>Carregando quiz...</p>
+      ) : onAlertScreen ? (
         <div
           style={{
             height: "100dvh",
@@ -77,8 +63,8 @@ const SAFeIntroQuest = () => {
           <AlertScreen
             questionaryName={questionaryName}
             limitTime="4"
-            qtdQuestions={quiz?.questions.length || 0}
-            xp={quiz?.xp || 0}
+            qtdQuestions={quiz.Questions?.length || 0}
+            xp={quiz.XP}
           />
           <div
             style={{
@@ -117,7 +103,7 @@ const SAFeIntroQuest = () => {
             <h1>{questionaryName}</h1>
           </div>
           <ol className="question-list">
-            <Carousel Componentes={Questoes}></Carousel>
+            {/* <Carousel Componentes={Questoes}></Carousel> */}
           </ol>
         </div>
       )}

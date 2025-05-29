@@ -5,7 +5,7 @@ import React from "react";
 interface AlertScreenProps {
   questionaryName: string;
   limitTime?: string;
-  qtdQuestions: number;
+  qtdQuestions?: number;
   xp: number;
 }
 
