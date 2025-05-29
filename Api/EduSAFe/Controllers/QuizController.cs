@@ -74,6 +74,7 @@ public class QuizController : ControllerBase
     {
         var quiz = await _appDbContext.Quizzes
             .Include(q => q.Questions) // ana: não mexer, explico melhor pra quem perguntar
+            .ThenInclude(a => a.Answers)
             .FirstOrDefaultAsync(q => q.Id == id);
 
         if (quiz is null)
