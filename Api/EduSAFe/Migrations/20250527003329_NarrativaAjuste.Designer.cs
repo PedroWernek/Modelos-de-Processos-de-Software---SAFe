@@ -3,6 +3,7 @@ using System;
 using EduSAFe.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EduSAFe.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250527003329_NarrativaAjuste")]
+    partial class NarrativaAjuste
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -98,6 +101,20 @@ namespace EduSAFe.Migrations
                     b.ToTable("FlashCards");
                 });
 
+            modelBuilder.Entity("EduSAFe.Models.Narrativa", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Texto")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Narrativas");
+                });
+
             modelBuilder.Entity("EduSAFe.Models.Question", b =>
                 {
                     b.Property<int>("Id")
@@ -151,16 +168,6 @@ namespace EduSAFe.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("EduSAFe.Models.Narrativa", b =>
-                {
-                    b.HasBaseType("EduSAFe.Models.Abstractions.Lesson");
-
-                    b.Property<string>("Texto")
-                        .HasColumnType("longtext");
-
-                    b.HasDiscriminator().HasValue("Narrativa");
                 });
 
             modelBuilder.Entity("EduSAFe.Models.Quiz", b =>

@@ -9,7 +9,8 @@ public class AppDbContext : DbContext
     {
     }
 
-    public DbSet<User> Users { get; set; }
-    public DbSet<Quiz> Quizzes { get; set; }
-    public DbSet<FlashCard> FlashCards { get; set; }
+    public DbSet<User> Users { get; set; } = null!;
+    public DbSet<Quiz> Quizzes { get; set; } = null!;
+    public DbSet<FlashCard> FlashCards { get; set; } = null!;
+    public DbSet<Narrativa> Narrativas { get; set; } = null!;
 }

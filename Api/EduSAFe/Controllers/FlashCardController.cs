@@ -1,10 +1,12 @@
 using EduSAFe.Data;
 using EduSAFe.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace EduSAFe.Controllers;
 
+// [Authorize(Roles = "Owner,User")]
 [ApiController]
 [Route("api/flash-cards")]
 public class FlashCardController : ControllerBase

@@ -1,23 +1,30 @@
 import { useState } from "react";
-import { LoginForm } from "./../components/user/LoginForm";
+import { LoginScreen } from "../components/user/LoginScreen";
 import { RegisterForm } from "./../components/user/RegisterForm";
 import "./../css/AuthPage.css";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
+  const navigate = useNavigate();
 
-  const handleLoginSubmit = (data: { email: string; password: string }) => {
-    console.log("Logging in with:", data); // como chama no console ta em english, mas rever
-    // TODO: login no back
-  };
-
-  const handleRegisterSubmit = (data: {
+  const handleRegisterSubmit = async (data: {
     name: string;
     email: string;
     password: string;
   }) => {
-    console.log("Registering with:", data); // mesmo comentario que o de cima
-    // TODO: cadastro! ver como colocar com o pedro (e se ja pode colocar?)
+    try {
+      await axios.post("http://localhost:5017/api/users", data);
+      alert("Usuário registrado com sucesso!");
+      setIsLogin(true);
+    } catch (err) {
+      if (axios.isAxiosError(err)) {
+        alert(`Erro: ${err.response?.data?.title || err.message}`);
+      } else {
+        alert("Erro desconhecido.");
+      }
+    }
   };
 
   return (
@@ -25,7 +32,7 @@ export function AuthPage() {
       <h1>{isLogin ? "Login" : "Registrar"}</h1>
 
       {isLogin ? (
-        <LoginForm onSubmit={handleLoginSubmit} />
+        <LoginScreen onLoginSuccess={() => navigate("/")} />
       ) : (
         <RegisterForm onSubmit={handleRegisterSubmit} />
       )}
@@ -35,8 +42,7 @@ export function AuthPage() {
         <button
           type="button"
           className="toggle-button"
-          onClick={() => setIsLogin(!isLogin)}
-        >
+          onClick={() => setIsLogin(!isLogin)}>
           {isLogin ? "Registrar" : "Login"}
         </button>
       </p>

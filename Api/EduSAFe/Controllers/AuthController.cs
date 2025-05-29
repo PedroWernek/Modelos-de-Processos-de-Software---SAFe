@@ -5,15 +5,17 @@ using System.Security.Claims;
 using System.Text;
 using EduSAFe.Models;
 using EduSAFe.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EduSAFe.Controllers;
 
-  [ApiController]
-  [Route("api/auth")]
-  public class AuthController : ControllerBase
-  {
-      private readonly IConfiguration _configuration;
-      private readonly AppDbContext _appDbContext;
+[AllowAnonymous]
+[ApiController]
+[Route("api/auth")]
+public class AuthController : ControllerBase
+{
+    private readonly IConfiguration _configuration;
+    private readonly AppDbContext _appDbContext;
 
 
     public AuthController(IConfiguration configuration, AppDbContext appDbContext)
@@ -36,21 +38,21 @@ namespace EduSAFe.Controllers;
 
     private string GerarToken(User user)
     {
-    var claims = new[]
-    {
+        var claims = new[]
+        {
         new Claim(ClaimTypes.Name, user.Email),
         new Claim(ClaimTypes.Role, user.Role.ToString())
     };
 
-    var chave = Encoding.UTF8.GetBytes(_configuration["JwtSettings:SecretKey"]!);
-    var credenciais = new SigningCredentials(
-        new SymmetricSecurityKey(chave), SecurityAlgorithms.HmacSha256);
+        var chave = Encoding.UTF8.GetBytes(_configuration["JwtSettings:SecretKey"]!);
+        var credenciais = new SigningCredentials(
+            new SymmetricSecurityKey(chave), SecurityAlgorithms.HmacSha256);
 
-    var token = new JwtSecurityToken(
-        claims: claims,
-        expires: DateTime.UtcNow.AddHours(1),
-        signingCredentials: credenciais);
+        var token = new JwtSecurityToken(
+            claims: claims,
+            expires: DateTime.UtcNow.AddHours(24),
+            signingCredentials: credenciais);
 
-    return new JwtSecurityTokenHandler().WriteToken(token);
+        return new JwtSecurityTokenHandler().WriteToken(token);
     }
-  }
+}

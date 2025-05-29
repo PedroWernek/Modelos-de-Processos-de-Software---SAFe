@@ -23,15 +23,27 @@ const Lesson = () => {
       <div className="lesson-content">
         <div className="lesson-content__iniciante">
           <h1 className="text-4">Iniciante</h1>
-          <Carousel Componentes={BeginnerLinks} hasAula={true}/>
+          <Carousel
+            Componentes={BeginnerLinks}
+            hasAula={true}
+            texts={["Módulo 1", "Questionário", "FlashCard"]}
+          />
         </div>
         <div className="lesson-content__intermediario">
           <h1 className="text-4">Intermediário</h1>
-          <Carousel Componentes={IntermediaryLinks} />
+          <Carousel
+            Componentes={IntermediaryLinks}
+            hasAula={true}
+            texts={["Módulo 2", "Narrativa", "FlashCard"]}
+          />
         </div>
         <div className="lesson-content__avancado">
           <h1 className="text-4">Avançado</h1>
-          <Carousel Componentes={AdvancedLinks} />
+          <Carousel
+            Componentes={AdvancedLinks}
+            hasAula={true}
+            texts={["Módulo 3", "História Interativa", "FlashCard"]}
+          />
         </div>
       </div>
     </div>

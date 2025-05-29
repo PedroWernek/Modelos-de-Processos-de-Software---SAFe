@@ -1,10 +1,12 @@
 import { createStyles } from "antd-style";
 import React, { useState } from "react";
+import { text } from "stream/consumers";
 
 interface ModuleCarouselProps {
   Componentes: React.ComponentType[];
   hasAula?: boolean | false;
   hasBorder?: boolean | false;
+  texts?: string[];
 }
 
 const useStyle = createStyles((css) => ({
@@ -53,12 +55,12 @@ const useStyle = createStyles((css) => ({
     transition: "background-color 1s ease",
     "&:hover": {
       backgroundColor: "#fffafb",
-      color: "#131515"
+      color: "#131515",
     },
     [css.token.screenXS]: {
       padding: "0.4rem 0.8rem",
       fontSize: "0.8rem",
-    }, 
+    },
   },
   CarouselNavDots: {
     display: "flex",
@@ -88,6 +90,7 @@ const Carousel: React.FC<ModuleCarouselProps> = ({
   Componentes,
   hasAula,
   hasBorder,
+  texts = [],
 }) => {
   const { styles } = useStyle();
   const [index, setIndex] = useState(0);
@@ -126,9 +129,9 @@ const Carousel: React.FC<ModuleCarouselProps> = ({
                   textAlign: "center",
                   transform: "translateX(0)",
                 }}>
-                Módulo {i + 1}
+                {texts[i] || "Aula não definida"}
               </p>
-            )} 
+            )}
           </div>
         ))}
       </div>

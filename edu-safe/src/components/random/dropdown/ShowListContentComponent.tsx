@@ -26,7 +26,7 @@ const useStyle = createStyles(
       titleColor,
       textColor,
       backgroundCustomColor,
-      exampleBackgroundCustomColor: exampleBackgroundCustomColor,
+      exampleBackgroundCustomColor,
       exampleColor,
     }: {
       backgroundCustomColor?: string;
@@ -90,9 +90,9 @@ const ShowListContentComponent: React.FC<ShowListContentComponentProps> = ({
   titleColor,
   texts,
   textColor,
-  example: example,
-  exampleColor: exampleColor,
-  exampleBackgroundCustomColor: exampleBackgroundCustomColor,
+  example,
+  exampleColor,
+  exampleBackgroundCustomColor,
   backgroundCustomColor,
 }) => {
   const { styles } = useStyle({

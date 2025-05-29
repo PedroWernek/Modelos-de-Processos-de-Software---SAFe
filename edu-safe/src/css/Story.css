@@ -1,0 +1,48 @@
+.story-box {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  font-family: 'Georgia', serif;
+}
+
+.story-text {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.story-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.story-options button {
+  background-color: #4b7bec;
+  color: white;
+  padding: 12px 18px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.story-options button:hover {
+  background-color: #3867d6;
+}
+
+.story-progress {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+  text-align: right;
+}
+
+button {
+  font-family: inherit;
+}

@@ -1,11 +1,14 @@
 using EduSAFe.Data;
 using EduSAFe.DTOs;
+using EduSAFe.Enums;
 using EduSAFe.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace EduSAFe.Controllers;
 
+// [Authorize(Roles = "Owner,User")]
 [ApiController]
 [Route("api/quizzes")]
 public class QuizController : ControllerBase
@@ -48,10 +51,19 @@ public class QuizController : ControllerBase
         return Ok(quiz);
     }
 
-    [HttpGet]
+    [HttpGet("quizzes")]
     public async Task<ActionResult<IEnumerable<Question>>> GetQuizzes()
     {
         var quizzes = await _appDbContext.Quizzes.Where(x => !x.IsInteractiveStory).ToListAsync();
+        // ana: se deus quiser eh assim
+        
+        return Ok(quizzes);
+    }
+
+    [HttpGet("i-stories")]
+    public async Task<ActionResult<IEnumerable<Question>>> GetIStories()
+    {
+        var quizzes = await _appDbContext.Quizzes.Where(x => x.IsInteractiveStory).ToListAsync();
         // ana: se deus quiser eh assim
         
         return Ok(quizzes);
@@ -132,6 +144,7 @@ public class QuizController : ControllerBase
 
                 user.FlashCards.AddRange(_appDbContext.FlashCards.Where(x => x.LessonId == id));
 
+                _appDbContext.Update(user);
                 await _appDbContext.SaveChangesAsync();
             }
 

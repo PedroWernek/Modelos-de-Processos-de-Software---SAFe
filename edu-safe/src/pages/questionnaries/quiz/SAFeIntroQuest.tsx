@@ -1,37 +1,70 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { QuestionForm } from "../../../components/forms/QuestionForms";
-
-import { SAFeIntroQuestions } from "../../../data/questionnaries/SAfeIntroQuestions";
-import AlertScreen from "../AlertScreen";
+import AlertScreen from "./AlertScreen";
 import CustomButton from "../../../components/random/buttons/CustomButton";
 import Carousel from "../../../components/random/carousels/Carousel";
+import axios from "axios";
+
+interface QuestionDTO {
+  id: number;
+  description: string;
+  shuffledAnswers: string[];
+}
+
+interface QuizDTO {
+  id: number;
+  xp: number;
+  minCorrectAnswers: number;
+  questions: QuestionDTO[];
+}
 
 const SAFeIntroQuest = () => {
-  const [OnAlertScreen, setOnAlertScreen] = useState(true);
-  const questionaryName = "Questionário de Introdução ao SAFe";
+  const [onAlertScreen, setOnAlertScreen] = useState(true);
+  const [quiz, setQuiz] = useState<QuizDTO | null>(null);
+  const [userXP, setUserXP] = useState(0);
 
-  const Questões = SAFeIntroQuestions.map((questao, index) => () => (
-    <li>
-      <QuestionForm
-        key={index}
-        questionText={questao.pergunta}
-        options={questao.opcoes}
-        correctAnswer={questao.resposta_correta}
-        onSubmit={(data) => {
-          const isCorrect = data.selectedOption === questao.resposta_correta;
-          console.log(
-            `Resposta ${isCorrect ? "correta" : "incorreta"} para a pergunta: ${
-              questao.pergunta
-            }`,
-          );
-        }}
-      />
-    </li>
-  ));
+  const questionaryName = "Questionário de Introdução ao SAFe";
+  const quizId = 1;
+
+  useEffect(() => {
+    axios
+      .get<QuizDTO>(`http://localhost:5017/api/quizzes/${quizId}`)
+      .then((res) => setQuiz(res.data))
+      .catch((err) => {
+        alert("Erro ao buscar quiz: " + err.message);
+      });
+  }, []);
+
+  const handleQuestionSubmit = (isCorrect: boolean) => {
+    if (isCorrect && quiz) {
+      setUserXP((prev) => prev + quiz.xp);
+    }
+  };
+
+  const Questoes =
+    quiz?.questions.map((questao, index) => () => (
+      <li key={questao.id}>
+        <QuestionForm
+          questionNumber={index + 1}
+          questionText={questao.description}
+          options={questao.shuffledAnswers}
+          correctAnswer={
+            quiz.questions[index].shuffledAnswers.find(
+              (ans) => ans === questao.shuffledAnswers[0],
+            ) || ""
+          }
+          onSubmit={({ selectedOption }) =>
+            handleQuestionSubmit(
+              selectedOption === quiz.questions[index].shuffledAnswers[0],
+            )
+          }
+        />
+      </li>
+    )) || [];
 
   return (
     <div>
-      {OnAlertScreen ? (
+      {onAlertScreen ? (
         <div
           style={{
             height: "100dvh",
@@ -44,8 +77,8 @@ const SAFeIntroQuest = () => {
           <AlertScreen
             questionaryName={questionaryName}
             limitTime="4"
-            qtdQuestions={SAFeIntroQuestions.length}
-            xp={10}
+            qtdQuestions={quiz?.questions.length || 0}
+            xp={quiz?.xp || 0}
           />
           <div
             style={{
@@ -84,7 +117,7 @@ const SAFeIntroQuest = () => {
             <h1>{questionaryName}</h1>
           </div>
           <ol className="question-list">
-            <Carousel Componentes={Questões}></Carousel>
+            <Carousel Componentes={Questoes}></Carousel>
           </ol>
         </div>
       )}
