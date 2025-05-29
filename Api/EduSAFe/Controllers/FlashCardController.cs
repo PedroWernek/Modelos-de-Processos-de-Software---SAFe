@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EduSAFe.Controllers;
 
-[Authorize(Roles = "Owner,User")]
+// [Authorize(Roles = "Owner,User")]
 [ApiController]
 [Route("api/flash-cards")]
 public class FlashCardController : ControllerBase

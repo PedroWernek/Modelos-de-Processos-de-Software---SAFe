@@ -1,16 +1,8 @@
-using System.ComponentModel.DataAnnotations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using EduSAFe.Models.Abstractions;
 
-namespace EduSAFe.Models
+namespace EduSAFe.Models;
+
+public class Narrativa : Lesson
 {
-    public class Narrativa
-    {
-        [Key]
-        public int Id { get; set; }
-        public string? Texto { get; set; }
-        
-    }
+    public string? Texto { get; set; }
 }
