@@ -60,7 +60,7 @@ const SAFeModule1 = () => {
           ótimo sozinho, mas para tocarem uma sinfonia perfeita, precisam de uma
           partitura, um maestro e muito trabalho em equipe."
               borderColor="#3ac7a6"
-              borderRadius="50px"
+              borderRadius="25px"
               icon={<FontAwesomeIcon icon={faGuitar} size="2x" />}
             />
           </div>
@@ -152,7 +152,7 @@ const SAFeModule1 = () => {
                 "Você precisa criar coisas grandes e complexas, que envolvem muitas tecnologias ou diferentes lugares.",
               ]}
               borderColor="#ffdf00"
-              borderRadius="50px"
+              borderRadius="25px"
               icon={<FontAwesomeIcon icon={faLightbulb} size="2x" />}
             />
           </div>
@@ -169,26 +169,6 @@ const SAFeModule1 = () => {
             ideal em ambientes complexos e de grande escala.
           </p>
         </section>
-      </div>
-
-      <div className="gotoQuestions">
-        <h2 className="text-4" style={{ paddingLeft: 0 }}>
-          Pronto para o próximo passo?
-        </h2>
-        <p>
-          Vamos continuar aprendendo sobre a estrutura do SAFe no próximo
-          módulo!
-        </p>
-        <CustomButton
-          backgroundColor="#3ac7a6"
-          borderColor="#1c1f2c"
-          borderTickness="2px"
-          textColor="#1c1f2c"
-          text="Quiz"
-          linkNav="/modulos/avaliacao/1"
-          height="2dvw"
-          width="10dvh"
-        />
       </div>
     </div>
   );

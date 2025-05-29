@@ -30,9 +30,10 @@ const useStyles = createStyles(
     },
     title: {
       fontSize: "2.5rem",
-      fontWeight: "thin", // acho que n ta funcionando?
+      fontWeight: "thin",
       margin: 0,
       textAlign: "center",
+      fontFamily: "'Ubuntu', sans-serif",
     },
     line: {
       width: "15%",
@@ -43,7 +44,7 @@ const useStyles = createStyles(
       marginBottom: "3rem",
     },
     lessonGoals: {
-      fontSize: "1.25rem", // DEPOIS CONVERSAR SOBRE! OS TAMANHOS DE FONTE!
+      fontSize: "1.25rem",
       margin: 0,
       lineHeight: 1.5,
       listStyleType: "disc",
@@ -67,7 +68,7 @@ const LessonGoals: React.FC<LessonGoalsProps> = ({
       <hr className={styles.line} />
       <ul className={styles.lessonGoals}>
         {goals.map((goal, index) => (
-          <li key={index}>{goal}</li>
+          <li key={index} style={{ fontFamily: "'Open Sans', sans-serif" }}>{goal}</li>
         ))}
       </ul>
     </div>

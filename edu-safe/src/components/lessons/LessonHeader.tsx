@@ -50,11 +50,13 @@ const useStyles = createStyles(
     unidade: {
       fontSize: "1em",
       fontWeight: 500,
+      fontFamily: "'Open Sans', sans-serif"
     },
     title: {
       fontSize: "2.5em",
       fontWeight: "bold",
       margin: 0,
+      fontFamily: "'Ubuntu', sans-serif",
     },
     line: {
       width: "10%",

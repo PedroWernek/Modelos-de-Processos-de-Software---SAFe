@@ -54,8 +54,7 @@ const useStyle = createStyles(
       },
       "& .title": {
         color: titleColor || "black",
-        fontSize: "2dvh",
-        fontWeight: "bold",
+        fontSize: "2.25dvh",
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
@@ -64,7 +63,7 @@ const useStyle = createStyles(
       },
       "& .text": {
         color: textColor || "black",
-        fontSize: "3dvh",
+        fontSize: "2.75dvh",
         padding: "20px",
         paddingLeft: "30px", // <- Adiciona espaço para os bullets aparecerem
         listStyleType: "disc",
@@ -134,7 +133,7 @@ const ShowListContentComponent: React.FC<ShowListContentComponentProps> = ({
             className="content">
             <ul className="text">
               {texts.map((text, i) => (
-                <li key={i}>{text}</li>
+                <li key={i} style={{ fontFamily: "'Open Sans', sans-serif" }}>{text}</li>
               ))}
             </ul>
             {example && <div className="example">{example}</div>}
