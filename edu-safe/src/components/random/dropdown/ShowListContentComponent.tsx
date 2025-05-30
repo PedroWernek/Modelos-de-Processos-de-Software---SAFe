@@ -107,7 +107,7 @@ const ShowListContentComponent: React.FC<ShowListContentComponentProps> = ({
     <div className={styles.showComponent} onClick={() => setVisible(!visible)}>
       <AnimatePresence>
         <div className="title">
-          <h1 style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <h1 style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none" }}>
             {icon}
             {title}
           </h1>

@@ -19,15 +19,9 @@
   }
 
   ol {
-    background-color: #d2f5fc;
     list-style-position: inside;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 30px;
 
     li {
-      margin-top: 20px;
-      font-weight: bold;
       font-family: "Open Sans", sans-serif;
     }
   }
@@ -42,6 +36,7 @@
 
   li {
     font-family: "Open Sans", sans-serif;
+    line-height: 40px;
   }
 
   h2 {
