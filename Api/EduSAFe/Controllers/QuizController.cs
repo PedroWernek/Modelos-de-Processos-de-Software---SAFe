@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EduSAFe.Controllers;
 
-// [Authorize(Roles = "Owner,User")]
+[Authorize(Roles = "Owner,User")]
 [ApiController]
 [Route("api/quizzes")]
 public class QuizController : ControllerBase

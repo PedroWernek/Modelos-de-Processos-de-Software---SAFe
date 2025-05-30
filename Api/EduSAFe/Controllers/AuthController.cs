@@ -6,6 +6,7 @@ using System.Text;
 using EduSAFe.Models;
 using EduSAFe.Data;
 using Microsoft.AspNetCore.Authorization;
+using EduSAFe.DTOs;
 
 namespace EduSAFe.Controllers;
 

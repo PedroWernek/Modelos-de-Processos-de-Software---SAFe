@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace EduSAFe.Controllers;
 
-// [Authorize(Roles = "Owner,User")]
+[Authorize(Roles = "Owner,User")]
 [ApiController]
 [Route("api/narrativas")]
 public class NarrativaController : ControllerBase
