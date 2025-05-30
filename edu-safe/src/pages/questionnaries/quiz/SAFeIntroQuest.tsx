@@ -6,45 +6,77 @@ import Carousel from "../../../components/random/carousels/Carousel";
 import axios from "axios";
 
 interface Answer {
-  Id: number;
-  Description: string;
-  IsCorrect: boolean;
+  id: number; // Corrigido: era 'Id'
+  description: string;
 }
 
 interface Question {
-  Id: number;
-  Description: string;
-  ShuffledAnswers: Answer[];
+  id: number;
+  description: string;
+  shuffledAnswers: Answer[];
 }
 
 interface Quiz {
-  Id: number;
-  XP: number;
-  MinCorrectAnswers: number;
-  Questions: Question[];
+  id: number;
+  xp: number;
+  minCorrectAnswers: number;
+  questions: Question[];
 }
 
 const SAFeIntroQuest = () => {
   const [onAlertScreen, setOnAlertScreen] = useState(true);
-  const [quiz, setQuiz] = useState<Quiz | null>(null);
-  const [userXP, setUserXP] = useState(0);
+  const [quiz, setQuiz] = useState<Quiz>({
+    id: 0,
+    xp: 0,
+    minCorrectAnswers: 0,
+    questions: [],
+  });
+
+  const [userAnswers, setUserAnswers] = useState<[number, string][]>([]); // [ [ID_PERGUNTA, TEXTO_RESPOSTA] ]
 
   const questionaryName = "Questionário de Introdução ao SAFe";
-  const quizId = 1;
+  const quizId = 2;
 
   useEffect(() => {
     axios
       .get(`http://localhost:5017/api/quizzes/${quizId}`)
       .then((res) => {
-        console.log("Quiz fetched:", res.data);
-        setQuiz(res.data);
-        setUserXP(res.data.XP);
-        axios.get(`http://localhost:5017/api/quizzes/${quizId}`);
+        const fixedQuiz: Quiz = {
+          ...res.data,
+          questions: res.data.questions.map((q: any) => ({
+            id: q.id,
+            description: q.description,
+            shuffledAnswers: q.shuffledAnswers.map(
+              (answerText: string, index: number) => ({
+                id: index, // Garantindo ID numérico
+                description: answerText,
+              }),
+            ),
+          })),
+        };
+
+        setQuiz(fixedQuiz);
+        console.log("Quiz carregado:", fixedQuiz);
       })
       .catch((err) => {
         alert("Erro ao buscar quiz: " + err.message);
       });
   }, []);
+
+  const handleAnswerSubmit = (questionId: number, answerText: string) => {
+    setUserAnswers((prev) => [...prev, [questionId, answerText]]);
+    console.log("Respostas até agora:", [
+      ...userAnswers,
+      [questionId, answerText],
+    ]);
+
+    if (quiz.questions.length === userAnswers.length - 1) {
+      setOnAlertScreen(true);
+      console.log("Todas as perguntas respondidas, mostrando alerta.");
+    } else {
+      console.log("Ainda faltam perguntas a serem respondidas.");
+    }
+  };
 
   return (
     <div>
@@ -63,8 +95,8 @@ const SAFeIntroQuest = () => {
           <AlertScreen
             questionaryName={questionaryName}
             limitTime="4"
-            qtdQuestions={quiz.Questions?.length || 0}
-            xp={quiz.XP}
+            qtdQuestions={quiz.questions?.length || 0}
+            xp={quiz.xp}
           />
           <div
             style={{
@@ -82,10 +114,7 @@ const SAFeIntroQuest = () => {
               linkNav="/modulos"
               width="50px"
             />
-            <div
-              onClick={() => {
-                setOnAlertScreen(false);
-              }}>
+            <div onClick={() => setOnAlertScreen(false)}>
               <CustomButton
                 backgroundColor="#3ac7a6"
                 borderColor="#1c1f2c"
@@ -103,7 +132,18 @@ const SAFeIntroQuest = () => {
             <h1>{questionaryName}</h1>
           </div>
           <ol className="question-list">
-            {/* <Carousel Componentes={Questoes}></Carousel> */}
+            <Carousel
+              Componentes={quiz.questions.map((question) => (
+                <QuestionForm
+                  key={question.id}
+                  questionText={question.description}
+                  options={question.shuffledAnswers}
+                  onSubmit={({ selectedOptionText }) => {
+                    handleAnswerSubmit(question.id, selectedOptionText);
+                  }}
+                />
+              ))}
+            />
           </ol>
         </div>
       )}

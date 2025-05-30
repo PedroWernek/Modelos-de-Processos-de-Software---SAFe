@@ -24,7 +24,9 @@ const Lesson = () => {
         <div className="lesson-content__iniciante">
           <h1 className="text-4">Iniciante</h1>
           <Carousel
-            Componentes={BeginnerLinks}
+            Componentes={BeginnerLinks.map((Component, idx) => (
+              <Component key={idx} />
+            ))}
             hasAula={true}
             texts={["Módulo 1", "Questionário", "FlashCard"]}
           />
@@ -32,7 +34,9 @@ const Lesson = () => {
         <div className="lesson-content__intermediario">
           <h1 className="text-4">Intermediário</h1>
           <Carousel
-            Componentes={IntermediaryLinks}
+            Componentes={IntermediaryLinks.map((Component, idx) => (
+              <Component key={idx} />
+            ))}
             hasAula={true}
             texts={["Módulo 2", "Narrativa", "FlashCard"]}
           />
@@ -40,7 +44,9 @@ const Lesson = () => {
         <div className="lesson-content__avancado">
           <h1 className="text-4">Avançado</h1>
           <Carousel
-            Componentes={AdvancedLinks}
+            Componentes={AdvancedLinks.map((Component, idx) => (
+              <Component key={idx} />
+            ))}
             hasAula={true}
             texts={["Módulo 3", "História Interativa", "FlashCard"]}
           />

@@ -19,7 +19,11 @@ const SafeGuide = () => {
   return (
     <div className="safe-guide">
       <div className="safe-guide__container__content">
-        <Carousel Componentes={basicSAFe} />
+        <Carousel
+          Componentes={basicSAFe.map((Component, idx) => (
+            <Component key={idx} />
+          ))}
+        />
         <div className="goToModules">
           <p>
             Gostou do nosso conteúdo e deseja uma explicação mais detalhada da
@@ -27,7 +31,7 @@ const SafeGuide = () => {
             Então faça seu registro agora mesmo e tenha acesso a um conteúdo
             exclusivo e gratuito!
           </p>
-         <CustomButton
+          <CustomButton
             backgroundColor="#7de2d1"
             textColor="#131515"
             text="Veja Nossos Módulos"

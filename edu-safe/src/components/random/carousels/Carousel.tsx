@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { text } from "stream/consumers";
 
 interface ModuleCarouselProps {
-  Componentes: React.ComponentType[];
+  Componentes: React.ReactNode[];
   hasAula?: boolean | false;
   hasBorder?: boolean | false;
   texts?: string[];
@@ -110,15 +110,7 @@ const Carousel: React.FC<ModuleCarouselProps> = ({
         style={{ transform: `translateX(-${index * 100}%)` }}>
         {Componentes.map((Componente, i) => (
           <div key={i} className={styles.CarouselItem}>
-            {hasBorder ? (
-              <div>
-                <Componente />
-              </div>
-            ) : (
-              <div>
-                <Componente />
-              </div>
-            )}
+            {hasBorder ? <div>{Componente}</div> : <div>{Componente}</div>}
             {hasAula && (
               <p
                 style={{
