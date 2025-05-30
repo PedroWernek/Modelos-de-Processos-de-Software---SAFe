@@ -22,7 +22,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess }) => {
     try {
       const res = await axios.post("http://localhost:5017/api/auth/login", {
         email: data.email,
-        senha: data.password,
+        password: data.password,
       });
 
       const token = res.data.token;

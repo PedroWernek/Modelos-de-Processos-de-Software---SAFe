@@ -7,8 +7,70 @@ import Carousel from "../../components/random/carousels/Carousel";
 import { IntermediaryLinks } from "../../data/lessonLinks/Intermediary";
 import { BeginnerLinks } from "../../data/lessonLinks/Beginner";
 import { AdvancedLinks } from "../../data/lessonLinks/Advanced";
+import CustomButton from "../../components/random/buttons/CustomButton";
 
 const Lesson = () => {
+  console.log("Lesson component rendered", localStorage.getItem("token"));
+
+  if (!localStorage.getItem("token")) {
+    return (
+      <div
+        className="lesson-container"
+        style={{
+          height: "90dvh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}>
+        <div
+          className="lesson-header"
+          style={{
+            height: "100dvh",
+            padding: "0",
+            margin: "0",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}>
+          <h1 className="text-2 title">Acesso Negado</h1>
+          <p className="text-2 subtitle">
+            Você precisa estar logado para acessar os módulos.
+          </p>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+            }}>
+            <CustomButton
+              backgroundColor="#0d183a"
+              borderColor="white"
+              borderTickness="2px"
+              textColor="white"
+              text="Voltar"
+              linkNav="/"
+              width="50px"
+            />
+            <CustomButton
+              backgroundColor="#3ac7a6"
+              borderColor="#1c1f2c"
+              borderTickness="2px"
+              textColor="#1c1f2c"
+              linkNav={
+                localStorage.getItem("token") != null ? "/modulos" : "/login"
+              }
+              text="Login"
+              width="50px"
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="lesson-container">
       <div className="lesson-header">

@@ -75,6 +75,9 @@ const SAFeIntroQuest = () => {
       console.log("Todas as perguntas respondidas, mostrando alerta.");
     } else {
       console.log("Ainda faltam perguntas a serem respondidas.");
+      console.log(
+        `Perguntas respondidas: ${userAnswers.length}, Total: ${quiz.questions.length}`,
+      );
     }
   };
 
