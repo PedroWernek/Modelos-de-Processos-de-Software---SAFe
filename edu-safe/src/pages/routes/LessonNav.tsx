@@ -10,8 +10,6 @@ import { AdvancedLinks } from "../../data/lessonLinks/Advanced";
 import CustomButton from "../../components/random/buttons/CustomButton";
 
 const Lesson = () => {
-  console.log("Lesson component rendered", localStorage.getItem("token"));
-
   if (!localStorage.getItem("token")) {
     return (
       <div

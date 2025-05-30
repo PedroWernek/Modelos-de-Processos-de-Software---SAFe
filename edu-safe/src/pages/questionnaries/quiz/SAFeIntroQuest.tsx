@@ -4,6 +4,7 @@ import AlertScreen from "./AlertScreen";
 import CustomButton from "../../../components/random/buttons/CustomButton";
 import Carousel from "../../../components/random/carousels/Carousel";
 import axios from "axios";
+import api from "../../../api";
 
 interface Answer {
   id: number; // Corrigido: era 'Id'
@@ -38,7 +39,7 @@ const SAFeIntroQuest = () => {
   const quizId = 2;
 
   useEffect(() => {
-    axios
+    api
       .get(`http://localhost:5017/api/quizzes/${quizId}`)
       .then((res) => {
         const fixedQuiz: Quiz = {
@@ -48,7 +49,7 @@ const SAFeIntroQuest = () => {
             description: q.description,
             shuffledAnswers: q.shuffledAnswers.map(
               (answerText: string, index: number) => ({
-                id: index, // Garantindo ID numérico
+                id: index,
                 description: answerText,
               }),
             ),
@@ -56,7 +57,6 @@ const SAFeIntroQuest = () => {
         };
 
         setQuiz(fixedQuiz);
-        console.log("Quiz carregado:", fixedQuiz);
       })
       .catch((err) => {
         alert("Erro ao buscar quiz: " + err.message);
@@ -69,16 +69,41 @@ const SAFeIntroQuest = () => {
       ...userAnswers,
       [questionId, answerText],
     ]);
+  };
 
-    if (quiz.questions.length === userAnswers.length - 1) {
-      setOnAlertScreen(true);
-      console.log("Todas as perguntas respondidas, mostrando alerta.");
-    } else {
-      console.log("Ainda faltam perguntas a serem respondidas.");
-      console.log(
-        `Perguntas respondidas: ${userAnswers.length}, Total: ${quiz.questions.length}`,
+  const PostAwsers = () => {
+    if (userAnswers.length < quiz.questions.length) {
+      alert(
+        `Você precisa responder todas as perguntas antes de enviar! Respostas dadas: ${userAnswers.length}, Total de perguntas: ${quiz.questions.length}`,
       );
+      return;
     }
+    const answersToSubmit = userAnswers.map(([questionId, answerText]) => ({
+      questionId,
+      answerText,
+    }));
+    api
+      .post(`http://localhost:5017/api/quizzes/${quiz.id}/submit`, {
+        answers: answersToSubmit,
+      })
+      .then((res) => {
+        console.log("Respostas enviadas com sucesso:", res.data);
+        alert("Respostas enviadas com sucesso!");
+        setUserAnswers([]);
+      })
+      .catch((err) => {
+        if (!err.response || !err.response.data) {
+          alert("Erro inesperado ao enviar respostas.");
+          return;
+        }
+
+        const { message, correctAnswers } = err.response.data;
+        alert(
+          `${message ?? "Erro ao enviar respostas."} Você acertou ${
+            correctAnswers ?? 0
+          } questões.`,
+        );
+      });
   };
 
   return (
@@ -137,17 +162,22 @@ const SAFeIntroQuest = () => {
           <ol className="question-list">
             <Carousel
               Componentes={quiz.questions.map((question) => (
-                <QuestionForm
-                  key={question.id}
-                  questionText={question.description}
-                  options={question.shuffledAnswers}
-                  onSubmit={({ selectedOptionText }) => {
-                    handleAnswerSubmit(question.id, selectedOptionText);
-                  }}
-                />
+                <li>
+                  <QuestionForm
+                    key={question.id}
+                    questionText={question.description}
+                    options={question.shuffledAnswers}
+                    onSubmit={({ selectedOptionText }) => {
+                      handleAnswerSubmit(question.id, selectedOptionText);
+                    }}
+                  />
+                </li>
               ))}
             />
           </ol>
+          <div className="goToModules">
+            <button onClick={PostAwsers}> Post Awsers</button>
+          </div>
         </div>
       )}
     </div>

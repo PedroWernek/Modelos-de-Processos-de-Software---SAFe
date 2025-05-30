@@ -40,13 +40,13 @@ const AlertScreen: React.FC<AlertScreenProps> = ({
           flexDirection: "row",
           gap: "30px",
         }}>
-        <li className="alert-list">
+        {/* <li className="alert-list">
           <FontAwesomeIcon icon={faClock} size="4x" />
           <p>
             <strong>{limitTime} minutos </strong>
             de duração
           </p>
-        </li>
+        </li> */}
         <li className="alert-list">
           <FontAwesomeIcon icon={faListUl} size="4x" />
           <p>

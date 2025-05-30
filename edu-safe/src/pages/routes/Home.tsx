@@ -26,7 +26,9 @@ const Home = () => {
             backgroundColor="#7de2d1"
             textColor="#131515"
             text="Veja Nossos Módulos"
-            linkNav="/autenticar"
+            linkNav={
+              localStorage.getItem("token") != null ? "/modulos" : "/autenticar"
+            }
           />
         </div>
       </div>

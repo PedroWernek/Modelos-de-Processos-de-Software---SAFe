@@ -152,7 +152,7 @@ public class QuizController : ControllerBase
             return Ok(new { message = "Passou!", correctAnswers });
         }
 
-        return BadRequest(new { message = "Reprovou.", correctAnswers });
+        return Ok(new { message = "Reprovou.", correctAnswers });
     }
 
     [HttpPut("{id}")]
