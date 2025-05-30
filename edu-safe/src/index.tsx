@@ -15,6 +15,8 @@ import SAFeIntroQuest from "./pages/questionnaries/quiz/SAFeIntroQuest";
 import { AuthPage } from "./pages/AuthPage";
 import SAFeModule2 from "./pages/lessons/SAFeModule2";
 import SAFeModule3 from "./pages/lessons/SAFeModule3";
+import { ListFlashcard } from "./components/flashcards/ListFlashcard";
+import { AddFlashcard } from "./components/flashcards/AddFlashcard";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +55,19 @@ const router = createBrowserRouter([
           },
         ],
       },
+        {
+                path: "/flash-cards/listar",
+                element: <ListFlashcard />,
+              },
+              {
+                path: "/flash-cards/adicionar",
+                element: <AddFlashcard />,
+              },
+              {
+                path: "/flash-cards/editar/:id",
+                element: <AddFlashcard />,
+              },
+
       {
         path: "/modulos/avaliacao",
         element: <Questionnaires />,
