@@ -181,7 +181,9 @@ const Questionarie = () => {
             />
           </ol>
           <div className="goToModules">
-            <button onClick={PostAwsers}> Post Awsers</button>
+            <button onClick={PostAwsers} className="submission-button">
+              Post Awsers
+            </button>
           </div>
         </div>
       )}

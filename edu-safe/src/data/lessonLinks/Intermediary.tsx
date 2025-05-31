@@ -23,8 +23,8 @@ export const IntermediaryLinks = [
   () => (
     <ImageButton
       imgScr={modulo2}
-      alt="Imagem 3"
-      link="/modulos/iniciante/3"
+      alt="FlashCard"
+      link="/flash-card/2"
       imgSize={imgSize}
     />
   ),

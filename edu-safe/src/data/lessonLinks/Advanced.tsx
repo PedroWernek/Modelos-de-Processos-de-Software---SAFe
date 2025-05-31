@@ -23,8 +23,8 @@ export const AdvancedLinks = [
   () => (
     <ImageButton
       imgScr={modulo3}
-      alt="Imagem 3"
-      link="/modulos/iniciante/3"
+      alt="FlashCard"
+      link="/flash-card/3"
       imgSize={imgSize}
     />
   ),

@@ -22,6 +22,11 @@ export const BeginnerLinks = [
     />
   ),
   () => (
-    <ImageButton imgScr={img1} alt="FlashCard" link="/" imgSize={imgSize} />
+    <ImageButton
+      imgScr={img1}
+      alt="FlashCard"
+      link="/flash-card/1"
+      imgSize={imgSize}
+    />
   ),
 ];

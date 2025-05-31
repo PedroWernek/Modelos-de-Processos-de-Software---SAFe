@@ -18,6 +18,7 @@ import SAFeModule3 from "./pages/lessons/SAFeModule3";
 import { ListFlashcard } from "./components/flashcards/ListFlashcard";
 import { AddFlashcard } from "./components/flashcards/AddFlashcard";
 import ResultsWrapper from "./pages/questionnaries/ResultWrapper";
+import FlashCard from "./pages/flashcards/FlashCard";
 
 const router = createBrowserRouter([
   {
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
       {
         path: "/resultado",
         element: <ResultsWrapper />,
+      },
+      {
+        path: "/flash-card/:id",
+        element: <FlashCard />,
       },
     ],
   },
