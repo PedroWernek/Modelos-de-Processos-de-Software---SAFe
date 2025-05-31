@@ -39,11 +39,18 @@ const Questionarie = () => {
     [questionId: number, selectedAnswer: string][]
   >([]); //
 
-  const questionaryName = "Questionário de Introdução ao SAFe";
   const params = useParams();
   const quizId = params.id;
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      alert("Você precisa estar autenticado para acessar o questionário.");
+      navigate("/modulos");
+      return;
+    }
+
     if (!quizId) return;
 
     api
@@ -67,6 +74,7 @@ const Questionarie = () => {
       })
       .catch((err) => {
         alert("Erro ao buscar quiz: " + err.message);
+        navigate("/modulos");
       });
   }, [quizId]);
 
@@ -126,8 +134,6 @@ const Questionarie = () => {
           }}
           className="background-2">
           <AlertScreen
-            questionaryName={questionaryName}
-            limitTime="4"
             qtdQuestions={quiz.questions?.length || 0}
             xp={quiz.xp}
           />
@@ -160,30 +166,46 @@ const Questionarie = () => {
           </div>
         </div>
       ) : (
-        <div>
-          <div className="header text-2">
-            <h1>{questionaryName}</h1>
-          </div>
-          <ol className="question-list">
-            <Carousel
-              Componentes={quiz.questions.map((question) => (
-                <li>
-                  <QuestionForm
-                    key={question.id}
-                    questionText={question.description}
-                    options={question.shuffledAnswers}
-                    onSubmit={({ selectedOptionText }) => {
-                      handleAnswerSubmit(question.id, selectedOptionText);
-                    }}
-                  />
-                </li>
-              ))}
-            />
-          </ol>
-          <div className="goToModules">
-            <button onClick={PostAwsers} className="submission-button">
-              Post Awsers
-            </button>
+        <div
+          style={{
+            height: "100dvh",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}>
+          <div>
+            <div className="header text-2" style={{ margin: "-20px" }}>
+              <h1 className="text-2">Questionário</h1>
+            </div>
+            <ol className="question-list">
+              <Carousel
+                Componentes={quiz.questions.map((question) => (
+                  <li>
+                    <QuestionForm
+                      key={question.id}
+                      questionText={question.description}
+                      options={question.shuffledAnswers}
+                      onSubmit={({ selectedOptionText }) => {
+                        handleAnswerSubmit(question.id, selectedOptionText);
+                      }}
+                    />
+                  </li>
+                ))}
+              />
+            </ol>
+            <div
+              className="goToModules"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "20px",
+                marginBottom: "40px",
+              }}>
+              <button onClick={PostAwsers} className="submission-button">
+                Post Awsers
+              </button>
+            </div>
           </div>
         </div>
       )}

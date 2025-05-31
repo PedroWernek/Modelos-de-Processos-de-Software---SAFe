@@ -3,18 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 interface AlertScreenProps {
-  questionaryName: string;
-  limitTime?: string;
   qtdQuestions?: number;
   xp: number;
 }
 
-const AlertScreen: React.FC<AlertScreenProps> = ({
-  questionaryName,
-  limitTime,
-  qtdQuestions,
-  xp,
-}) => {
+const AlertScreen: React.FC<AlertScreenProps> = ({ qtdQuestions, xp }) => {
   return (
     <div
       style={{
@@ -31,8 +24,7 @@ const AlertScreen: React.FC<AlertScreenProps> = ({
           color: "#c8fff4",
           padding: "10px",
         }}>
-        Prepare-se para o questionário de proficiência em{" "}
-        <strong>{questionaryName}.</strong>
+        Prepare-se para o questionário
       </p>
       <ul
         style={{
