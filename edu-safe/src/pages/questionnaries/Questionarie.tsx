@@ -6,6 +6,7 @@ import Carousel from "../../components/random/carousels/Carousel";
 import axios from "axios";
 import api from "../../api";
 import { useNavigate, useParams } from "react-router-dom";
+import BloquedPage from "../routes/BloquedPage";
 
 interface Answer {
   id: number; // Corrigido: era 'Id'
@@ -25,7 +26,11 @@ interface Quiz {
   questions: Question[];
 }
 
-const Questionarie = () => {
+interface QuestionarieProps {
+  bloqued?: boolean;
+}
+
+const Questionarie: React.FC<QuestionarieProps> = ({ bloqued }) => {
   const navigate = useNavigate();
   const [onAlertScreen, setOnAlertScreen] = useState(true);
   const [quiz, setQuiz] = useState<Quiz>({
@@ -120,8 +125,12 @@ const Questionarie = () => {
   };
 
   return (
-    <div>
-      {!quiz ? (
+    <>
+      {bloqued ? (
+        <>
+          <BloquedPage />
+        </>
+      ) : !quiz ? (
         <p>Carregando quiz...</p>
       ) : onAlertScreen ? (
         <div
@@ -209,7 +218,7 @@ const Questionarie = () => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

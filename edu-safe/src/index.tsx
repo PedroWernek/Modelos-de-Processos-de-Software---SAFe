@@ -19,6 +19,7 @@ import { ListFlashcard } from "./components/flashcards/ListFlashcard";
 import { AddFlashcard } from "./components/flashcards/AddFlashcard";
 import ResultsWrapper from "./pages/questionnaries/ResultWrapper";
 import FlashCard from "./pages/flashcards/FlashCard";
+import Narrative from "./pages/narrative/Narrative";
 
 const router = createBrowserRouter([
   {
@@ -92,6 +93,10 @@ const router = createBrowserRouter([
       {
         path: "/flash-card/:id",
         element: <FlashCard />,
+      },
+      {
+        path: "/narrativa/:id",
+        element: <Narrative />,
       },
     ],
   },
