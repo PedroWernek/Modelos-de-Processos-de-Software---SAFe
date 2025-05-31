@@ -58,7 +58,9 @@ const Lesson = () => {
               borderTickness="2px"
               textColor="#1c1f2c"
               linkNav={
-                localStorage.getItem("token") != null ? "/modulos" : "/login"
+                localStorage.getItem("token") != null
+                  ? "/modulos"
+                  : "/autenticar"
               }
               text="Login"
               width="50px"

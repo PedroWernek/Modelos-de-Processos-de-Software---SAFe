@@ -3,6 +3,7 @@ import img1home from "../../assets/img1home.webp";
 import CustomButton from "../../components/random/buttons/CustomButton";
 
 const Home = () => {
+  console.log(localStorage.getItem("token"));
   return (
     <div className="home">
       <div className="home-container">

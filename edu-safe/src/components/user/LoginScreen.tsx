@@ -20,10 +20,15 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess }) => {
 
   const onSubmit = async (data: LoginFormData) => {
     try {
-      const res = await axios.post("http://localhost:5017/api/auth/login", {
-        email: data.email,
-        password: data.password,
-      });
+      const res = await axios.post<{ token: string }>(
+        "http://localhost:5017/api/auth/login",
+        {
+          email: data.email,
+          password: data.password,
+        },
+      );
+
+      console.log("Login bem-sucedido:", res);
 
       const token = res.data.token;
       localStorage.setItem("token", token);

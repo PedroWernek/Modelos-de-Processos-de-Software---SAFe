@@ -16,7 +16,7 @@ export const AdvancedLinks = [
     <ImageButton
       imgScr={modulo3}
       alt="Imagem 2"
-      link="/modulos/iniciante/2"
+      link="/modulos/avaliacao/2"
       imgSize={imgSize}
     />
   ),

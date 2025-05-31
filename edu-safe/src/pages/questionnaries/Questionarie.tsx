@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { QuestionForm } from "../../../components/forms/QuestionForms";
+import React, { use, useEffect, useRef, useState } from "react";
+import { QuestionForm } from "../../components/forms/QuestionForms";
 import AlertScreen from "./AlertScreen";
-import CustomButton from "../../../components/random/buttons/CustomButton";
-import Carousel from "../../../components/random/carousels/Carousel";
+import CustomButton from "../../components/random/buttons/CustomButton";
+import Carousel from "../../components/random/carousels/Carousel";
 import axios from "axios";
-import api from "../../../api";
+import api from "../../api";
+import { useNavigate, useParams } from "react-router-dom";
 
 interface Answer {
   id: number; // Corrigido: era 'Id'
@@ -24,7 +25,8 @@ interface Quiz {
   questions: Question[];
 }
 
-const SAFeIntroQuest = () => {
+const Questionarie = () => {
+  const navigate = useNavigate();
   const [onAlertScreen, setOnAlertScreen] = useState(true);
   const [quiz, setQuiz] = useState<Quiz>({
     id: 0,
@@ -33,14 +35,19 @@ const SAFeIntroQuest = () => {
     questions: [],
   });
 
-  const [userAnswers, setUserAnswers] = useState<[number, string][]>([]); // [ [ID_PERGUNTA, TEXTO_RESPOSTA] ]
+  const [userAnswers, setUserAnswers] = useState<
+    [questionId: number, selectedAnswer: string][]
+  >([]); //
 
   const questionaryName = "Questionário de Introdução ao SAFe";
-  const quizId = 2;
+  const params = useParams();
+  const quizId = params.id;
 
   useEffect(() => {
+    if (!quizId) return;
+
     api
-      .get(`http://localhost:5017/api/quizzes/${quizId}`)
+      .get(`/api/quizzes/${quizId}`)
       .then((res) => {
         const fixedQuiz: Quiz = {
           ...res.data,
@@ -61,7 +68,7 @@ const SAFeIntroQuest = () => {
       .catch((err) => {
         alert("Erro ao buscar quiz: " + err.message);
       });
-  }, []);
+  }, [quizId]);
 
   const handleAnswerSubmit = (questionId: number, answerText: string) => {
     setUserAnswers((prev) => [...prev, [questionId, answerText]]);
@@ -78,31 +85,36 @@ const SAFeIntroQuest = () => {
       );
       return;
     }
-    const answersToSubmit = userAnswers.map(([questionId, answerText]) => ({
-      questionId,
-      answerText,
-    }));
+
+    const formattedAnswers = userAnswers.map(
+      ([questionId, selectedAnswer]) => ({
+        questionId,
+        selectedAnswer,
+      }),
+    );
+
     api
-      .post(`http://localhost:5017/api/quizzes/${quiz.id}/submit`, {
-        answers: answersToSubmit,
+      .post(`/api/quizzes/${quiz.id}/submit`, formattedAnswers, {
+        headers: {
+          "Content-Type": "application/json",
+        },
       })
       .then((res) => {
-        console.log("Respostas enviadas com sucesso:", res.data);
-        alert("Respostas enviadas com sucesso!");
-        setUserAnswers([]);
+        const { message, correctAnswers } = res.data;
+        // navigate("/resultado", {
+        //   state: {
+        //     message,
+        //     correctAnswers,
+        //     passed: message.toLowerCase().includes("passou"),
+        //     minCorrectAnswers: quiz.minCorrectAnswers,
+        //   },
+        // });
+        console.log("Resposta enviada com sucesso:", res.data);
+        setOnAlertScreen(true);
+        console.log(message, correctAnswers);
       })
       .catch((err) => {
-        if (!err.response || !err.response.data) {
-          alert("Erro inesperado ao enviar respostas.");
-          return;
-        }
-
-        const { message, correctAnswers } = err.response.data;
-        alert(
-          `${message ?? "Erro ao enviar respostas."} Você acertou ${
-            correctAnswers ?? 0
-          } questões.`,
-        );
+        alert("Erro ao enviar respostas: " + err.message);
       });
   };
 
@@ -184,4 +196,4 @@ const SAFeIntroQuest = () => {
   );
 };
 
-export default SAFeIntroQuest;
+export default Questionarie;

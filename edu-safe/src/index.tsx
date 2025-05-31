@@ -11,12 +11,13 @@ import SAFeModule1 from "./pages/lessons/SAFeModule1";
 import ModulesNav from "./pages/routes/LessonNav";
 import LessonContent from "./pages/routes/LessonContent";
 import Questionnaires from "./pages/routes/Questionnaires";
-import SAFeIntroQuest from "./pages/questionnaries/quiz/SAFeIntroQuest";
+import Questionarie from "./pages/questionnaries/Questionarie";
 import { AuthPage } from "./pages/AuthPage";
 import SAFeModule2 from "./pages/lessons/SAFeModule2";
 import SAFeModule3 from "./pages/lessons/SAFeModule3";
 import { ListFlashcard } from "./components/flashcards/ListFlashcard";
 import { AddFlashcard } from "./components/flashcards/AddFlashcard";
+import ResultsWrapper from "./pages/questionnaries/ResultWrapper";
 
 const router = createBrowserRouter([
   {
@@ -55,32 +56,36 @@ const router = createBrowserRouter([
           },
         ],
       },
-        {
-                path: "/flash-cards/listar",
-                element: <ListFlashcard />,
-              },
-              {
-                path: "/flash-cards/adicionar",
-                element: <AddFlashcard />,
-              },
-              {
-                path: "/flash-cards/editar/:id",
-                element: <AddFlashcard />,
-              },
+      {
+        path: "/flash-cards/listar",
+        element: <ListFlashcard />,
+      },
+      {
+        path: "/flash-cards/adicionar",
+        element: <AddFlashcard />,
+      },
+      {
+        path: "/flash-cards/editar/:id",
+        element: <AddFlashcard />,
+      },
 
       {
         path: "/modulos/avaliacao",
         element: <Questionnaires />,
         children: [
           {
-            path: "/modulos/avaliacao/1",
-            element: <SAFeIntroQuest />,
+            path: "/modulos/avaliacao/:id",
+            element: <Questionarie />,
           },
         ],
       },
       {
         path: "/autenticar", // rever nome
         element: <AuthPage />,
+      },
+      {
+        path: "/resultado",
+        element: <ResultsWrapper />,
       },
     ],
   },
