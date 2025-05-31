@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EduSAFe.Controllers;
 
-[Authorize(Roles = "Owner,User")]
+// [Authorize(Roles = "Owner,User")]
 [ApiController]
 [Route("api/quizzes")]
 public class QuizController : ControllerBase
@@ -110,6 +110,7 @@ public class QuizController : ControllerBase
     {
         var quiz = await _appDbContext.Quizzes
             .Include(q => q.Questions)
+            .ThenInclude(a => a.Answers)
             .FirstOrDefaultAsync(q => q.Id == id);
 
         if (quiz is null) return NotFound("Quiz não encontrado.");
