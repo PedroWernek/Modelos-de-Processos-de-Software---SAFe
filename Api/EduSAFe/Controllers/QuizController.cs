@@ -110,11 +110,8 @@ public class QuizController : ControllerBase
     [HttpPost("{id}/submit")]
     public async Task<ActionResult> SubmitQuiz(int id, [FromBody] List<AnswerSubmissionDTO> answers)
     {
-        var email = User.FindFirst(JwtRegisteredClaimNames.Email)?.Value
-                ?? User.FindFirst(ClaimTypes.Email)?.Value
-                ?? User.Identity?.Name;
-
-        if (string.IsNullOrEmpty(email)) return Unauthorized("Usuario nao autenticado.");
+        var email = User.FindFirst(ClaimTypes.Email)?.Value;
+        if (string.IsNullOrEmpty(email)) return Unauthorized("Email nao encontrado.");
 
         var user = await _appDbContext.Users
             .Include(u => u.UserLessons)
