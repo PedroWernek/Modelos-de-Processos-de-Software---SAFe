@@ -1,4 +1,6 @@
+using System.Security.Claims;
 using EduSAFe.Data;
+using EduSAFe.DTOs;
 using EduSAFe.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -51,6 +53,25 @@ public class UserController : ControllerBase
         }
 
         return Ok(user);
+    }
+
+    [Authorize(Roles = "Owner,User")]
+    [HttpGet("xp-level")]
+    public async Task<ActionResult<UserXPLevel>> GetUserXPLevel()
+    {
+        var email = User.FindFirst(ClaimTypes.Email)?.Value;
+        if (string.IsNullOrEmpty(email)) return Unauthorized("Email nao encontrado.");
+
+        var user = await _appDbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
+        if (user is null) return NotFound();
+
+        var userXPLevel = new UserXPLevel()
+        {
+            XP = user.XP,
+            Level = user.Level
+        };
+
+        return Ok(userXPLevel);
     }
 
     [Authorize(Roles = "User")]
