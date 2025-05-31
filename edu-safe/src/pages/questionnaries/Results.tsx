@@ -14,7 +14,7 @@ const Results: React.FC<ResultsProps> = ({
 }) => {
   return (
     <div
-      className="result-page"
+      className="error-page"
       style={{
         display: "flex",
         flexDirection: "column",
@@ -23,6 +23,7 @@ const Results: React.FC<ResultsProps> = ({
         height: "100dvh",
         textAlign: "center",
         padding: "2rem",
+        color: "#fffafb",
       }}>
       <h1>{passed ? "Parabéns! 🎉" : "Que pena! 😞"}</h1>
       <p>

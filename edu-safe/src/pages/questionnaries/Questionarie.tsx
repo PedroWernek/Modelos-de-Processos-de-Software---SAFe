@@ -72,10 +72,6 @@ const Questionarie = () => {
 
   const handleAnswerSubmit = (questionId: number, answerText: string) => {
     setUserAnswers((prev) => [...prev, [questionId, answerText]]);
-    console.log("Respostas até agora:", [
-      ...userAnswers,
-      [questionId, answerText],
-    ]);
   };
 
   const PostAwsers = () => {
@@ -101,17 +97,14 @@ const Questionarie = () => {
       })
       .then((res) => {
         const { message, correctAnswers } = res.data;
-        // navigate("/resultado", {
-        //   state: {
-        //     message,
-        //     correctAnswers,
-        //     passed: message.toLowerCase().includes("passou"),
-        //     minCorrectAnswers: quiz.minCorrectAnswers,
-        //   },
-        // });
-        console.log("Resposta enviada com sucesso:", res.data);
-        setOnAlertScreen(true);
-        console.log(message, correctAnswers);
+        navigate("/resultado", {
+          state: {
+            message,
+            correctAnswers,
+            passed: message.toLowerCase().includes("passou"),
+            minCorrectAnswers: quiz.minCorrectAnswers,
+          },
+        });
       })
       .catch((err) => {
         alert("Erro ao enviar respostas: " + err.message);
