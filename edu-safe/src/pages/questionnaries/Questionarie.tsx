@@ -105,7 +105,7 @@ const Questionarie = () => {
       })
       .then((res) => {
         const { message, correctAnswers } = res.data;
-        navigate("/resultado", {
+        navigate("/modulos/avaliacao/resultado", {
           state: {
             message,
             correctAnswers,

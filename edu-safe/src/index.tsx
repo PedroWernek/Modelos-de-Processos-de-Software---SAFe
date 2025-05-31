@@ -78,16 +78,17 @@ const router = createBrowserRouter([
             path: "/modulos/avaliacao/:id",
             element: <Questionarie />,
           },
+          {
+            path: "/modulos/avaliacao/resultado",
+            element: <ResultsWrapper />,
+          },
         ],
       },
       {
         path: "/autenticar", // rever nome
         element: <AuthPage />,
       },
-      {
-        path: "/resultado",
-        element: <ResultsWrapper />,
-      },
+
       {
         path: "/flash-card/:id",
         element: <FlashCard />,
