@@ -17,7 +17,6 @@ public class UserController : ControllerBase
         _appDbContext = appDbContext;
     }
 
-    [AllowAnonymous]
     [HttpPost]
     public async Task<IActionResult> AddUser([FromBody] User user)
     {
@@ -29,7 +28,7 @@ public class UserController : ControllerBase
         _appDbContext.Users.Add(user);
         await _appDbContext.SaveChangesAsync();
 
-        return Created("Usuário criado com sucesso.", user);
+        return Created("Usuario criado com sucesso.", user);
     }
 
     [Authorize(Roles = "Owner")]
@@ -48,7 +47,7 @@ public class UserController : ControllerBase
         var user = await _appDbContext.Users.FindAsync(id);
         if (user is null)
         {
-            return NotFound("Usuário não encontrado.");
+            return NotFound("Usuario não encontrado.");
         }
 
         return Ok(user);
@@ -61,7 +60,7 @@ public class UserController : ControllerBase
         var existingUser = await _appDbContext.Users.FindAsync(id);
         if (existingUser is null)
         {
-            return NotFound("Usuário não encontrado.");
+            return NotFound("Usuario não encontrado.");
         }
 
         _appDbContext.Entry(existingUser).CurrentValues.SetValues(updatedUser);
@@ -77,12 +76,12 @@ public class UserController : ControllerBase
         var user = await _appDbContext.Users.FindAsync(id);
         if (user is null)
         {
-            return NotFound("Usuário não encontrado.");
+            return NotFound("Usuario não encontrado.");
         }
 
         _appDbContext.Remove(user);
         await _appDbContext.SaveChangesAsync();
 
-        return Ok("Usuário deletado com sucesso.");
+        return Ok("Usuario deletado com sucesso.");
     }
 }
