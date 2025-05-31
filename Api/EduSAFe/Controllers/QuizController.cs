@@ -1,3 +1,5 @@
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using EduSAFe.Data;
 using EduSAFe.DTOs;
 using EduSAFe.Enums;
@@ -106,24 +108,34 @@ public class QuizController : ControllerBase
 
     // ana: SUBMIT. RESPONSE. RESPOSTA.
     [HttpPost("{id}/submit")]
-    public async Task<ActionResult> SubmitQuiz(int id, [FromBody] List<AnswerSubmissionDTO> answers, [FromQuery] int userId)
+    public async Task<ActionResult> SubmitQuiz(int id, [FromBody] List<AnswerSubmissionDTO> answers)
     {
+        var email = User.FindFirst(JwtRegisteredClaimNames.Email)?.Value
+                ?? User.FindFirst(ClaimTypes.Email)?.Value
+                ?? User.Identity?.Name;
+
+        if (string.IsNullOrEmpty(email)) return Unauthorized("Usuario nao autenticado.");
+
+        var user = await _appDbContext.Users
+            .Include(u => u.UserLessons)
+            .Include(u => u.FlashCards)
+            .FirstOrDefaultAsync(u => u.Email == email);
+
         var quiz = await _appDbContext.Quizzes
             .Include(q => q.Questions)
             .ThenInclude(a => a.Answers)
             .FirstOrDefaultAsync(q => q.Id == id);
 
-        if (quiz is null) return NotFound("Quiz não encontrado.");
+        if (quiz is null) return NotFound("Quiz nao encontrado.");
 
         int correctAnswers = 0;
 
         foreach (var answer in answers)
         {
             var question = quiz.Questions.FirstOrDefault(q => q.Id == answer.QuestionId);
-
             var correctAnswer = question?.Answers.FirstOrDefault(a => a.IsCorrect)?.Description;
 
-            if (question != null && answer.SelectedAnswer == correctAnswer)
+            if (question is not null && answer.SelectedAnswer == correctAnswer)
             {
                 correctAnswers++;
             }
@@ -131,24 +143,19 @@ public class QuizController : ControllerBase
 
         if (correctAnswers >= quiz.MinCorrectAnswers)
         {
-            var user = await _appDbContext.Users.FindAsync(userId);
-            if (user is not null)
-            {
-                var existingQuiz = user.UserLessons.FirstOrDefault(x => x.Id == id);
-                if (existingQuiz is not null)
-                    return Ok(new { message = "Boa revisão! Você passou!", correctAnswers });
-                // ana: ok. a parte de cima 1. impede que o user tenha uma lista de UserLessons com 30000000000 LessonId.3 e também impede hack de xp! mas ainda deixa o user revisar o conteúdo sei lá se ele tiver afim
+            var existingQuiz = user!.UserLessons.FirstOrDefault(x => x.Id == id);
+            if (existingQuiz is not null)
+                return Ok(new { message = "Boa revisão! Você passou!", correctAnswers });
+            // ana: ok. a parte de cima 1. impede que o user tenha uma lista de UserLessons com 30000000000 de inguais e tambem impede hack de xp! mas ainda deixa o user revisar o conteudo sei la se ele tiver afim
 
-                user.XP += quiz.XP;
-                user.CalculateLevel(user.XP);
+            user.XP += quiz.XP;
+            user.CalculateLevel(user.XP);
 
-                user.UserLessons.Add(quiz);
+            user.UserLessons.Add(quiz);
+            user.FlashCards.AddRange(_appDbContext.FlashCards.Where(x => x.LessonId == id));
 
-                user.FlashCards.AddRange(_appDbContext.FlashCards.Where(x => x.LessonId == id));
-
-                _appDbContext.Update(user);
-                await _appDbContext.SaveChangesAsync();
-            }
+            _appDbContext.Update(user);
+            await _appDbContext.SaveChangesAsync();
 
             return Ok(new { message = "Passou!", correctAnswers });
         }
