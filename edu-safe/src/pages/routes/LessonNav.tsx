@@ -17,9 +17,7 @@ const Lesson = () => {
     api
       .get("/api/users/xp-level")
       .then((res) => {
-        console.log("Dados do usuário:", res.data);
         setUserLevel(res.data.xp);
-        console.log("Nível do usuário:", res.data.level);
       })
       .catch((error) => {
         console.error("Erro ao obter o nível do usuário:", error);
@@ -105,7 +103,7 @@ const Lesson = () => {
             Componentes={BeginnerLinks.map((Component, idx) => (
               <Component key={idx} />
             ))}
-            texts={["Introdução", "Questionário", "FlashCards"]}
+            texts={["Módulo 1", "Questionário", "FlashCards"]}
             hasAula
             hasBorder
             userLevel={userLevel}
@@ -141,6 +139,22 @@ const Lesson = () => {
             enableLock={true}
           />
         </div>
+      </div>
+      <div
+        style={{
+          color: "yellow",
+          position: "fixed",
+          bottom: "0",
+          right: "0",
+          borderRadius: "5px",
+        }}>
+        <CustomButton
+          backgroundColor="#1c1f2c"
+          width="10px"
+          height="10px"
+          fontSize="1rem"
+          hasRainbow={true}
+          text={`${userLevel} xp`}></CustomButton>
       </div>
     </div>
   );

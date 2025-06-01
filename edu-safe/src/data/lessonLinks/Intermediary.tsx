@@ -1,4 +1,6 @@
 import modulo2 from "../../assets/modulo2.jpg";
+import narrativa from "../../assets/narrativa.jpg";
+import flashcards1 from "../../assets/flashcards1.jpg";
 import ImageButton from "../../components/random/buttons/ImageButton";
 
 const imgSize = "200";
@@ -14,7 +16,7 @@ export const IntermediaryLinks = [
   ),
   () => (
     <ImageButton
-      imgScr={modulo2}
+      imgScr={narrativa}
       alt="Narrativa"
       link="/narrativa/3"
       imgSize={imgSize}
@@ -22,7 +24,7 @@ export const IntermediaryLinks = [
   ),
   () => (
     <ImageButton
-      imgScr={modulo2}
+      imgScr={flashcards1}
       alt="FlashCard"
       link="/flash-card/2"
       imgSize={imgSize}

@@ -13,6 +13,7 @@ interface RainbowButtonProps {
   linkNav?: string;
   height?: string;
   width?: string;
+  fontSize?: string;
   onClick?: () => void;
 }
 
@@ -27,10 +28,11 @@ const useStyle = createStyles(
       borderTickness,
       height: width,
       width: height,
+      fontSize,
     }: RainbowButtonProps,
   ) => ({
     RainbowButton: {
-      fontSize: "1.75dvw",
+      fontSize: fontSize,
       fontWeight: "bold",
       color: textColor,
       border: "none",
@@ -97,6 +99,7 @@ const CustomButton: React.FC<RainbowButtonProps> = ({
   linkNav,
   height: width,
   width: height,
+  fontSize,
 }) => {
   const { styles } = useStyle({
     backgroundColor,
@@ -107,6 +110,7 @@ const CustomButton: React.FC<RainbowButtonProps> = ({
     linkNav: "",
     height: width,
     width: height,
+    fontSize: fontSize || "1.75dvw",
   });
 
   return (
