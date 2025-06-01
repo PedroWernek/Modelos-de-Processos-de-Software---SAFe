@@ -2,11 +2,14 @@ import { createStyles } from "antd-style";
 import React, { useState } from "react";
 import { text } from "stream/consumers";
 
-interface ModuleCarouselProps {
+interface CarouselProps {
   Componentes: React.ReactNode[];
-  hasAula?: boolean | false;
-  hasBorder?: boolean | false;
+  hasAula?: boolean;
+  hasBorder?: boolean;
   texts?: string[];
+  userLevel?: number;
+  requiredLevels?: number[];
+  enableLock?: boolean;
 }
 
 const useStyle = createStyles((css) => ({
@@ -86,10 +89,14 @@ const useStyle = createStyles((css) => ({
   },
 }));
 
-const Carousel: React.FC<ModuleCarouselProps> = ({
+const Carousel: React.FC<CarouselProps> = ({
   Componentes,
   hasAula,
   hasBorder,
+  userLevel,
+  requiredLevels,
+  enableLock = false,
+
   texts = [],
 }) => {
   const { styles } = useStyle();
@@ -108,24 +115,43 @@ const Carousel: React.FC<ModuleCarouselProps> = ({
       <div
         className={styles.CarouselContent}
         style={{ transform: `translateX(-${index * 100}%)` }}>
-        {Componentes.map((Componente, i) => (
-          <div key={i} className={styles.CarouselItem}>
-            {hasBorder ? <div>{Componente}</div> : <div>{Componente}</div>}
-            {hasAula && (
-              <p
-                style={{
-                  color: "#7de2d1",
-                  paddingTop: "1rem",
-                  fontSize: "1.25rem",
-                  fontWeight: "bold",
-                  textAlign: "center",
-                  transform: "translateX(0)",
-                }}>
-                {texts[i] || "Aula não definida"}
-              </p>
-            )}
-          </div>
-        ))}
+        {Componentes.map((Componente, i) => {
+          const isLocked =
+            enableLock &&
+            requiredLevels &&
+            typeof userLevel === "number" &&
+            userLevel < requiredLevels[i];
+
+          return (
+            <div key={i} className={styles.CarouselItem}>
+              {isLocked ? (
+                <div
+                  style={{
+                    color: "#ff6b6b",
+                    fontWeight: "bold",
+                    fontSize: "1.25rem",
+                  }}>
+                  🔒 Conteúdo bloqueado – {requiredLevels?.[i]} de xp necessário
+                </div>
+              ) : (
+                <div>{Componente}</div>
+              )}
+              {hasAula && (
+                <p
+                  style={{
+                    color: "#7de2d1",
+                    paddingTop: "1rem",
+                    fontSize: "1.25rem",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                    transform: "translateX(0)",
+                  }}>
+                  {texts[i] || "Aula não definida"}
+                </p>
+              )}
+            </div>
+          );
+        })}
       </div>
       {/* Botão de navegação */}
       <div className={styles.CarouselNavButtons}>

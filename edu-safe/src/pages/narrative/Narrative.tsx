@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { JSX, use, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { useTransition, animated } from "@react-spring/web";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import api from "../../api";
-import "../../css/Narrative.css"; // ajuste o caminho conforme sua estrutura
+import "../../css/Narrative.css";
 import BloquedPage from "../routes/BloquedPage";
+import CustomButton from "../../components/random/buttons/CustomButton";
 
 interface NarrativeProps {
   bloqued?: boolean;
@@ -17,20 +18,44 @@ interface Narrativa {
 
 const Narrative: React.FC<NarrativeProps> = ({ bloqued }) => {
   const { id } = useParams<{ id: string }>();
-  const [narrativa, setNarrativa] = useState<Narrativa>();
+  const [conteudo, setConteudo] = useState<(string | JSX.Element)[]>([]);
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState<"up" | "down">("down");
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
     api.get(`/api/narrativas/${id}`).then((res) => {
-      setNarrativa(res.data);
+      const paragrafos = res.data.texto.split(/\n\s*\n/);
+      const customButton = (
+        <div onClick={handleSubmit}>
+          <CustomButton
+            text="Concluir narrativa"
+            backgroundColor="#3ac7a6"
+            textColor="#0c1329"
+            borderColor="#0c1320"
+          />
+        </div>
+      );
+      setConteudo([...paragrafos, customButton]);
     });
   }, [id]);
 
-  const paragrafos = narrativa?.texto.split(/\n\s*\n/) || [];
+  const handleSubmit = () => {
+    console.log("Narrativa concluída");
 
-  const transitions = useTransition(paragrafos[index], {
+    api
+      .post(`/api/narrativas/${id}/submit`)
+      .then((res) => {
+        console.log("Narrativa concluída com sucesso:", res.data);
+        navigate("/modulos");
+      })
+      .catch((error) => {
+        console.error("Erro ao concluir a narrativa:", error);
+      });
+  };
+
+  const transitions = useTransition(conteudo[index], {
     key: index,
     from:
       direction === "down"
@@ -45,15 +70,15 @@ const Narrative: React.FC<NarrativeProps> = ({ bloqued }) => {
   });
 
   const handleNext = () => {
-    if (index < paragrafos.length - 1) {
-      setDirection("down");
+    if (index < conteudo.length - 1) {
+      setDirection("up");
       setIndex((prev) => prev + 1);
     }
   };
 
   const handlePrev = () => {
     if (index > 0) {
-      setDirection("up");
+      setDirection("down");
       setIndex((prev) => prev - 1);
     }
   };
@@ -66,21 +91,21 @@ const Narrative: React.FC<NarrativeProps> = ({ bloqued }) => {
         {transitions((style, item) =>
           item ? (
             <animated.div className="flashcard" style={style}>
-              {item}
+              {React.isValidElement(item) ? item : <p>{item}</p>}
             </animated.div>
-          ) : null
+          ) : null,
         )}
       </div>
 
       <div className="carousel-controls">
         <button onClick={handlePrev} disabled={index === 0}>
-          <FontAwesomeIcon icon={faChevronLeft} />
+          <FontAwesomeIcon icon={faChevronUp} />
         </button>
         <span className="carousel-indicator">
-          {index + 1} de {paragrafos.length}
+          {index + 1} de {conteudo.length}
         </span>
-        <button onClick={handleNext} disabled={index === paragrafos.length - 1}>
-          <FontAwesomeIcon icon={faChevronRight} />
+        <button onClick={handleNext} disabled={index === conteudo.length - 1}>
+          <FontAwesomeIcon icon={faChevronDown} />
         </button>
       </div>
     </div>

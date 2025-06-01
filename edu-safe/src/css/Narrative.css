@@ -1,6 +1,6 @@
 .narrative-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   min-height: 80vh;
   justify-content: center;
@@ -33,6 +33,8 @@
 
 .carousel-controls {
   display: flex;
+  flex-direction: column;
+  margin: 1rem;
   gap: 1rem;
   align-items: center;
 }

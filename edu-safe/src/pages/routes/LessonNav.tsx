@@ -1,4 +1,4 @@
-import React from "react";
+import React, { use, useEffect, useState } from "react";
 import "../../css/ModulesNav.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
@@ -8,8 +8,24 @@ import { IntermediaryLinks } from "../../data/lessonLinks/Intermediary";
 import { BeginnerLinks } from "../../data/lessonLinks/Beginner";
 import { AdvancedLinks } from "../../data/lessonLinks/Advanced";
 import CustomButton from "../../components/random/buttons/CustomButton";
+import api from "../../api";
 
 const Lesson = () => {
+  const [userLevel, setUserLevel] = useState<number>();
+
+  useEffect(() => {
+    api
+      .get("/api/users/xp-level")
+      .then((res) => {
+        console.log("Dados do usuário:", res.data);
+        setUserLevel(res.data.xp);
+        console.log("Nível do usuário:", res.data.level);
+      })
+      .catch((error) => {
+        console.error("Erro ao obter o nível do usuário:", error);
+      });
+  }, []);
+
   if (!localStorage.getItem("token")) {
     return (
       <div
@@ -89,8 +105,12 @@ const Lesson = () => {
             Componentes={BeginnerLinks.map((Component, idx) => (
               <Component key={idx} />
             ))}
-            hasAula={true}
-            texts={["Módulo 1", "Questionário", "FlashCard"]}
+            texts={["Introdução", "Questionário", "FlashCards"]}
+            hasAula
+            hasBorder
+            userLevel={userLevel}
+            requiredLevels={[0, 0, 50]}
+            enableLock={true}
           />
         </div>
         <div className="lesson-content__intermediario">
@@ -99,8 +119,12 @@ const Lesson = () => {
             Componentes={IntermediaryLinks.map((Component, idx) => (
               <Component key={idx} />
             ))}
-            hasAula={true}
             texts={["Módulo 2", "Narrativa", "FlashCard"]}
+            hasAula
+            hasBorder
+            userLevel={userLevel}
+            requiredLevels={[0, 50, 150]}
+            enableLock={true}
           />
         </div>
         <div className="lesson-content__avancado">
@@ -109,8 +133,12 @@ const Lesson = () => {
             Componentes={AdvancedLinks.map((Component, idx) => (
               <Component key={idx} />
             ))}
-            hasAula={true}
             texts={["Módulo 3", "História Interativa", "FlashCard"]}
+            hasAula
+            hasBorder
+            userLevel={userLevel}
+            requiredLevels={[0, 150, 300]}
+            enableLock={true}
           />
         </div>
       </div>
