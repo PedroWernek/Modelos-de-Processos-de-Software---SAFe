@@ -170,6 +170,18 @@ const SAFeModule1 = () => {
           </p>
         </section>
       </div>
+      <div className="gotoQuestions">
+        <CustomButton
+          backgroundColor="#3ac7a6"
+          borderColor="#1c1f2c"
+          borderTickness="2px"
+          textColor="#1c1f2c"
+          text="Voltar aos Módulos"
+          linkNav="/modulos"
+          height="2dvw"
+          width="10dvh"
+        />
+      </div>
     </div>
   );
 };
