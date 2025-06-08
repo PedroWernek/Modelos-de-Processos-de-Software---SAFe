@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
 import api from "../../api";
 
 interface Flashcard {
@@ -10,7 +9,6 @@ interface Flashcard {
 }
 
 export function AddFlashcard() {
-  const [flashcards, setFlashcards] = useState<Flashcard[]>([]);
   const [name, setNome] = useState("");
   const [lessonId, setlessonId] = useState(0);
   const [description, setDescription] = useState("");

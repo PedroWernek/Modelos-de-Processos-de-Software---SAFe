@@ -108,7 +108,7 @@ const SAFeModule3 = () => {
             </li>
           </ol>
           <br></br>
-          <ImageComponent src={PIplanning} font={"Gemini"} />
+          <ImageComponent src={PIplanning} font={"Gemini"} width={"40dvw"} />
         </section>
 
         <section>

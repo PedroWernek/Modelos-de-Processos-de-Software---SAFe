@@ -60,12 +60,12 @@ export function QuestionForm({
               display: "flex",
               alignItems: "center",
               backgroundColor: answered
-                ? option.id == selectedQustionId
+                ? option.id === selectedQustionId
                   ? "lightgreen"
                   : "#333"
                 : "#0c1329",
               color: answered
-                ? option.id == selectedQustionId
+                ? option.id === selectedQustionId
                   ? "black"
                   : "#fff"
                 : "#fff",

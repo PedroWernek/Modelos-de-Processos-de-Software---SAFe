@@ -1,9 +1,8 @@
-import React, { use, useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { QuestionForm } from "../../components/forms/QuestionForms";
 import AlertScreen from "./AlertScreen";
 import CustomButton from "../../components/random/buttons/CustomButton";
 import Carousel from "../../components/random/carousels/Carousel";
-import axios from "axios";
 import api from "../../api";
 import { useNavigate, useParams } from "react-router-dom";
 import BloquedPage from "../routes/BloquedPage";
@@ -81,7 +80,7 @@ const Questionarie: React.FC<QuestionarieProps> = ({ bloqued }) => {
         alert("Erro ao buscar quiz: " + err.message);
         navigate("/modulos");
       });
-  }, [quizId]);
+  }, [quizId, navigate]);
 
   const handleAnswerSubmit = (questionId: number, answerText: string) => {
     setUserAnswers((prev) => [...prev, [questionId, answerText]]);

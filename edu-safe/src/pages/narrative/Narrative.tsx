@@ -1,4 +1,4 @@
-import React, { JSX, use, useEffect, useState } from "react";
+import React, { JSX, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useTransition, animated } from "@react-spring/web";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,10 +10,6 @@ import CustomButton from "../../components/random/buttons/CustomButton";
 
 interface NarrativeProps {
   bloqued?: boolean;
-}
-
-interface Narrativa {
-  texto: string;
 }
 
 const Narrative: React.FC<NarrativeProps> = ({ bloqued }) => {

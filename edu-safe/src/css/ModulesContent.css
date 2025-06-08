@@ -107,3 +107,95 @@ a {
   font-size: 1.5rem;
   gap: 60px;
 }
+
+/* Container principal para o widget do player Lo-fi */
+.lofi-widget-container {
+  position: fixed;
+  bottom: 1.5rem;
+  /* 24px */
+  right: 1.5rem;
+  /* 24px */
+  z-index: 1000;
+  /* Garante que fique acima de outros conteúdos */
+}
+
+/* O card que contém o player quando está visível */
+.lofi-player-card {
+  position: relative;
+  background-color: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 1rem;
+  padding-top: 2.5rem;
+  /* Mais espaço no topo para o botão de fechar */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  animation: slide-in 0.3s ease-out;
+  color: white;
+  /* Garante que o texto dentro do LofiPlayer seja branco */
+  max-width: 320px;
+  /* Define uma largura máxima para o card */
+}
+
+/* Botão de fechar (X) posicionado dentro do card */
+.lofi-player-close-btn {
+  position: absolute;
+  top: 0.5rem;
+  /* 8px */
+  right: 0.5rem;
+  /* 8px */
+  background: transparent;
+  border: none;
+  color: #a0a0a0;
+  font-size: 1.2rem;
+  /* 18px */
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.lofi-player-close-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+/* Botão flutuante para ABRIR o player (ícone de música) */
+.lofi-player-open-btn {
+  background-color: #1db954;
+  /* Verde Spotify */
+  color: white;
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  /* 24px */
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-out;
+  animation: slide-in 0.3s ease-out;
+}
+
+.lofi-player-open-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Animação para o widget aparecer suavemente */
+@keyframes slide-in {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
