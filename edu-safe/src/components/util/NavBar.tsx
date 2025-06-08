@@ -14,15 +14,20 @@ const NavBar = () => {
   return (
     <div className="navbar">
       <img className="navbar-logo" src={logoEduSAFe} alt="logo EduSAFe" />
-      <nav className="navbar-links">
-        <Link to="/">Início</Link>
-        {hasToken ? (
-          <Link to={"/"} onClick={handleLogout} className="logout-button">
-            Sair
-          </Link>
-        ) : (
-          <Link to="/autenticar">Entrar</Link>
-        )}
+      <nav className="navbar-links" style={{ gap: "1rem" }}>
+        <div style={{ display: "flex", gap: "1rem" }}>
+          <Link to="/">Início</Link>
+          <Link to="/modulos">Módulos</Link>
+        </div>
+        <div>
+          {hasToken ? (
+            <Link to={"/"} onClick={handleLogout} className="logout-button">
+              Sair
+            </Link>
+          ) : (
+            <Link to="/autenticar">Entrar</Link>
+          )}
+        </div>
       </nav>
     </div>
   );

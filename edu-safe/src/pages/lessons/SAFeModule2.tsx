@@ -2,23 +2,32 @@ import modulo2 from "../../assets/modulo2.jpg";
 import LessonHeader from "../../components/lessons/LessonHeader";
 import LessonGoals from "../../components/lessons/LessonGoals";
 import ImageComponent from "../../components/random/image/ImageComponent";
-import ShowListContentComponent from "../../components/random/dropdown/ShowListContentComponent";
 import CustomButton from "../../components/random/buttons/CustomButton";
-import InfoCard from "../../components/lessons/InfoCard";
 import {
-  faLayerGroup,
-  faBalanceScale,
-  faStream,
+  faPeopleGroup,
+  faMagnifyingGlass,
+  faThumbsUp,
+  faBox,
+  faUserGroup,
+  faSquareBinary,
+  faTrain,
+  faBriefcase,
 } from "@fortawesome/free-solid-svg-icons";
+import principios from "../../assets/principiosSafe.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ShowContentComponent from "../../components/random/dropdown/ShowContentComponent";
+import { useState } from "react";
+import { PrincipiosSAFeArray } from "../../data/PrincipiosSAFe";
 
 const SAFeModule2 = () => {
+  const [hoveredText, setHoveredText] = useState("");
+
   return (
     <div>
       <LessonHeader
         unit="Módulo 2:"
-        title="A Estrutura do SAFe: Valores, Princípios, Níveis e Configurações"
+        title="A Estrutura do SAFe"
+        description="Valores, Princípios, Níveis e Configurações"
         backgroundImage={modulo2}
         textColor="#ffffff"
       />
@@ -46,14 +55,20 @@ const SAFeModule2 = () => {
             grandes e complexas.
           </p>
           <br></br>
-          <h2>Alinhamento</h2>
+          <h2>
+            <FontAwesomeIcon icon={faPeopleGroup} size="2x" />
+            Alinhamento
+          </h2>
           <p>
             É super importante que todos os times e todas as partes da empresa
             trabalhem juntos, com os mesmos objetivos. O SAFe tem jeitos de
             fazer com que a visão da empresa vire ação em todos os lugares.
           </p>
           <br></br>
-          <h2>Transparência</h2>
+          <h2>
+            <FontAwesomeIcon icon={faMagnifyingGlass} size="2x" />
+            Transparência
+          </h2>
           <p>
             Para que todos confiem uns nos outros e tomem boas decisões, as
             informações precisam ser claras e visíveis para todo mundo. O SAFe
@@ -61,7 +76,10 @@ const SAFeModule2 = () => {
             ajudando a resolver problemas rapidamente.
           </p>
           <br></br>
-          <h2>Qualidade em tudo</h2>
+          <h2>
+            <FontAwesomeIcon icon={faThumbsUp} size="2x" />
+            Qualidade em tudo
+          </h2>
           <p>
             A qualidade não é algo que se verifica só no final. Ela é parte de
             todo o processo de criação. O SAFe faz com que a qualidade seja
@@ -69,7 +87,10 @@ const SAFeModule2 = () => {
             seja bom e atenda ao que se espera.
           </p>
           <br></br>
-          <h2>Entregar o que foi prometido</h2>
+          <h2>
+            <FontAwesomeIcon icon={faBox} size="2x" />
+            Entregar o que foi prometido
+          </h2>
           <p>
             O foco principal do SAFe é entregar valor para o cliente sempre.
             Isso significa que a empresa precisa conseguir transformar ideias em
@@ -80,25 +101,100 @@ const SAFeModule2 = () => {
           <ImageComponent width="50rem" src={modulo2} font="Freepik" />
         </section>
 
-        <section>
-          <h1>As Dez Ideias-Chave (Princípios) do SAFe</h1>
-          <ul>
-            <li>
-              Pensar no dinheiro: atrasos custam, valor deve ser entregue
-              rápido.
-            </li>
-            <li>Ver o todo: melhorar o sistema inteiro.</li>
-            <li>
-              Ser flexível: tomar decisões importantes o mais tarde possível.
-            </li>
-            <li>Fazer aos poucos e aprender rápido.</li>
-            <li>Testar para ver se funciona.</li>
-            <li>Não sobrecarregar: manter o fluxo organizado.</li>
-            <li>Ter ritmo e sincronia.</li>
-            <li>Motivar as pessoas.</li>
-            <li>Tomar decisões no lugar certo.</li>
-            <li>Organizar para entregar valor.</li>
-          </ul>
+        <section
+          style={{ position: "relative", width: "100%", height: "800px" }}>
+          <h1 style={{ textAlign: "center", marginBottom: "40px" }}>
+            As Dez Ideias-Chave (Princípios) do SAFe
+          </h1>
+
+          {/* Imagem + Texto ao centro */}
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              zIndex: 1,
+              textAlign: "center",
+            }}>
+            <img
+              src={principios}
+              alt="SAFe Princípios"
+              style={{ width: "250px" }}
+            />
+
+            {hoveredText && (
+              <div
+                style={{
+                  marginTop: "16px",
+                  background: "#ffffff",
+                  position: "fixed",
+                  padding: "12px",
+                  borderRadius: "8px",
+                  fontSize: "13px",
+                  height: "230px",
+                  width: "270px",
+                  top: "50%",
+                  left: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  transform: "translate(-50%, -63%)",
+                  transition: "opacity 0.3s ease",
+                  boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+                  whiteSpace: "pre-wrap",
+                }}>
+                {hoveredText}
+              </div>
+            )}
+          </div>
+
+          {/* Princípios ao redor */}
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: "100%",
+              height: "100%",
+              pointerEvents: "none",
+            }}>
+            {PrincipiosSAFeArray.map((item, index) => {
+              const total = PrincipiosSAFeArray.length;
+              const angle = (index / total) * 2 * Math.PI - Math.PI / 2;
+              const radius = 280;
+              const x = Math.cos(angle) * radius;
+              const y = Math.sin(angle) * radius;
+
+              return (
+                <div
+                  key={index}
+                  style={{
+                    position: "absolute",
+                    top: `calc(50% + ${y}px)`,
+                    left: `calc(50% + ${x}px)`,
+                    transform: "translate(-50%, -50%)",
+                    width: "170px",
+                    textAlign: "center",
+                    fontSize: "11px",
+                    lineHeight: "1.4",
+                    background: "#f5f5f5",
+                    padding: "10px",
+                    borderRadius: "8px",
+                    boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+                    zIndex: 0,
+                    pointerEvents: "auto",
+                    cursor: "pointer",
+                  }}
+                  onMouseEnter={() => setHoveredText(item.text)}
+                  onMouseLeave={() => setHoveredText("")}>
+                  <strong>{index + 1}.</strong> <br />
+                  <strong>{item.title}</strong>
+                </div>
+              );
+            })}
+          </div>
         </section>
 
         <section>
@@ -111,23 +207,31 @@ const SAFeModule2 = () => {
             todos conectados:
           </p>
           <br></br>
-          <h2>Nível de Equipe</h2>
+          <h2>
+            <FontAwesomeIcon icon={faUserGroup} size="2x" />
+            Nível de Equipe
+          </h2>
           <p>
             É onde o trabalho é feito de verdade. São os times que constroem as
             coisas, testam e entregam pequenas partes do produto. Aqui, eles
             usam métodos ágeis como o Scrum para organizar seu dia a dia.
           </p>
           <br></br>
-          <h2>Nível de Programa (ART - Agile Release Train)</h2>
+          <h2>
+            <FontAwesomeIcon icon={faTrain} size="2x" />
+            Nível de Programa (ART - Agile Release Train)
+          </h2>
           <p>
             É a "locomotiva" do trabalho. Aqui, vários times trabalham juntos em
             um mesmo produto ou solução maior. Eles se planejam juntos e
             sincronizam suas entregas a cada poucos meses (o PI). É onde a
-            maioria das pessoas vai se ver trabalhando no dia a dia com o{" "}
-            <strong>SAFe</strong>.
+            maioria das pessoas vai se ver trabalhando no dia a dia.
           </p>
           <br></br>
-          <h2>Nível de Solução Grande (Large Solution)</h2>
+          <h2>
+            <FontAwesomeIcon icon={faSquareBinary} size="2x" />
+            Nível de Solução Grande (Large Solution)
+          </h2>
           <p>
             Para produtos ou sistemas GIGANTES, que precisam de vários ARTs
             trabalhando juntos, existe este nível. Ele ajuda a coordenar esses
@@ -135,7 +239,10 @@ const SAFeModule2 = () => {
             complexa.
           </p>
           <br></br>
-          <h2>Nível de Portfólio</h2>
+          <h2>
+            <FontAwesomeIcon icon={faBriefcase} size="2x" />
+            Nível de Portfólio
+          </h2>
           <p>
             É o nível mais alto. Aqui, a empresa decide em quais grandes
             iniciativas vai investir. É onde se define a estratégia, o orçamento

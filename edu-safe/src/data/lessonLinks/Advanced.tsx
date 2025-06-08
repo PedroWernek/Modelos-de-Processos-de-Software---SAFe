@@ -2,6 +2,7 @@ import modulo3 from "../../assets/modulo3.jpg";
 import historia from "../../assets/historia.jpg";
 import flashcards1 from "../../assets/flashcards1.jpg";
 import ImageButton from "../../components/random/buttons/ImageButton";
+import Podcast3 from "../../assets/podcast3.jpg";
 
 const imgSize = "200";
 
@@ -27,6 +28,14 @@ export const AdvancedLinks = [
       imgScr={flashcards1}
       alt="FlashCard"
       link="/flash-card/3"
+      imgSize={imgSize}
+    />
+  ),
+  () => (
+    <ImageButton
+      imgScr={Podcast3}
+      alt="Podcast"
+      link="/podcast/3"
       imgSize={imgSize}
     />
   ),

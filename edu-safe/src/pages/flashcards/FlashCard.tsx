@@ -1,4 +1,3 @@
-import React, { use } from "react";
 import FlashCardCarousel from "../../components/flashcards/GetFlashcard";
 import { useParams } from "react-router-dom";
 import CustomButton from "../../components/random/buttons/CustomButton";
@@ -9,13 +8,13 @@ const FlashCard = () => {
   window.scrollTo(0, 0);
 
   return (
-    <div className="error-page">
+    <div className="error-page" style={{ height: "110dvh" }}>
       {parsedLessonId !== undefined ? (
         <FlashCardCarousel lessonId={parsedLessonId} />
       ) : (
         <div>Invalid lesson ID</div>
       )}
-      <div style={{ marginTop: "-50px" }}>
+      <div>
         <CustomButton
           backgroundColor="#7de2d1"
           textColor="#131515"

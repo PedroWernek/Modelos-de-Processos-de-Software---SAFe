@@ -8,6 +8,7 @@ import axios from "axios";
 export function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
   const navigate = useNavigate();
+  window.scrollTo(0, 0);
 
   const handleRegisterSubmit = async (data: {
     name: string;

@@ -7,8 +7,10 @@ import ShowListContentComponent from "../../components/random/dropdown/ShowListC
 import CustomButton from "../../components/random/buttons/CustomButton";
 import devops from "../../assets/Devops-toolchain.svg.png";
 import ImageComponent from "../../components/random/image/ImageComponent";
+import PIplanning from "../../assets/PIplanning.png";
 
 const SAFeModule3 = () => {
+  window.scrollTo(0, 0);
   return (
     <div>
       <LessonHeader
@@ -106,6 +108,7 @@ const SAFeModule3 = () => {
             </li>
           </ol>
           <br></br>
+          <ImageComponent src={PIplanning} font={"Gemini"} />
         </section>
 
         <section>

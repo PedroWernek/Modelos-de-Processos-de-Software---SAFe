@@ -36,7 +36,7 @@ const SafeGuide = () => {
             textColor="#131515"
             text="Veja Nossos Módulos"
             linkNav={
-              localStorage.getItem("token") != null ? "/modulos" : "/login"
+              localStorage.getItem("token") != null ? "/modulos" : "/autenticar"
             }
           />
         </div>

@@ -1,6 +1,6 @@
 import musico from "../../assets/musico.jpg";
 import modulo1 from "../../assets/modulo1.jpg";
-import scrumImg from "../../assets/scrumImg.svg";
+import scrumImg from "../../assets/scrumImg.jpg";
 import dean from "../../assets/Dean.jpg";
 import LessonHeader from "../../components/lessons/LessonHeader";
 import LessonGoals from "../../components/lessons/LessonGoals";
@@ -10,8 +10,12 @@ import CustomButton from "../../components/random/buttons/CustomButton";
 import InfoCard from "../../components/lessons/InfoCard";
 import { faGuitar, faLightbulb } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ScrumPopup from "./explaining/Scrum";
+import PodcastPlayer from "../podcast/PodcastPlayer";
+import podcast1 from "../../assets/podcasts/IntroduçãoaoSAFeparaGrandesEmpresas.wav";
 
 const SAFeModule1 = () => {
+  window.scrollTo(0, 0);
   return (
     <div>
       <LessonHeader
@@ -32,15 +36,17 @@ const SAFeModule1 = () => {
         backgroundColor="#0c1329"
         textColor="white"
       />
-
       <div className="lesson-content__content">
         <section>
           <h1>O que é o SAFe?</h1>
           <p>
-            Você já ouviu falar do <strong>Scrum?</strong> É um método de
-            organizar projetos em equipes pequenas. Mas e se a empresa é enorme,
-            como a Amazon ou o Google? Usar o Scrum para um time tão grande pode
-            ser uma bagunça, certo?
+            Você já ouviu falar do <ScrumPopup /> É um método de organizar
+            projetos em equipes pequenas.
+          </p>
+
+          <p>
+            Mas e se a empresa é enorme, como a Amazon ou o Google? Usar o Scrum
+            para um time tão grande pode ser uma bagunça, certo?
           </p>
           <p>
             É para isso que existe o <strong>SAFe</strong> – Scaled Agile
@@ -70,7 +76,7 @@ const SAFeModule1 = () => {
             jeito de trabalhar mais flexível e em equipe (o
             <strong>"ágil"</strong>) em toda a sua estrutura.
           </p>
-          <ImageComponent width="30rem" src={musico} font="Freepik" />
+          <ImageComponent width="20rem" src={musico} font="Freepik" />
         </section>
 
         <section>

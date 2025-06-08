@@ -14,13 +14,30 @@ const Lesson = () => {
   const [userLevel, setUserLevel] = useState<number>();
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (!token) return;
     api
-      .get("/api/users/xp-level")
-      .then((res) => {
-        setUserLevel(res.data.xp);
+      .get("/api/auth/validate-token", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then(() => {
+        api
+          .get("/api/users/xp-level", {
+            headers: { Authorization: `Bearer ${token}` },
+          })
+          .then((res) => {
+            setUserLevel(res.data.xp);
+          })
+          .catch((error) => {
+            console.error("Erro ao obter o nível do usuário:", error);
+            localStorage.removeItem("token");
+          });
       })
       .catch((error) => {
-        console.error("Erro ao obter o nível do usuário:", error);
+        console.error("Token inválido:", error);
+        localStorage.removeItem("token");
+        window.location.href = "/autenticar";
       });
   }, []);
 
@@ -103,11 +120,11 @@ const Lesson = () => {
             Componentes={BeginnerLinks.map((Component, idx) => (
               <Component key={idx} />
             ))}
-            texts={["Módulo 1", "Questionário", "FlashCards"]}
+            texts={["Módulo 1", "Questionário", "FlashCards", "Podcast"]}
             hasAula
             hasBorder
             userLevel={userLevel}
-            requiredLevels={[0, 0, 50]}
+            requiredLevels={[0, 0, 50, 50]}
             enableLock={true}
           />
         </div>
@@ -117,11 +134,11 @@ const Lesson = () => {
             Componentes={IntermediaryLinks.map((Component, idx) => (
               <Component key={idx} />
             ))}
-            texts={["Módulo 2", "Narrativa", "FlashCard"]}
+            texts={["Módulo 2", "Narrativa", "FlashCard", "Podcast"]}
             hasAula
             hasBorder
             userLevel={userLevel}
-            requiredLevels={[0, 50, 150]}
+            requiredLevels={[0, 50, 150, 150]}
             enableLock={true}
           />
         </div>
@@ -131,11 +148,11 @@ const Lesson = () => {
             Componentes={AdvancedLinks.map((Component, idx) => (
               <Component key={idx} />
             ))}
-            texts={["Módulo 3", "História Interativa", "FlashCard"]}
+            texts={["Módulo 3", "História Interativa", "FlashCard", "Podcast"]}
             hasAula
             hasBorder
             userLevel={userLevel}
-            requiredLevels={[0, 150, 300]}
+            requiredLevels={[0, 150, 300, 300]}
             enableLock={true}
           />
         </div>
