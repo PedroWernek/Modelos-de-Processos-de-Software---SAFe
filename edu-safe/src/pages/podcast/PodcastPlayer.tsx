@@ -52,7 +52,7 @@ const PodcastPlayerPage = () => {
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState<number>(0);
   const [currentTime, setCurrentTime] = useState<number>(0);
-  const [podcastVolume, setPodcastVolume] = useState(100);
+  const [podcastVolume, setPodcastVolume] = useState(50);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const current = episodes[currentEpisodeIndex];
