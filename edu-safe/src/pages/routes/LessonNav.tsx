@@ -9,9 +9,11 @@ import { BeginnerLinks } from "../../data/lessonLinks/Beginner";
 import { AdvancedLinks } from "../../data/lessonLinks/Advanced";
 import CustomButton from "../../components/random/buttons/CustomButton";
 import api from "../../api";
+import { useNavigate } from "react-router-dom";
 
 const Lesson = () => {
   const [userLevel, setUserLevel] = useState<number>();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -32,12 +34,13 @@ const Lesson = () => {
           .catch((error) => {
             console.error("Erro ao obter o nível do usuário:", error);
             localStorage.removeItem("token");
+            navigate("/autenticar");
           });
       })
       .catch((error) => {
         console.error("Token inválido:", error);
         localStorage.removeItem("token");
-        window.location.href = "/autenticar";
+        navigate("/autenticar");
       });
   }, []);
 

@@ -17,19 +17,20 @@ const LessonContent = () => {
     <div className="modules-content__container">
       <Outlet />
 
-      {/* Container fixo para o widget do player */}
       <div className="lofi-widget-container">
-        {isLofiPlayerOpen ? (
-          <div className="lofi-player-card">
-            <button
-              className="lofi-player-close-btn"
-              onClick={toggleLofiPlayer}
-              aria-label="Fechar player de música">
-              <FontAwesomeIcon icon={faTimes} />
-            </button>
-            <LofiPlayer />
-          </div>
-        ) : (
+        <div
+          className="lofi-player-card"
+          style={{ display: isLofiPlayerOpen ? "flex" : "none" }}>
+          <button
+            className="lofi-player-close-btn"
+            onClick={toggleLofiPlayer}
+            aria-label="Fechar player de música">
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
+          <LofiPlayer />
+        </div>
+
+        {!isLofiPlayerOpen && (
           <button
             className="lofi-player-open-btn"
             onClick={toggleLofiPlayer}

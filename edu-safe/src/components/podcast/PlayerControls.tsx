@@ -9,7 +9,7 @@ import {
 import VolumeControl from "./VolumeControl"; // Importa o novo componente
 
 const btnStyle: React.CSSProperties = {
-  background: "#1db954",
+  background: "#339989",
   color: "#fff",
   border: "none",
   borderRadius: "50%",
@@ -75,7 +75,7 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({
             flex: 1,
             height: "6px",
             borderRadius: "5px",
-            background: `linear-gradient(to right, #1db954 ${progress}%, #555 ${progress}%)`,
+            background: `linear-gradient(to right, #339989 ${progress}%, #555 ${progress}%)`,
             appearance: "none",
             outline: "none",
             cursor: "pointer",
@@ -88,11 +88,11 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({
       <style>{`
         input[type="range"]::-webkit-slider-thumb {
           appearance: none; height: 14px; width: 14px; border-radius: 50%;
-          background: #1db954; cursor: pointer; border: none; 
+          background: #339989; cursor: pointer; border: none; 
         }
         input[type="range"]::-moz-range-thumb {
           height: 14px; width: 14px; border-radius: 50%;
-          background: #1db954; cursor: pointer; border: none;
+          background: #339989; cursor: pointer; border: none;
         }
       `}</style>
 

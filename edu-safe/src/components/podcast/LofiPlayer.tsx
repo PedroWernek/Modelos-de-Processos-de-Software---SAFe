@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import VolumeControl from "./VolumeControl"; // Importa o novo componente
 
 declare global {
@@ -10,7 +10,7 @@ declare global {
 
 const LofiPlayer = () => {
   const [lofiEnabled, setLofiEnabled] = useState(false);
-  const [lofiVolume, setLofiVolume] = useState<number>(50);
+  const [lofiVolume, setLofiVolume] = useState<number>(10);
   const lofiPlayerRef = useRef<any>(null);
 
   useEffect(() => {
@@ -75,18 +75,18 @@ const LofiPlayer = () => {
           backgroundColor: "#00000088",
           padding: "15px 20px",
           borderRadius: "12px",
-          maxWidth: "600px",
           backdropFilter: "blur(10px)",
         }}>
         <div
           style={{
             display: "flex",
-            flexDirection: "row",
+            flexDirection: "column",
+            width: "fit-content",
             gap: "10px",
             alignItems: "center",
             justifyContent: "space-between",
           }}>
-          <label style={{ display: "block" }}>🎵 Música de fundo 🎵 </label>
+          <label>🎵 Música de fundo 🎵 </label>
           {lofiEnabled && (
             <div
               style={{
@@ -103,7 +103,7 @@ const LofiPlayer = () => {
           <button
             style={{
               padding: "8px 16px",
-              backgroundColor: !lofiEnabled ? "#1db954" : "#888",
+              backgroundColor: !lofiEnabled ? "#339989" : "#888",
               color: "#fff",
               border: "none",
               borderRadius: "6px",

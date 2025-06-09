@@ -36,7 +36,7 @@ const VolumeControl: React.FC<VolumeControlProps> = ({
     }
   };
 
-  const sliderBackground = `linear-gradient(to right, #1db954 ${volume}%, #555 ${volume}%)`;
+  const sliderBackground = `linear-gradient(to right, #339989 ${volume}%, #555 ${volume}%)`;
 
   return (
     <div
