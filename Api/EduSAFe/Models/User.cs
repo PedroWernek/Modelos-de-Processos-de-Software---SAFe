@@ -1,5 +1,4 @@
 using System.ComponentModel.DataAnnotations;
-using EduSAFe.DTOs;
 using EduSAFe.Enums;
 using EduSAFe.Models.Abstractions;
 
@@ -10,11 +9,10 @@ public class User
     [Key]
     public int Id { get; set; }
 
-    [Required(ErrorMessage="O nome do usuário é obrigatório",AllowEmptyStrings=false)]
     [StringLength(100, ErrorMessage = "Name cannot exceed 100 characters.")]
     [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Name can only contain letters and spaces.")]
     [MinLength(2, ErrorMessage = "Name must be at least 2 characters long.")]
-    public string Name { get; set; } = null!;
+    public string? Name { get; set; }
 
     [Required]
     [MaxLength(25, ErrorMessage = "Email cannot exceed 20 characters.")]
@@ -31,7 +29,7 @@ public class User
     public List<FlashCard> FlashCards { get; set; } = [];
     public List<Lesson> UserLessons { get; set; } = [];
     public Role Role { get; set; } = Role.User;
-    
+
     // ana: como é uma função muito básica de somente cálculo da propriedade Level, ela pode ficar aqui!
     public void CalculateLevel(int XP)
     {

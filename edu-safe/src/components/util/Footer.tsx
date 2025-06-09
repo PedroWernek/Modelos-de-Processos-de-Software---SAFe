@@ -8,14 +8,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <img className="footer-logo" src={logoEduSAFe} alt="logo EduSAFe" />
-        <nav className="footer-links">
-          <Link className="footer-links--link" to="/">
-            Sobre Nós
-          </Link>
-          <Link className="footer-links--link" to="">
-            Termos de Serviço
-          </Link>
-        </nav>
+        <nav className="footer-links"></nav>
       </div>
     </footer>
   );

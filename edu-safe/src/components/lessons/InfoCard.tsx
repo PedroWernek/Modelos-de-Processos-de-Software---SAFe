@@ -18,13 +18,14 @@ const useStyles = createStyles(
     }: { borderColor: string; borderRadius?: string },
   ) => ({
     container: {
-      border: `5px solid ${borderColor}`,
-      color: "#ffffff",
-      backgroundColor: "#1a1a1a",
+      border: `3px solid ${borderColor}`,
+      color: "#0c1329",
       borderRadius: borderRadius,
       display: "flex",
       alignItems: "left",
       padding: "4rem",
+      marginTop: "4rem",
+      marginBottom: "4rem",
       position: "relative",
       width: "90%",
     },
@@ -50,11 +51,13 @@ const useStyles = createStyles(
       fontWeight: 600,
       margin: 0,
       textAlign: "left",
+      fontFamily: "'Ubuntu', sans-serif",
     },
     description: {
       fontSize: "1.5rem",
       marginTop: "1rem",
       textAlign: "justify",
+      fontFamily: "'Open Sans', sans-serif"
     },
     list: {
       fontSize: "1.5rem",
@@ -64,6 +67,7 @@ const useStyles = createStyles(
     listItem: {
       marginBottom: "0.5rem",
       textAlign: "justify",
+      fontFamily: "'Open Sans', sans-serif"
     },
   }),
 );
@@ -82,7 +86,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
       {icon && <div className={styles.iconWrapper}>{icon}</div>}
 
       <div className={styles.textWrapper}>
-        <h2 className={styles.title}>{title}</h2>
+        <h2 className={styles.title} style={{ color: "#000" }}>{title}</h2>
         {Array.isArray(description) ? (
           <ul className={styles.list}>
             {description.map((item, index) => (

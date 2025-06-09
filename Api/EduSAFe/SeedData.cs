@@ -1,4 +1,5 @@
 using EduSAFe.Data;
+using EduSAFe.Enums;
 using EduSAFe.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -289,6 +290,48 @@ public static class SeedData
             };
 
             context.FlashCards.AddRange(flashcardsNarrativa);
+            context.SaveChanges();
+        }
+
+        if (!context.Users.Any())
+        {
+            var users = new List<User>
+            {
+                new User
+                {
+                    Name = "Ana Endler",
+                    Email = "ana@endler.com",
+                    Password = "abc@123",
+                    XP = 250,
+                    Level = 2,
+                    Role = Role.User
+                },
+                new User
+                {
+                    Name = "Carlos Silva",
+                    Email = "carlos@silva.com",
+                    Password = "abc@123",
+                    XP = 90,
+                    Level = 0,
+                    Role = Role.User
+                },
+                new User
+                {
+                    Name = "Juliana Costa",
+                    Email = "juliana@costa.com",
+                    Password = "abc@123",
+                    XP = 110,
+                    Level = 1,
+                    Role = Role.Owner
+                }
+            };
+
+            foreach (var user in users)
+            {
+                user.CalculateLevel(user.XP); 
+            }
+
+            context.Users.AddRange(users);
             context.SaveChanges();
         }
     }

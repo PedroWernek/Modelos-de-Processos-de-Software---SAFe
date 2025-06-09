@@ -3,10 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using EduSAFe.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace EduSAFe.Controllers;
 
-// [Authorize(Roles = "Owner,User")]
+[Authorize(Roles = "Owner,User")]
 [ApiController]
 [Route("api/narrativas")]
 public class NarrativaController : ControllerBase
@@ -55,29 +56,35 @@ public class NarrativaController : ControllerBase
     }
 
     [HttpPost("{id}/submit")]
-    public async Task<ActionResult> SubmitNarrativa(int id, [FromQuery] int userId)
-    {
-        var narrativa = await _appDbContext.Narrativas.FirstOrDefaultAsync(q => q.Id == id);
-        if (narrativa is null) return NotFound("Narrativa não encontrada.");
+public async Task<ActionResult> SubmitNarrativa(int id)
+{
+    var email = User.FindFirst(ClaimTypes.Email)?.Value;
+    if (string.IsNullOrEmpty(email)) return Unauthorized("Email não encontrado.");
 
-        var user = await _appDbContext.Users.FindAsync(userId);
-        if (user is null) return NotFound("Usuário não encontrado.");
+    var user = await _appDbContext.Users
+        .Include(u => u.UserLessons)
+        .Include(u => u.FlashCards)
+        .FirstOrDefaultAsync(u => u.Email == email);
 
-        var existingNarrativa = user.UserLessons.FirstOrDefault(x => x.Id == id);
-        if (existingNarrativa is not null) return Ok();
+    if (user is null) return NotFound("Usuário não encontrado.");
 
-        user.XP += narrativa.XP;
-        user.CalculateLevel(user.XP);
+    var narrativa = await _appDbContext.Narrativas.FirstOrDefaultAsync(q => q.Id == id);
+    if (narrativa is null) return NotFound("Narrativa não encontrada.");
 
-        user.UserLessons.Add(narrativa);
-        user.FlashCards.AddRange(_appDbContext.FlashCards.Where(x => x.LessonId == id));
-        
-        _appDbContext.Update(user);
-        await _appDbContext.SaveChangesAsync();
+    var existingNarrativa = user.UserLessons.FirstOrDefault(x => x.Id == id);
+    if (existingNarrativa is not null) return Ok(); // já registrada, não ganha XP novamente
 
-        return Ok();
-    }
+    user.XP += narrativa.XP;
+    user.CalculateLevel(user.XP);
 
+    user.UserLessons.Add(narrativa);
+    user.FlashCards.AddRange(_appDbContext.FlashCards.Where(x => x.LessonId == id));
+
+    _appDbContext.Update(user);
+    await _appDbContext.SaveChangesAsync();
+
+    return Ok();
+}
     [HttpDelete("{id}")]
     public async Task<ActionResult> DeleteNarrativa(int id)
     {

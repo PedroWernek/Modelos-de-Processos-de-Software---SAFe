@@ -1,0 +1,61 @@
+.narrative-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 80vh;
+  justify-content: center;
+  background-color: #0c1329;
+  padding: 2rem;
+  color: #c8fff4;
+}
+
+.carousel-content {
+  position: relative;
+  width: 600px;
+  height: 300px;
+  margin-bottom: 2rem;
+}
+
+.flashcard {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #283969;
+  border-radius: 12px;
+  padding: 2rem;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.carousel-controls {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  gap: 1rem;
+  align-items: center;
+}
+
+.carousel-controls button {
+  background-color: #c8fff4;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #0c1329;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.carousel-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.carousel-indicator {
+  color: #c8fff4;
+  font-size: 1.2rem;
+}

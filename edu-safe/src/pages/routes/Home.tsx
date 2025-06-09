@@ -1,5 +1,5 @@
 import "../../css/Home.css";
-import img1home from "../../assets/img1home.webp";
+import img1home from "../../assets/img1home.jpg";
 import CustomButton from "../../components/random/buttons/CustomButton";
 
 const Home = () => {
@@ -26,7 +26,9 @@ const Home = () => {
             backgroundColor="#7de2d1"
             textColor="#131515"
             text="Veja Nossos Módulos"
-            linkNav="/modulos"
+            linkNav={
+              localStorage.getItem("token") != null ? "/modulos" : "/autenticar"
+            }
           />
         </div>
       </div>

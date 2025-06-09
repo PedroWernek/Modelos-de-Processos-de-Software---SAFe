@@ -1,4 +1,6 @@
+using System.Security.Claims;
 using EduSAFe.Data;
+using EduSAFe.DTOs;
 using EduSAFe.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +19,6 @@ public class UserController : ControllerBase
         _appDbContext = appDbContext;
     }
 
-    [AllowAnonymous]
     [HttpPost]
     public async Task<IActionResult> AddUser([FromBody] User user)
     {
@@ -29,7 +30,7 @@ public class UserController : ControllerBase
         _appDbContext.Users.Add(user);
         await _appDbContext.SaveChangesAsync();
 
-        return Created("Usuário criado com sucesso.", user);
+        return Created("Usuario criado com sucesso.", user);
     }
 
     [Authorize(Roles = "Owner")]
@@ -48,10 +49,29 @@ public class UserController : ControllerBase
         var user = await _appDbContext.Users.FindAsync(id);
         if (user is null)
         {
-            return NotFound("Usuário não encontrado.");
+            return NotFound("Usuario não encontrado.");
         }
 
         return Ok(user);
+    }
+
+    [Authorize(Roles = "Owner,User")]
+    [HttpGet("xp-level")]
+    public async Task<ActionResult<UserXPLevel>> GetUserXPLevel()
+    {
+        var email = User.FindFirst(ClaimTypes.Email)?.Value;
+        if (string.IsNullOrEmpty(email)) return Unauthorized("Email nao encontrado.");
+
+        var user = await _appDbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
+        if (user is null) return NotFound();
+
+        var userXPLevel = new UserXPLevel()
+        {
+            XP = user.XP,
+            Level = user.Level
+        };
+
+        return Ok(userXPLevel);
     }
 
     [Authorize(Roles = "User")]
@@ -61,7 +81,7 @@ public class UserController : ControllerBase
         var existingUser = await _appDbContext.Users.FindAsync(id);
         if (existingUser is null)
         {
-            return NotFound("Usuário não encontrado.");
+            return NotFound("Usuario não encontrado.");
         }
 
         _appDbContext.Entry(existingUser).CurrentValues.SetValues(updatedUser);
@@ -77,12 +97,12 @@ public class UserController : ControllerBase
         var user = await _appDbContext.Users.FindAsync(id);
         if (user is null)
         {
-            return NotFound("Usuário não encontrado.");
+            return NotFound("Usuario não encontrado.");
         }
 
         _appDbContext.Remove(user);
         await _appDbContext.SaveChangesAsync();
 
-        return Ok("Usuário deletado com sucesso.");
+        return Ok("Usuario deletado com sucesso.");
     }
 }

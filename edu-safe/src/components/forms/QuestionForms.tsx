@@ -1,91 +1,91 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
+interface Option {
+  id: number;
+  description: string;
+}
+
 interface QuestionFormProps {
-  questionNumber?: number;
-  difficulty?: "Fácil" | "Médio" | "Difícil";
   questionText: string;
-  options: string[];
-  correctAnswer: string;
-  onSubmit?: (data: { selectedOption: string; isCorrect: boolean }) => void;
+  options: Option[];
+  onSubmit?: (data: {
+    selectedOptionId: number;
+    selectedOptionText: string;
+  }) => void;
 }
 
 export function QuestionForm({
-  questionNumber,
-  difficulty,
   questionText,
   options,
-  correctAnswer,
   onSubmit,
 }: QuestionFormProps) {
-  const { register, handleSubmit } = useForm<{ selectedOption: string }>();
-
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const { register, handleSubmit } = useForm<{
+    selectedOptionId: string;
+  }>();
   const [answered, setAnswered] = useState(false);
+  const [selectedQustionId, setSelectedQustionId] = useState<number>();
 
-  //mudar a cor do fundo e da alternativa selecionada
-  const getBackgroundColor = (option: string): string => {
-    if (!answered) return "#0c1329";
-    if (option === correctAnswer) return "lightgreen";
-    if (option === selectedOption) return "lightcoral";
-    return "#0c1329";
-  };
+  const handleFormSubmit = (data: { selectedOptionId: string }) => {
+    const selectedId = parseInt(data.selectedOptionId, 10);
+    setSelectedQustionId(parseInt(data.selectedOptionId, 10));
 
-  //mudar a cor do texto da alternativa selecionada
-  const getTextgroundColor = (option: string): string => {
-    if (!answered) return "white";
-    if (option === correctAnswer || option === selectedOption) return "black";
-    return "white";
-  };
+    const selectedAnswer = options.find((opt) => opt.id === selectedId);
 
-  const handleFormSubmit = (data: { selectedOption: string }) => {
-    const isCorrect = data.selectedOption === correctAnswer;
-    setSelectedOption(data.selectedOption);
+    if (!selectedAnswer) {
+      console.error("Selected answer not found!", selectedId, options);
+      return;
+    }
+
     setAnswered(true);
 
     if (onSubmit) {
-      onSubmit({ selectedOption: data.selectedOption, isCorrect });
+      onSubmit({
+        selectedOptionId: selectedId,
+        selectedOptionText: selectedAnswer.description,
+      });
     }
   };
 
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} className="question-form">
-      {(questionNumber || difficulty) && (
-        <div className="question-header">
-          {questionNumber && (
-            <span className="question-number">
-              Pergunta nº {questionNumber} ---{" "}
-            </span>
-          )}
-          {difficulty && (
-            <span className="difficulty">Dificuldade: {difficulty}</span>
-          )}
-        </div>
-      )}
-
       <h2 className="question-text">{questionText}</h2>
 
       <div className="options-container">
-        {options.map((option, index) => (
-          <div
-            key={index}
-            className="option"
+        {options.map((option) => (
+          <label
+            key={option.id}
+            htmlFor={`option-${option.id}`}
             style={{
-              backgroundColor: getBackgroundColor(option),
-              color: getTextgroundColor(option),
+              display: "flex",
+              alignItems: "center",
+              backgroundColor: answered
+                ? option.id === selectedQustionId
+                  ? "lightgreen"
+                  : "#333"
+                : "#0c1329",
+              color: answered
+                ? option.id === selectedQustionId
+                  ? "black"
+                  : "#fff"
+                : "#fff",
               padding: "20px",
               borderRadius: "5px",
               marginBottom: "8px",
+              cursor: answered ? "default" : "pointer",
+              gap: "10px",
+              userSelect: "none",
             }}>
             <input
               type="radio"
-              id={`option-${index}`}
-              value={option}
+              id={`option-${option.id}`}
+              value={option.id}
               disabled={answered}
-              {...register("selectedOption", { required: true })}
+              {...register("selectedOptionId", { required: true })}
+              style={{ cursor: answered ? "default" : "pointer" }}
             />
-            <label htmlFor={`option-${index}`}>{option}</label>
-          </div>
+            <span>{option.description}</span>
+          </label>
         ))}
       </div>
 

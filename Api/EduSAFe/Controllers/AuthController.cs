@@ -6,6 +6,7 @@ using System.Text;
 using EduSAFe.Models;
 using EduSAFe.Data;
 using Microsoft.AspNetCore.Authorization;
+using EduSAFe.DTOs;
 
 namespace EduSAFe.Controllers;
 
@@ -40,7 +41,8 @@ public class AuthController : ControllerBase
     {
         var claims = new[]
         {
-        new Claim(ClaimTypes.Name, user.Email),
+        new Claim(JwtRegisteredClaimNames.Sub, user.Email),
+        new Claim(ClaimTypes.Email, user.Email),
         new Claim(ClaimTypes.Role, user.Role.ToString())
     };
 
@@ -55,4 +57,10 @@ public class AuthController : ControllerBase
 
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
+
+        [HttpGet("validate-token")]
+        public IActionResult ValidateToken()
+        {
+            return Ok(new { mensagem = "Token válido" });
+        }
 }

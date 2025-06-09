@@ -66,7 +66,7 @@ namespace EduSAFe.Migrations
 
                     b.HasIndex("QuestionId");
 
-                    b.ToTable("Answer");
+                    b.ToTable("Answers");
                 });
 
             modelBuilder.Entity("EduSAFe.Models.FlashCard", b =>
@@ -115,7 +115,7 @@ namespace EduSAFe.Migrations
 
                     b.HasIndex("QuizId");
 
-                    b.ToTable("Question");
+                    b.ToTable("Questions");
                 });
 
             modelBuilder.Entity("EduSAFe.Models.User", b =>
@@ -133,7 +133,6 @@ namespace EduSAFe.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 

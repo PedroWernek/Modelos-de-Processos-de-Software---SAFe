@@ -8,6 +8,7 @@ import axios from "axios";
 export function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
   const navigate = useNavigate();
+  window.scrollTo(0, 0);
 
   const handleRegisterSubmit = async (data: {
     name: string;
@@ -28,24 +29,32 @@ export function AuthPage() {
   };
 
   return (
-    <div className="auth-page">
-      <h1>{isLogin ? "Login" : "Registrar"}</h1>
+    <div
+      style={{
+        height: "100dvh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}>
+      <div className="auth-page">
+        <h1>{isLogin ? "Login" : "Registrar"}</h1>
 
-      {isLogin ? (
-        <LoginScreen onLoginSuccess={() => navigate("/")} />
-      ) : (
-        <RegisterForm onSubmit={handleRegisterSubmit} />
-      )}
+        {isLogin ? (
+          <LoginScreen onLoginSuccess={() => navigate("/modulos")} />
+        ) : (
+          <RegisterForm onSubmit={handleRegisterSubmit} />
+        )}
 
-      <p className="toggle-message">
-        {isLogin ? "Não tem uma conta?" : "Já tem uma conta?"}{" "}
-        <button
-          type="button"
-          className="toggle-button"
-          onClick={() => setIsLogin(!isLogin)}>
-          {isLogin ? "Registrar" : "Login"}
-        </button>
-      </p>
+        <p className="toggle-message">
+          {isLogin ? "Não tem uma conta?" : "Já tem uma conta?"}{" "}
+          <button
+            type="button"
+            className="toggle-button"
+            onClick={() => setIsLogin(!isLogin)}>
+            {isLogin ? "Registrar" : "Login"}
+          </button>
+        </p>
+      </div>
     </div>
   );
 }

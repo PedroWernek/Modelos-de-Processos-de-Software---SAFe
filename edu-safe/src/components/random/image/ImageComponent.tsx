@@ -1,4 +1,5 @@
 import React from "react";
+import "../../../css/Home.css";
 
 interface ImageComponentProps {
   src: string;
@@ -25,8 +26,8 @@ const ImageComponent: React.FC<ImageComponentProps> = ({
         alt={alt}
         style={{ width: width || "100%", height: "auto" }}
       />
-      <p style={{ fontSize: "1rem" }}>
-        <strong>fonte:</strong>
+      <p style={{ fontSize: "1rem", fontFamily: "'Open Sans', sans-serif" }}>
+        <strong style={{ fontFamily: "'Open Sans', sans-serif" }}>FONTE:{" "}</strong>
         {font}
       </p>
     </div>

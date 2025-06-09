@@ -11,10 +11,16 @@ import SAFeModule1 from "./pages/lessons/SAFeModule1";
 import ModulesNav from "./pages/routes/LessonNav";
 import LessonContent from "./pages/routes/LessonContent";
 import Questionnaires from "./pages/routes/Questionnaires";
-import SAFeIntroQuest from "./pages/questionnaries/quiz/SAFeIntroQuest";
+import Questionarie from "./pages/questionnaries/Questionarie";
 import { AuthPage } from "./pages/AuthPage";
 import SAFeModule2 from "./pages/lessons/SAFeModule2";
 import SAFeModule3 from "./pages/lessons/SAFeModule3";
+import { ListFlashcard } from "./components/flashcards/ListFlashcard";
+import { AddFlashcard } from "./components/flashcards/AddFlashcard";
+import ResultsWrapper from "./pages/questionnaries/ResultWrapper";
+import FlashCard from "./pages/flashcards/FlashCard";
+import Narrative from "./pages/narrative/Narrative";
+import PodcastPage from "./pages/podcast/PodcastPlayer";
 
 const router = createBrowserRouter([
   {
@@ -54,18 +60,48 @@ const router = createBrowserRouter([
         ],
       },
       {
+        path: "/flash-cards/listar",
+        element: <ListFlashcard />,
+      },
+      {
+        path: "/flash-cards/adicionar",
+        element: <AddFlashcard />,
+      },
+      {
+        path: "/flash-cards/editar/:id",
+        element: <AddFlashcard />,
+      },
+
+      {
         path: "/modulos/avaliacao",
         element: <Questionnaires />,
         children: [
           {
-            path: "/modulos/avaliacao/1",
-            element: <SAFeIntroQuest />,
+            path: "/modulos/avaliacao/:id",
+            element: <Questionarie />,
+          },
+          {
+            path: "/modulos/avaliacao/resultado",
+            element: <ResultsWrapper />,
           },
         ],
       },
       {
         path: "/autenticar", // rever nome
         element: <AuthPage />,
+      },
+
+      {
+        path: "/flash-card/:id",
+        element: <FlashCard />,
+      },
+      {
+        path: "/narrativa/:id",
+        element: <Narrative />,
+      },
+      {
+        path: "/podcast/:id",
+        element: <PodcastPage />,
       },
     ],
   },

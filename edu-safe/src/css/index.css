@@ -1,5 +1,5 @@
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 * {
@@ -91,4 +91,11 @@ b {
     font-size: 1.1em;
   }
 
+}
+
+.principle-card:hover {
+  background-color: #7de2d1;
+  z-index: 1;
+  color: #131515;
+  cursor: pointer;
 }

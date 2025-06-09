@@ -54,7 +54,7 @@ const useStyle = createStyles(
       },
       "& .title": {
         color: titleColor || "black",
-        fontSize: "3dvh", // ana: onde isso é usado?
+        fontSize: "2.25dvh",
         fontWeight: "bold",
         display: "flex",
         flexDirection: "row",
@@ -64,12 +64,12 @@ const useStyle = createStyles(
       },
       "& .text": {
         color: textColor || "black",
-        fontSize: "3dvh", // ana: onde isso é usado?
+        fontSize: "2.75dvh",
         padding: "10px",
       },
       "& .example": {
         color: exampleColor || "black",
-        fontSize: "20px", // ana: onde isso é usado?
+        fontSize: "3dvh",
         fontWeight: "bold",
         marginTop: "10px",
         backgroundColor: exampleBackgroundCustomColor || "#f0f0f0",

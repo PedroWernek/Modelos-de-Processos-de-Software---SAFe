@@ -13,4 +13,6 @@ public class AppDbContext : DbContext
     public DbSet<Quiz> Quizzes { get; set; } = null!;
     public DbSet<FlashCard> FlashCards { get; set; } = null!;
     public DbSet<Narrativa> Narrativas { get; set; } = null!;
+    public DbSet<Question> Questions { get; set; } = null!;
+    public DbSet<Answer> Answers { get; set; } = null!;
 }
